@@ -1,7 +1,7 @@
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/Button';
 import './LoginSection.css'
 
 const LoginSection = () => {
@@ -11,20 +11,22 @@ const LoginSection = () => {
               <img src='./1.svg' alt='login' className='login-img' />
             </Col>
             <Col className='text-container d-flex justify-content-center'>
-              <InputGroup className='mb-4'>
+              <Form className='mb-4'>
                 <Form.Group className="mb-4 login-email" controlId="formBasicEmail">
-                <Form.Control type="email" placeholder='Email Address'/>
+                <Form.Control type="email" placeholder='Email Address' className='email-input'/>
                 </Form.Group>
 
                 <Form.Group className="mb-4 login-password" controlId="formBasicEmail">
-                <Form.Control type="password" placeholder='Password'/>
+                <Form.Control type="password" placeholder='Password' className='password-input'/>
                 </Form.Group>
-              </InputGroup>
 
-               <InputGroup className='mb-4'>
-                <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                <Form.Control aria-label="Text input with checkbox" />
-              </InputGroup>
+                <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" label="Remember Me"/>
+                </Form.Group>
+                <Button variant="primary" type="submit" className='submit-button'>
+                  SIGN IN
+                </Button>
+              </Form>
             </Col>
         </Row>
   )

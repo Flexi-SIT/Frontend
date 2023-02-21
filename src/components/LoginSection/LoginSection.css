@@ -7,20 +7,45 @@
 }
 
 .login-img {
-    width: 38rem;
-    margin-top: 7rem;
+    width: 45rem;
+    margin-top: 8rem;
     margin-left: 10rem;
 }
 
 .text-container {
-    margin-left: 15rem;
-    margin-top: 10rem;
+    margin-left: 7rem;
+    margin-top: 14rem;
 }
 
 .login-email {
     margin-bottom: 1.3rem;
 }
 
+.email-input {
+    font-size: 1rem;
+    padding: .5rem 3.55rem;
+    border-radius: .25rem;
+    border: solid grey;
+}
+
+.password-input {
+    font-size: 1rem;
+    padding: .5rem 3.55rem;
+    border-radius: .25rem;
+    border: solid grey;
+}
+
 .login-password {
     margin-bottom: 1.3rem;
+}
+
+.submit-button {
+    font-size: 1rem;
+    color: white;
+    margin-top: 1.4rem;
+    padding: .7rem 7.8rem;
+    background-color: #3471f4;
+    border-radius: .25rem;
+    cursor: pointer;
+    border: solid #3471f4;
 }
