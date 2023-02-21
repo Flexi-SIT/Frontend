@@ -1,30 +1,32 @@
-import React from 'react'
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 import './LoginSection.css'
 
-function LoginSection() {
+const LoginSection = () => {
   return (
-    <Container fluid className='p-3 my-5'>
-        <Row>
-            <Col lg='10' md='6'>
-              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" className="img-fluid login-img" alt="Phone image" />
+        <Row xs={1} lg={2} className='container'>
+            <Col className='img-container d-flex justify-content-center align-items-center'>
+              <img src='./1.svg' alt='login' className='login-img' />
             </Col>
-            <Col lg='4' md='6'>
-                <Form.Group className="mb-4" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" />
+            <Col className='text-container d-flex justify-content-center'>
+              <InputGroup className='mb-4'>
+                <Form.Group className="mb-4 login-email" controlId="formBasicEmail">
+                <Form.Control type="email" placeholder='Email Address'/>
                 </Form.Group>
 
-                <Form.Group className="mb-4" controlId="formBasicEmail">
-                <Form.Label>Password</Form.Label>
-                <Form.Control type="email" />
+                <Form.Group className="mb-4 login-password" controlId="formBasicEmail">
+                <Form.Control type="password" placeholder='Password'/>
                 </Form.Group>
+              </InputGroup>
+
+               <InputGroup className='mb-4'>
+                <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                <Form.Control aria-label="Text input with checkbox" />
+              </InputGroup>
             </Col>
         </Row>
-    </Container>
   )
 }
 

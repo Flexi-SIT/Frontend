@@ -1,4 +1,26 @@
+.img-container {
+    position: relative;
+}
+
+.container {
+    display: flex;
+}
+
 .login-img {
-    width: 45rem;
-    margin-top: 4rem;
+    width: 38rem;
+    margin-top: 7rem;
+    margin-left: 10rem;
+}
+
+.text-container {
+    margin-left: 15rem;
+    margin-top: 10rem;
+}
+
+.login-email {
+    margin-bottom: 1.3rem;
+}
+
+.login-password {
+    margin-bottom: 1.3rem;
 }
