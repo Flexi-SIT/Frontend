@@ -1,15 +1,16 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LoginSection from './components/LoginSection/LoginSection';
-import HomePage from './components/HomePage/homepage';
+import VoterLoginSection from './components/VoterSection/VoterLoginSection';
+import CompanyLoginSection from './components/CompanySection/CompanyLoginSection';
+import HomePage from './components/HomePageSection/HomePageSection';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/voter" element={<LoginSection />} />
-        <Route path="/company" element={<LoginSection />} />
+        <Route path="/voter" element={<VoterLoginSection />} />
+        <Route path="/company" element={<CompanyLoginSection />} />
       </Routes>
     </BrowserRouter>
 
