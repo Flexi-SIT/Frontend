@@ -4,6 +4,7 @@
 
 .container {
     display: flex;
+    flex-direction: row;
 }
 
 .login-img {
@@ -48,4 +49,8 @@
     border-radius: .25rem;
     cursor: pointer;
     border: solid #3471f4;
+}
+
+.submit-button:hover {
+    background-color: #0953f2;
 }
