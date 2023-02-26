@@ -1,8 +1,8 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import VoterLoginSection from './components/VoterSection/VoterLoginSection';
-import CompanyLoginSection from './components/CompanySection/CompanyLoginSection';
-import HomePage from './components/HomePageSection/HomePageSection';
+import VoterLoginSection from './pages/VoterLogin/VoterLoginSection';
+import CompanyLoginSection from './pages/CompanyLogin/CompanyLoginSection';
+import HomePage from './pages/HomePage/HomePageSection';
 
 function App() {
   return (
