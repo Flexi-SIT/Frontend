@@ -1,9 +1,10 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import VoterLoginSection from './pages/VoterLogin/VoterLoginSection';
-import CompanyLoginSection from './pages/CompanyLogin/CompanyLoginSection';
-import HomePage from './pages/HomePage/HomePageSection';
+import VoterLoginSection from './pages/VoterLogin/VoterLogin';
+import CompanyLoginSection from './pages/CompanyLogin/CompanyLogin';
+import HomePage from './pages/HomePage/HomePage';
 import VotingList from './pages/election/VotingList';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (

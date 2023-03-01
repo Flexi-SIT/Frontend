@@ -2,12 +2,32 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import './CompanyLoginSection.css'
+import Login from './Login';
+import Logout from './Logout';
+import { useEffect } from 'react';
+import { gapi } from 'gapi-script'
+import './CompanyLogin.css'
+
+
+
+const clientID = "630166332593-b2k4a2l3lq0rr8d1ko70g12qdnjb5i5a.apps.googleusercontent.com"
 
 const LoginSection = () => {
+  
+  useEffect(() => {
+    function start() {
+      gapi.client.init({
+        clientID: clientID,
+        scope: ""
+      })
+    };
+
+    gapi.load('client:auth2', start)
+  });
+
   return (
-        <Row xs={1} lg={2} className='container'>
-            <Col className='img-container d-flex justify-content-center align-items-center'>
+        <Row className='d-flex flex-cloumn container'>
+            <Col className='img-container justify-content-center align-items-center'>
               <img src='./1.svg' alt='login' className='login-img' />
             </Col>
             <Col className='text-container d-flex justify-content-center'>
@@ -26,7 +46,10 @@ const LoginSection = () => {
                 <Button variant="primary" type="submit" className='submit-button'>
                   SIGN IN
                 </Button>
+                 <hr className='hrr'/>
+                 <Login />
               </Form>
+              {/* <Logout /> */}
             </Col>
         </Row>
   )

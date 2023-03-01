@@ -1,21 +1,12 @@
-.img-container {
-    position: relative;
-}
-
-.container {
-    display: flex;
-    flex-direction: row;
-}
-
 .login-img {
-    width: 45rem;
+    width: 42rem !important;
     margin-top: 8rem;
-    margin-left: 10rem;
+    margin-left: 2rem !important;
 }
 
 .text-container {
-    margin-left: 7rem;
-    margin-top: 14rem;
+    margin-left: 1rem;
+    margin-top: 12rem !important;
 }
 
 .login-email {
@@ -41,10 +32,10 @@
 }
 
 .submit-button {
-    font-size: 1rem;
+    font-size: 1rem !important;
     color: white;
-    margin-top: 1.4rem;
-    padding: .7rem 7.8rem;
+    margin-top: 1.1rem !important;
+    padding: .7rem 7.94rem !important;
     background-color: #3471f4;
     border-radius: .25rem;
     cursor: pointer;
@@ -53,4 +44,9 @@
 
 .submit-button:hover {
     background-color: #0953f2;
+}
+
+.hrr {
+    margin-top: 1.3rem;
+    margin-bottom: 1.6rem;
 }
