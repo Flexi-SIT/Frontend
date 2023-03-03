@@ -1,0 +1,39 @@
+
+
+.voting-content {
+    margin-left: 32rem;
+    margin-top: -70rem;
+    width: 200% !important;
+}
+
+.submit-button {
+    font-size: 1rem !important;
+    color: white;
+    margin-top: 1.1rem !important;
+    padding: .7rem 5.94rem !important;
+    background-color: #3471f4;
+    border-radius: .25rem;
+    cursor: pointer;
+    border: solid #3471f4;
+}
+
+.header {
+    margin-left: 20rem !important;
+}
+
+.register-container {
+    margin-left: 50rem;
+}
+
+.email-input {
+    font-size: 1rem;
+    padding: .5rem 3.55rem;
+    border-radius: .25rem;
+    border: solid grey;
+    width: 20rem;
+}
+
+.voter-container {
+        border-radius: .25rem;
+            border: solid grey;
+}
