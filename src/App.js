@@ -1,4 +1,3 @@
-import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import VoterLoginSection from './pages/VoterLogin/VoterLogin';
 import CompanyLoginSection from './pages/CompanyLogin/CompanyLogin';
