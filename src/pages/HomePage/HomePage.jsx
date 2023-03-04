@@ -101,6 +101,7 @@ const HomePage = () => {
           </Card>
         </Row>
       </Container>
+      
         </>
     )
 }
