@@ -1,0 +1,103 @@
+.color-nav {
+    background-color: #D2D3D5;
+}
+
+.nav-items {
+    font-weight: 700 !important;
+}
+
+.main-container {
+    background-color: #D2D3D5;
+    width: 100%;
+}
+
+.main-img {
+    margin-top: 1rem;
+    margin-left: 20rem;
+    width: 31.8rem;
+}
+
+.left-text {
+    margin-left: -80rem;
+    margin-bottom: -23rem;
+
+}
+
+.right-text {
+    margin-left: 40rem;
+}
+
+.web-text-left {
+    font-family: 'Montserrat';
+    font-style: normal;
+    color: #E0E0E0;
+    font-size: 9.8rem;
+    font-weight: 800;
+    line-height: 7.7rem;
+    letter-spacing: .4rem;
+    position: absolute;
+    width: 47rem;
+    height: 50rem;
+    left: -.5rem;
+    top: 12rem;
+}
+
+.web-text-right {
+    position: absolute;
+    width: 31rem;
+    height: 1rem;
+    left: 58rem;
+    top: 12.5rem;
+    letter-spacing: .189rem;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 3.3rem;
+    line-height: 99%;
+    color: #000000;
+}
+
+.submit-button-admin {
+    position: absolute;
+    width: 18rem;
+    height: 2.8rem;
+    left: 60rem;
+    top: 28rem;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.75rem;
+    line-height: 103.5%;
+    text-align: center;
+    color: #000000;
+}
+
+.submit-button-company {
+    position: absolute;
+    width: 18rem;
+    height: 2.8rem;
+    left: 60rem;
+    top: 33rem;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.75rem;
+    line-height: 103.5%;
+    text-align: center;
+    color: #000000;
+}
+
+.submit-button-register {
+    position: absolute;
+    width: 18rem;
+    height: 2.8rem;
+    left: 55rem;
+    top: 25rem;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.75rem;
+    line-height: 103.5%;
+    text-align: center;
+    color: #000000;
+}
