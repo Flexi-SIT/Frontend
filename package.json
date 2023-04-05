@@ -22,11 +22,13 @@
     "react-dom": "^18.2.0",
     "react-google-login": "^5.2.2",
     "react-icons": "^4.7.1",
+    "react-multi-carousel": "^2.8.2",
     "react-pro-sidebar": "^0.7.1",
     "react-router-dom": "^6.8.1",
     "react-scripts": "^5.0.1",
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.4",
+    "swiper": "^9.1.1",
     "web-vitals": "^2.1.4",
     "web3": "^1.8.2"
   },

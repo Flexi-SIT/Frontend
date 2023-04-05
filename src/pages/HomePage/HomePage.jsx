@@ -27,10 +27,10 @@ const HomePage = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id='basic-navbar-nav' className='justify-content-end'>
           <Nav className="px-2 mr-auto">
-            <Nav.Link className='px-4 nav-items' href="/">Voter Registration</Nav.Link>
-            <Nav.Link className='px-4 nav-items' href="/">Voting</Nav.Link>
-            <Nav.Link className='px-4 nav-items' href="/">Vote Counting</Nav.Link>
-            <Nav.Link className='px-4 nav-items' href="/">Audit</Nav.Link>
+            <Nav.Link className='px-4 nav-items' href="/voter-registration">Voter Registration</Nav.Link>
+            <Nav.Link className='px-4 nav-items' href="/voting">Voting</Nav.Link>
+            <Nav.Link className='px-4 nav-items' href="/votecount">Vote Counting</Nav.Link>
+            <Nav.Link className='px-4 nav-items' href="/audit">Audit</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
