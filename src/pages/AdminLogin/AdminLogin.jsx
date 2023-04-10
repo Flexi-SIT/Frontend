@@ -3,7 +3,6 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Login from "./Login";
-import Logout from "./Logout";
 import { useEffect } from "react";
 import { gapi } from "gapi-script";
 import "./AdminLogin.css";

@@ -3,7 +3,6 @@ import { Container, Row, Col } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
-import mainimg from "../../assets/1.svg";
 import votecountingimg from "../../assets/5.svg";
 import "./VoteCounting.css";
 
@@ -33,7 +32,7 @@ const VoteCounting = () => {
       <Container fluid className="main-container">
         <Row>
           <Col className="justify-content-center align-items-center">
-            <img src={votecountingimg} className="main-img" />
+            <img src={votecountingimg} className="main-img" alt="main-img" />
           </Col>
           <Col className="text-container justify-content-center align-items-center left-text">
             <h1 className="web-text-left-1">
