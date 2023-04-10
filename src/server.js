@@ -29,6 +29,7 @@ app.post('/voter', (req, res) => {
     //const voter = new VoterModel(req.body);
     voter.save().then(() => {
         console.log("Success");
+        res.redirect("http://localhost:3000/voting")
     }).catch((err) => {
         console.log(err);
     })
