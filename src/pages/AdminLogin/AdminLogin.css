@@ -5,8 +5,8 @@
 }
 
 .text-container {
-    margin-left: 1rem;
-    margin-top: 12rem !important;
+    margin-left: 12rem;
+    margin-top: 6rem !important;
 }
 
 .login-email {
@@ -14,17 +14,27 @@
 }
 
 .email-input {
+    width: 100% !important;
     font-size: 1rem;
     padding: .5rem 3.55rem;
-    border-radius: .25rem;
-    border: solid grey;
+    border-bottom: solid 2px grey !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+}
+
+.email-input-label {
+    margin-bottom: 2rem;
 }
 
 .password-input {
+    width: 100% !important;
     font-size: 1rem;
     padding: .5rem 3.55rem;
-    border-radius: .25rem;
-    border: solid grey;
+    border-bottom: solid 2px grey !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
 }
 
 .login-password {
@@ -46,7 +56,3 @@
     background-color: #0953f2;
 }
 
-.hrr {
-    margin-top: 1.3rem;
-    margin-bottom: 1.6rem;
-}
