@@ -28,7 +28,7 @@
     margin-left: 40rem;
 }
 
-.web-text-left {
+.web-text-left-1 {
     font-family: 'Montserrat';
     font-style: normal;
     color: #E0E0E0;
@@ -44,7 +44,7 @@
     text-shadow: 0px 4px 50px rgba(0, 0, 0, 0.08);
 }
 
-.web-text-right {
+.web-text-right-1 {
     position: absolute;
     width: 28rem;
     height: 1rem;

@@ -63,9 +63,9 @@ const Voting = () => {
               variant="dark"
               type="submit"
               className="submit-button-company"
-              href="/company"
+              href="/admin"
             >
-              Company Login
+              Admin Login
             </Button>
           </Col>
         </Row>
