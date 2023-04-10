@@ -36,13 +36,13 @@ const VoteCounting = () => {
             <img src={votecountingimg} className="main-img" />
           </Col>
           <Col className="text-container justify-content-center align-items-center left-text">
-            <h1 className="web-text-left">
+            <h1 className="web-text-left-1">
               POLL <br />
               RESULT
             </h1>
           </Col>
           <Col className="text-container justify-content-center align-items-center right-text">
-            <h3 className="web-text-right">
+            <h3 className="web-text-right-1">
               WEB <br />
               CHAIN
               <br />
@@ -63,9 +63,9 @@ const VoteCounting = () => {
               variant="dark"
               type="submit"
               className="submit-button-company"
-              href="/company"
+              href="/admin"
             >
-              Company Login
+              Admin Login
             </Button>
           </Col>
         </Row>

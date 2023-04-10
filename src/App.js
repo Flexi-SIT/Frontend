@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/voter" element={<VoterLoginSection />} />
-        <Route path="/company" element={<CompanyLoginSection />} />
+        <Route path="/admin" element={<CompanyLoginSection />} />
         <Route path="/election/vote" element={<VotingList />} />
         <Route path="/voter-registration" element={<VoterRegistration />} />
         <Route path="/voting" element={<Voting />} />
