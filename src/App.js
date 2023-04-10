@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import VoterLoginSection from "./pages/VoterLogin/VoterLogin";
-import CompanyLoginSection from "./pages/CompanyLogin/CompanyLogin";
+import AdminLoginSection from "./pages/AdminLogin/AdminLogin";
 import HomePage from "./pages/HomePage/HomePage";
 import VotingList from "./pages/election/VotingList";
 import VoteCounting from "./pages/VoteCounting/VoteCounting";
@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/voter" element={<VoterLoginSection />} />
-        <Route path="/admin" element={<CompanyLoginSection />} />
+        <Route path="/admin" element={<AdminLoginSection />} />
         <Route path="/election/vote" element={<VotingList />} />
         <Route path="/voter-registration" element={<VoterRegistration />} />
         <Route path="/voting" element={<Voting />} />
