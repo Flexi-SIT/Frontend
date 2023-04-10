@@ -44,7 +44,7 @@ const HomePage = () => {
           <Container fluid className="main-container">
             <Row>
               <Col className="justify-content-center align-items-center">
-                <img src={mainimg} className="main-img" />
+                <img src={mainimg} className="main-img" alt="main-img" />
               </Col>
               <Col className="text-container justify-content-center align-items-center left-text">
                 <h1 className="web-text-left">
@@ -92,7 +92,7 @@ const HomePage = () => {
           <Container fluid className="main-container">
             <Row>
               <Col className="justify-content-center align-items-center">
-                <img src={mainimg} className="main-img" />
+                <img src={mainimg} className="main-img" alt="main-img" />
               </Col>
               <Col className="text-container justify-content-center align-items-center left-text">
                 <h1 className="web-text-left">
