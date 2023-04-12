@@ -117,7 +117,7 @@ const HomePage = () => {
           </Container>
         </Carousel.Item>
       </Carousel>
-      <Container fluid className="main-container-2">
+      {/* <Container fluid className="main-container-2">
         <Row xs={1} md={3} className="mt-5 mb-5 g-1">
           <Col>
             <Card className="container-uses-register">
@@ -148,7 +148,7 @@ const HomePage = () => {
             </Card.Body>
           </Card>
         </Row>
-      </Container>
+      </Container> */}
     </>
   );
 };
