@@ -1,220 +1,134 @@
-import React from "react";
+import React, { Component } from 'react';
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
+import Web3 from 'web3';
+import Election from '../../build/Election.json'
 
-const Vote = () => {
+class Vote extends Component {
+  async componentWillMount() {
+    await this.loadWeb3()
+    await this.loadBlockchainData()
+  }
+
+  async loadWeb3() {
+    if (window.ethereum) {
+      window.web3 = new Web3(window.ethereum)
+      await window.ethereum.enable()
+    }
+    else if (window.web3) {
+      window.web3 = new Web3(window.web3.currentProvider)
+    }
+    else {
+      window.alert('Non-Ethereum browser detected. You should consider trying MetaMask!')
+    }
+  }
+
+  async loadBlockchainData() {
+    const web3 = window.web3
+    const accounts = await web3.eth.getAccounts()
+    console.log(accounts)
+    this.setState({ account: accounts[0] })
+    const networkId = await web3.eth.net.getId()
+    const networkData = Election.networks[networkId]
+    if (networkData) {
+      const election = new web3.eth.Contract(Election.abi, networkData.address)
+      this.setState({ election })
+      const candCount = await election.methods.candidatesCount().call()
+      this.setState({ candCount })
+      for (var i = 1; i <= candCount; i++) {
+        const candidates = await election.methods.candidates(i).call()
+        if (candidates.election_id === this.state.id) {
+          this.setState({
+            candidates: [...this.state.candidates, candidates]
+          })
+        }
+      }
+      console.log(this.state.candidates)
+    } else {
+      window.alert('Election contract not deployed to detected network.')
+    }
+  }
+
+  handleInputChange = (e) => {
+    console.log(e.target.id)
+    this.setState({
+      selectedId: e.target.id,
+    })
+    this.vote(e.target.id);
+  }
+
+
+  vote(id) {
+    console.log(this.state.selectedId)
+    this.setState({ loading: true })
+    this.state.election.methods.vote(id).send({ from: this.state.account })
+      .once('receipt', (receipt) => {
+        this.setState({ loading: false })
+        window.location.assign("/");
+      })
+  }
+
+  // componentDidMount() {
+  //   let id = this.props.match.params.id;
+  //   this.setState({
+  //     id: id,
+  //   })
+  // }
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      id: null,
+      account: '',
+      election: null,
+      candCount: 0,
+      candidates: [],
+      loading: true,
+      selectedId: null
+    }
+  }
+  render() {
+    const electionList = this.state.candidates.map(candidates => {
+      return (
+        <div className="contact" key={candidates.id}>
+          <li className="collection-item avatar">
+            <i className="material-icons circle blue darken-2">ballot</i>
+            <p><b>{candidates.name}</b></p>
+            <p>{candidates.details}</p>
+            <a href="" className="secondary-content"><button id={candidates.id} onClick={this.handleInputChange} className="waves-effect waves-light btn blue darken-2">Vote</button></a>
+          </li>
+        </div>
+      )
+    })
     return (
-        <>
-            <Navbar className="color-nav" bg="invisible" expand="lg" variant="light ">
-                {/* <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand> */}
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-                    <Nav className="px-2 mr-auto">
-                        <Nav.Link className="px-4 nav-items" href="/vote">
-                            Elections
-                        </Nav.Link>
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
-            {/* <Container fluid className="main-container">
-        <Row>
-          <Col className="justify-content-center align-items-center">
-            <img src={votingimg} className="main-img" alt="main-img" />
-          </Col>
-          <Col className="text-container justify-content-center align-items-center left-text">
-            <h1 className="web-text-left">
-              VOTE <br />
-              HERE
-            </h1>
-          </Col>
-          <Col className="text-container justify-content-center align-items-center right-text">
-            <h3 className="web-text-right">
-              The voters can vote for their proffered candidate here
-            </h3>
-            <Button
-              variant="dark"
-              type="submit"
-              className="submit-button-admin"
-              href="/voter"
-            >
-              Voter Login
-            </Button>
-            <Button
-              variant="dark"
-              type="submit"
-              className="submit-button-company"
-              href="/admin"
-            >
-              Admin Login
-            </Button>
-          </Col>
-        </Row>
-      </Container>
-      <Container fluid>
-        <Swiper
-          spaceBetween={30}
-          slidesPerView={3}
-          grabCursor={true}
-          centeredSlides={true}
-          autoplay={{
-            delay: 1500,
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          modules={[Autoplay, Pagination, Navigation]}
-          className="slider-slider"
-          breakpoints={{
-            320: {
-              slidesPerView: 1,
-              spaceBetween: 30,
-            },
-            375: {
-              width: 375,
-              slidesPerView: 1,
-              spaceBetween: 100,
-            },
-            425: {
-              slidesPerView: 1,
-              spaceBetween: 405,
-            },
-            768: {
-              width: 768,
-              slidesPerView: 2,
-              spaceBetween: 230,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 490,
-            },
-            1440: {
-              slidesPerView: 3,
-              spaceBetween: 100,
-            },
-            2560: {
-              slidesPerView: 5,
-              spaceBetween: 200,
-            },
-          }}
-        >
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img2} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img3} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img2} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img3} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img2} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img3} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img2} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img3} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img2} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img3} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img2} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img3} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img2} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img3} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img2} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img3} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img2} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img3} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-        </Swiper>
-      </Container>
-      <Container fluid className="main-container-2">
-        <Row xs={1} md={3} className="mt-5 mb-5 g-1">
-          <Col>
-            <Card className="container-uses-register">
-              <Card.Img className="container-uses-vote-img" variant="top" />
-              <Card.Body>
-                <Card.Title>Register yourself a voter</Card.Title>
-              </Card.Body>
-            </Card>
-          </Col>
-          <Card className="container-uses-vote px-5">
-            <Card.Img className="container-uses-vote-img" variant="top" />
-            <Card.Body>
-              <Card.Title>Cast your vote</Card.Title>
-            </Card.Body>
-          </Card>
-          <Card className="container-uses-result px-4">
-            <Card.Img className="container-uses-result-img" variant="top" />
-            <Card.Body>
-              <Card.Title>Check the results</Card.Title>
-            </Card.Body>
-          </Card>
-        </Row>
-      </Container> */}
-        </>
+      <>
+        <Navbar className="color-nav" bg="invisible" expand="lg" variant="light ">
+          {/* <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand> */}
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+            <Nav className="px-2 mr-auto">
+              <Nav.Link className="px-4 nav-items" href="/vote">
+                Elections
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+        <div className="container">
+          <ul className="collection">
+            <li className="collection-item avatar">
+              <h3>Candidates</h3>
+            </li>
+            {electionList}
+          </ul>
+        </div>
+      </>
     );
-};
+  }
+}
+
 
 export default Vote;
