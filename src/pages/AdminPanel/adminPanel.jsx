@@ -8,7 +8,7 @@ import Card from "react-bootstrap/Card";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
-
+import NewCandidate from './NewCandidate';
 const AdminPanel = () => {
     return (
         <>
@@ -26,6 +26,7 @@ const AdminPanel = () => {
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
+            <NewCandidate />
             {/* <Container fluid className="main-container">
         <Row>
           <Col className="justify-content-center align-items-center">
