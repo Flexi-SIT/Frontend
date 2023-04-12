@@ -1,30 +1,26 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Button from "react-bootstrap/Button";
-import votingimg from "../../assets/7.svg";
-import Card from "react-bootstrap/Card";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
-import "./Voting.css";
 
-const Voting = () => {
-  return (
-    <>
-      <Navbar className="color-nav" bg="invisible" expand="lg" variant="light ">
-        {/* <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand> */}
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-          <Nav className="px-2 mr-auto">
-            <Nav.Link className="px-4 nav-items" href="/vote">
-              Elections
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
-      {/* <Container fluid className="main-container">
+const Vote = () => {
+    return (
+        <>
+            <Navbar className="color-nav" bg="invisible" expand="lg" variant="light ">
+                {/* <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand> */}
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+                    <Nav className="px-2 mr-auto">
+                        <Nav.Link className="px-4 nav-items" href="/vote">
+                            Elections
+                        </Nav.Link>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
+            {/* <Container fluid className="main-container">
         <Row>
           <Col className="justify-content-center align-items-center">
             <img src={votingimg} className="main-img" alt="main-img" />
@@ -217,8 +213,8 @@ const Voting = () => {
           </Card>
         </Row>
       </Container> */}
-    </>
-  );
+        </>
+    );
 };
 
-export default Voting;
+export default Vote;

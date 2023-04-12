@@ -7,6 +7,7 @@ import VoteCounting from "./pages/VoteCounting/VoteCounting";
 import VoterRegistration from "./pages/VoterRegistration/VoterRegistration";
 import Voting from "./pages/Voting/Voting";
 import Audit from "./pages/Audit/Audit";
+import Vote from "./pages/Vote/Vote"
 import "bootstrap/dist/css/bootstrap.min.css";
 //import 'semantic-ui-css/semantic.min.css'
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/election/vote" element={<VotingList />} />
         <Route path="/voter-registration" element={<VoterRegistration />} />
         <Route path="/voting" element={<Voting />} />
+        <Route path="/vote" element={<Vote />} />
         <Route path="/votecount" element={<VoteCounting />} />
         <Route path="/audit" element={<Audit />} />
       </Routes>
