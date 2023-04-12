@@ -4,6 +4,7 @@ const cors = require('cors');
 const app = express();
 
 const VoterModel = require('./models/voter')
+const AdminModel = require('./models/admin')
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -30,6 +31,24 @@ app.post('/voter', (req, res) => {
     voter.save().then(() => {
         console.log("Success");
         res.redirect("http://localhost:3000/voting")
+    }).catch((err) => {
+        console.log(err);
+    })
+});
+
+app.post('/admin', (req, res) => {
+
+    const email = req.body.email
+    const pass = req.body.pass;
+    const voter = new AdminModel({ email: req.body.email, password: req.body.pass })
+    // console.log(req.body)
+    // console.log(req.body.email);
+
+
+    //const voter = new VoterModel(req.body);
+    voter.save().then(() => {
+        console.log("Success");
+        res.redirect("http://localhost:3000/adminPanel")
     }).catch((err) => {
         console.log(err);
     })

@@ -35,34 +35,11 @@ function LoginSection() {
         <img src="./1.svg" alt="login" className="login-img" />
       </Col> */}
       <Col className="text-container justify-content-center">
-        <form method="POST" action="http://localhost:3001/voter">
-          <input
-            type="email"
-            id="email"
-            // placeholder="Email Address"
-            name="email"
-            className="email-input"
-          />
-          <br />
-          <label htmlFor="name" className="email-input-label">
-            Email
-          </label>
-          <br />
-          <input
-            type="password"
-            id="password"
-            // placeholder="Password"
-            name="pass"
-            className="password-input"
-          />
-          <label htmlFor="name">Password</label>
-          <br></br>
-          <br></br>
-          {/* <input type="submit" /> */}
+        <form method="POST" action="http://localhost:3001/admin">
+          <input type="email" placeholder="Email Address" name="email"></input>
+          <input type="password" placeholder="Password" name="pass"></input>
+          <input type="submit" />
         </form>
-        <Button variant="primary" type="submit" className="submit-button">
-          SUBMIT
-        </Button>
         {/* <Form className="mb-4">
           <Form.Group className="mb-4 login-email" controlId="formBasicEmail">
             <Form.Control
