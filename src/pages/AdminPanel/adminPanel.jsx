@@ -9,25 +9,27 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
 import NewCandidate from './NewCandidate';
+import NewElection from './NewElection'
 const AdminPanel = () => {
-    return (
-        <>
-            <Navbar className="color-nav" bg="invisible" expand="lg" variant="light ">
-                {/* <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand> */}
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-                    <Nav className="px-2 mr-auto">
-                        <Nav.Link className="px-4 nav-items" href="/vote">
-                            New Election
-                        </Nav.Link>
-                        <Nav.Link className="px-4 nav-items" href="/vote">
-                            Current Elections
-                        </Nav.Link>
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
-            <NewCandidate />
-            {/* <Container fluid className="main-container">
+  return (
+    <>
+      <Navbar className="color-nav" bg="invisible" expand="lg" variant="light ">
+        {/* <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand> */}
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+          <Nav className="px-2 mr-auto">
+            <Nav.Link className="px-4 nav-items" href="/vote">
+              New Election
+            </Nav.Link>
+            <Nav.Link className="px-4 nav-items" href="/vote">
+              Current Elections
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+      <NewCandidate />
+      <NewElection />
+      {/* <Container fluid className="main-container">
         <Row>
           <Col className="justify-content-center align-items-center">
             <img src={votingimg} className="main-img" alt="main-img" />
@@ -220,8 +222,8 @@ const AdminPanel = () => {
           </Card>
         </Row>
       </Container> */}
-        </>
-    );
+    </>
+  );
 };
 
 export default AdminPanel;

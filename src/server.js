@@ -5,6 +5,7 @@ const app = express();
 
 const VoterModel = require('./models/voter')
 const AdminModel = require('./models/admin')
+const electionName = require('./models/electionName');
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
@@ -52,6 +53,38 @@ app.post('/admin', (req, res) => {
     }).catch((err) => {
         console.log(err);
     })
+});
+
+//Add election
+app.get('/api/electionName', function (req, res) {
+    var electionNames = []
+    var electionOrganizers = []
+    var electionIds = []
+    var final = []
+    electionName.find({}).then(eachOne => {
+        for (i = 0; i < eachOne.length; i++) {
+            electionNames[i] = eachOne[i].election_name;
+            electionOrganizers[i] = eachOne[i].election_organizer;
+            electionIds[i] = eachOne[i].election_id;
+            final.push({
+                'election_id': eachOne[i].election_id,
+                'election_organizer': eachOne[i].election_organizer,
+                'election_name': eachOne[i].election_name
+            })
+        }
+        res.send(final);
+    })
+})
+
+app.post('/api/electionName', async function (req, res) {
+    electionName.create({
+        election_id: Math.floor(Math.random() * 100),
+        election_name: req.body.election_name,
+        election_organizer: req.body.election_organizer,
+        election_password: req.body.election_password,
+    }).then(election => {
+        res.json(election);
+    });
 });
 
 app.listen(3001, () => {
