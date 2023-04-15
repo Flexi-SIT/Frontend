@@ -27,7 +27,6 @@ function App() {
         <Route path="/votecount" element={<VoteCounting />} />
         <Route path="/audit" element={<Audit />} />
         <Route path="/adminPanel" element={<AdminPanel />} />
-        <Route path="/adminPanel/:id" element={<AdminPanel />} />
         <Route path="/addPoll" element={<AddPoll />} />
       </Routes>
     </BrowserRouter>
