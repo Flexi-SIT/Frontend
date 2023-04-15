@@ -9,6 +9,8 @@ import Voting from "./pages/VoterPanel/Voting";
 import Audit from "./pages/Audit/Audit";
 import Vote from "./pages/Vote/Vote"
 import AdminPanel from "./pages/AdminPanel/adminPanel"
+import CreateElections from "./pages/AdminPanel/CreateElections"
+import NewCandidate from "./pages/AdminPanel/NewCandidate"
 import "bootstrap/dist/css/bootstrap.min.css";
 //import 'semantic-ui-css/semantic.min.css'
 
@@ -26,6 +28,9 @@ function App() {
         <Route path="/votecount" element={<VoteCounting />} />
         <Route path="/audit" element={<Audit />} />
         <Route path="/adminPanel" element={<AdminPanel />} />
+        <Route path="/create-election" element={<CreateElections />} />
+        <Route path="/candidates/:id" element={<NewCandidate />} />
+        <Route exact path="/vote/:id" component={Vote} />
       </Routes>
     </BrowserRouter>
   );
