@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import React, { Component } from "react";
+// import { Link } from "react-router-dom";
+import { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -9,10 +9,13 @@ import votingimg from "../../assets/7.svg";
 import election1 from "../../assets/9.jpg";
 import Card from "react-bootstrap/Card";
 import "swiper/css";
-import NewCandidate from "./NewCandidate";
 import NewElection from "./NewElection";
 import "./AdminPanel.css";
 import { useParams } from "react-router";
+import NewCandidate from "./NewCandidate";
+import VoteCount from "./VoteCount";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 const AdminPanel = () => {
   const [showComponent, setShowComponent] = useState(false);
@@ -88,10 +91,6 @@ const AdminPanel = () => {
     </>
   );
 };
-import NewCandidate from "./NewCandidate";
-import VoteCount from "./VoteCount";
-import axios from "axios";
-import { Link } from "react-router-dom";
 
 class AdminnPanel extends Component {
   constructor(props) {
