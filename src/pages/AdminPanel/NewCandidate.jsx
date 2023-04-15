@@ -35,6 +35,7 @@ class NewCandidate extends Component {
         const web3 = window.web3
         const accounts = await web3.eth.getAccounts()
         this.setState({ account: accounts[0] })
+        console.log(accounts)
         const networkId = await web3.eth.net.getId()
         const networkData = Election.networks[networkId]
         if (networkData) {
@@ -53,7 +54,7 @@ class NewCandidate extends Component {
     addCandidates() {
         console.log(this.state);
         this.setState({ loading: true })
-        this.state.election.methods.addCandidate(this.state.candidate_name, this.state.candidate_details, this.state.id).send({ from: this.state.account })
+        this.state.election.methods.addCandidate(this.state.candidate_name, this.state.candidate_details, 3).send({ from: this.state.account })
             .once('receipt', (receipt) => {
                 console.log(receipt);
                 this.setState({ loading: false })
