@@ -1,0 +1,39 @@
+.img1 {
+    /* margin-top: 5rem; */
+    margin-top: -2.7rem;
+    margin-left: 40rem;
+    width: 35.4rem;
+}
+
+.admin-left-text-1 {
+    margin-left: -80rem;
+    margin-bottom: -23rem;
+
+}
+
+.admin-text-1 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    color: #e7e5e5;
+    font-size: 8.8rem;
+    font-weight: 800;
+    line-height: 7.7rem;
+    letter-spacing: .68rem;
+    position: absolute;
+    width: 47rem;
+    height: 50rem;
+    left: -.5rem;
+    top: 12rem !important;
+}
+
+.admin-text-2 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    color: #000000;
+    font-size: 2.3rem;
+    font-weight: 800;
+    line-height: 2.3rem;
+    position: absolute; 
+    left: 2rem;
+    top: 32rem !important;
+}

@@ -8,8 +8,8 @@ import Card from "react-bootstrap/Card";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
-import NewCandidate from './NewCandidate';
-import NewElection from './NewElection'
+import NewCandidate from "./NewCandidate";
+import NewElection from "./NewElection";
 const AdminPanel = () => {
   return (
     <>
