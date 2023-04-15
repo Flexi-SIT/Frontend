@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import votingimg from "../../assets/7.svg";
+import election1 from "../../assets/9.jpg";
 import Card from "react-bootstrap/Card";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
 import NewCandidate from "./NewCandidate";
 import NewElection from "./NewElection";
+import "./AdminPanel.css";
+import { useParams } from "react-router";
+
 const AdminPanel = () => {
+  const [showComponent, setShowComponent] = useState(false);
+
+  const handleClick = () => {
+    setShowComponent(true);
+  };
+
   return (
     <>
       <Navbar className="color-nav" bg="invisible" expand="lg" variant="light ">
@@ -24,204 +33,57 @@ const AdminPanel = () => {
             <Nav.Link className="px-4 nav-items" href="/vote">
               Current Elections
             </Nav.Link>
+            <Nav.Link className="px-4 nav-items" href="/addPoll">
+              Add Poll
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <NewCandidate />
-      <NewElection />
-      {/* <Container fluid className="main-container">
+      <Container fluid className="container-1">
         <Row>
           <Col className="justify-content-center align-items-center">
-            <img src={votingimg} className="main-img" alt="main-img" />
+            <img src={votingimg} className="img1" alt="main-img" />
           </Col>
-          <Col className="text-container justify-content-center align-items-center left-text">
-            <h1 className="web-text-left">
-              VOTE <br />
-              HERE
-            </h1>
+          <Col className="text-container justify-content-center align-items-center admin-left-text-1">
+            <h1 className="admin-text-1">ONGOING POLLS</h1>
+            <h5 className="admin-text-2">
+              Add a poll to conduct an election <br />
+              The voters can then vote
+            </h5>
           </Col>
-          <Col className="text-container justify-content-center align-items-center right-text">
-            <h3 className="web-text-right">
-              The voters can vote for their proffered candidate here
-            </h3>
-            <Button
-              variant="dark"
-              type="submit"
-              className="submit-button-admin"
-              href="/voter"
-            >
-              Voter Login
-            </Button>
-            <Button
-              variant="dark"
-              type="submit"
-              className="submit-button-company"
-              href="/admin"
-            >
-              Admin Login
-            </Button>
+          <Col></Col>
+        </Row>
+      </Container>
+      <Container fluid className="container-2 py-2">
+        <Row className="election-1">
+          <Col className="img-container justify-content-center align-items-center">
+            <Link to="/vote">
+              <img src={election1} className="election-img-1" alt="election" />
+            </Link>
+          </Col>
+          <Col className="text-container justify-content-center align-items-center">
+            <h1 className="election-text">SIT MONITOR ELECTION</h1>
+            <Col>
+              <button className="election-button">EDIT DETAILS</button>
+              <button onClick={handleClick} className="election-button">
+                ADD CANDIDATE
+              </button>
+              {showComponent && <NewCandidate />}
+            </Col>
+            <Col>
+              <button className="election-button">ADD PHOTOS</button>
+              <button className="election-button">VIEW VOTE COUNT</button>
+            </Col>
           </Col>
         </Row>
       </Container>
-      <Container fluid>
-        <Swiper
-          spaceBetween={30}
-          slidesPerView={3}
-          grabCursor={true}
-          centeredSlides={true}
-          autoplay={{
-            delay: 1500,
-            disableOnInteraction: false,
-          }}
-          pagination={{
-            clickable: true,
-          }}
-          navigation={true}
-          modules={[Autoplay, Pagination, Navigation]}
-          className="slider-slider"
-          breakpoints={{
-            320: {
-              slidesPerView: 1,
-              spaceBetween: 30,
-            },
-            375: {
-              width: 375,
-              slidesPerView: 1,
-              spaceBetween: 100,
-            },
-            425: {
-              slidesPerView: 1,
-              spaceBetween: 405,
-            },
-            768: {
-              width: 768,
-              slidesPerView: 2,
-              spaceBetween: 230,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 490,
-            },
-            1440: {
-              slidesPerView: 3,
-              spaceBetween: 100,
-            },
-            2560: {
-              slidesPerView: 5,
-              spaceBetween: 200,
-            },
-          }}
-        >
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img2} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img3} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img2} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img3} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img2} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img3} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img2} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img3} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img2} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img3} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img2} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img3} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img2} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img3} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img2} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img3} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img2} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img3} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-          <SwiperSlide className="swiper-slide">
-            <img src={img1} className="event-slider-img" alt="event-img" />
-          </SwiperSlide>
-        </Swiper>
-      </Container>
-      <Container fluid className="main-container-2">
-        <Row xs={1} md={3} className="mt-5 mb-5 g-1">
+      <Container>
+        <Row>
           <Col>
-            <Card className="container-uses-register">
-              <Card.Img className="container-uses-vote-img" variant="top" />
-              <Card.Body>
-                <Card.Title>Register yourself a voter</Card.Title>
-              </Card.Body>
-            </Card>
+            <NewElection />
           </Col>
-          <Card className="container-uses-vote px-5">
-            <Card.Img className="container-uses-vote-img" variant="top" />
-            <Card.Body>
-              <Card.Title>Cast your vote</Card.Title>
-            </Card.Body>
-          </Card>
-          <Card className="container-uses-result px-4">
-            <Card.Img className="container-uses-result-img" variant="top" />
-            <Card.Body>
-              <Card.Title>Check the results</Card.Title>
-            </Card.Body>
-          </Card>
         </Row>
-      </Container> */}
+      </Container>
     </>
   );
 };
