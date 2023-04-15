@@ -1,20 +1,99 @@
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import votingimg from "../../assets/7.svg";
+import election1 from "../../assets/9.jpg";
 import Card from "react-bootstrap/Card";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
-import NewCandidate from './NewCandidate';
-import VoteCount from './VoteCount'
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import NewCandidate from "./NewCandidate";
+import NewElection from "./NewElection";
+import "./AdminPanel.css";
+import { useParams } from "react-router";
 
-class AdminPanel extends Component {
+const AdminPanel = () => {
+  const [showComponent, setShowComponent] = useState(false);
 
+  const handleClick = () => {
+    setShowComponent(true);
+  };
+
+  return (
+    <>
+      <Navbar className="color-nav" bg="invisible" expand="lg" variant="light ">
+        {/* <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand> */}
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+          <Nav className="px-2 mr-auto">
+            <Nav.Link className="px-4 nav-items" href="/vote">
+              New Election
+            </Nav.Link>
+            <Nav.Link className="px-4 nav-items" href="/vote">
+              Current Elections
+            </Nav.Link>
+            <Nav.Link className="px-4 nav-items" href="/addPoll">
+              Add Poll
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+      <Container fluid className="container-1">
+        <Row>
+          <Col className="justify-content-center align-items-center">
+            <img src={votingimg} className="img1" alt="main-img" />
+          </Col>
+          <Col className="text-container justify-content-center align-items-center admin-left-text-1">
+            <h1 className="admin-text-1">ONGOING POLLS</h1>
+            <h5 className="admin-text-2">
+              Add a poll to conduct an election <br />
+              The voters can then vote
+            </h5>
+          </Col>
+          <Col></Col>
+        </Row>
+      </Container>
+      <Container fluid className="container-2 py-2">
+        <Row className="election-1">
+          <Col className="img-container justify-content-center align-items-center">
+            <Link to="/vote">
+              <img src={election1} className="election-img-1" alt="election" />
+            </Link>
+          </Col>
+          <Col className="text-container justify-content-center align-items-center">
+            <h1 className="election-text">SIT MONITOR ELECTION</h1>
+            <Col>
+              <button className="election-button">EDIT DETAILS</button>
+              <button onClick={handleClick} className="election-button">
+                ADD CANDIDATE
+              </button>
+              {showComponent && <NewCandidate />}
+            </Col>
+            <Col>
+              <button className="election-button">ADD PHOTOS</button>
+              <button className="election-button">VIEW VOTE COUNT</button>
+            </Col>
+          </Col>
+        </Row>
+      </Container>
+      <Container>
+        <Row>
+          <Col>
+            <NewElection />
+          </Col>
+        </Row>
+      </Container>
+    </>
+  );
+};
+import NewCandidate from "./NewCandidate";
+import VoteCount from "./VoteCount";
+import axios from "axios";
+import { Link } from "react-router-dom";
+
+class AdminnPanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,20 +108,20 @@ class AdminPanel extends Component {
   componentDidMount() {
     let currentComponent = this;
 
-    axios.get('http://localhost:3001/api/electionName', {})
+    axios
+      .get("http://localhost:3001/api/electionName", {})
       .then(function (response) {
         var data = response.data;
         currentComponent.setState({
           // election_name: data[0],
           // election_organizer: data[1],
           // election_id: data[2],
-          final: data
-        })
+          final: data,
+        });
       })
       .catch(function (err) {
         console.error(err);
       });
-
   }
 
   handleInputChange = (e) => {
@@ -56,32 +135,63 @@ class AdminPanel extends Component {
     }
     var id = this.state.election_id[index];
     this.setState({
-      id: id
-    })
+      id: id,
+    });
   };
 
   render() {
-    const electionList = this.state.final.map(election => {
+    const electionList = this.state.final.map((election) => {
       return (
         <div className="contact" key={election.election_id}>
           <li className="collection-item avatar">
             <i className="material-icons circle blue darken-2">ballot</i>
-            <p><b>{election.election_name}</b></p>
+            <p>
+              <b>{election.election_name}</b>
+            </p>
             <br></br>
-            <Link to={"/candidates/" + election.election_id} className="title" onClick={this.handleInputChange}><button id={election.election_id} className="waves-effect waves-light btn yellow darken-3">Add candidate</button></Link>
+            <Link
+              to={"/candidates/" + election.election_id}
+              className="title"
+              onClick={this.handleInputChange}
+            >
+              <button
+                id={election.election_id}
+                className="waves-effect waves-light btn yellow darken-3"
+              >
+                Add candidate
+              </button>
+            </Link>
             &nbsp;&nbsp;&nbsp;
-            <Link to={"/voteCount/" + election.election_id} className="title" onClick={this.handleInputChange}><button id={election.election_id} className="waves-effect waves-light btn red darken-3">View vote Count</button></Link>
-
+            <Link
+              to={"/voteCount/" + election.election_id}
+              className="title"
+              onClick={this.handleInputChange}
+            >
+              <button
+                id={election.election_id}
+                className="waves-effect waves-light btn red darken-3"
+              >
+                View vote Count
+              </button>
+            </Link>
           </li>
         </div>
-      )
-    })
+      );
+    });
     return (
       <>
-        <Navbar className="color-nav" bg="invisible" expand="lg" variant="light ">
+        <Navbar
+          className="color-nav"
+          bg="invisible"
+          expand="lg"
+          variant="light "
+        >
           {/* <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand> */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+          <Navbar.Collapse
+            id="basic-navbar-nav"
+            className="justify-content-end"
+          >
             <Nav className="px-2 mr-auto">
               <Nav.Link className="px-4 nav-items" href="/create-election">
                 New Election
@@ -101,9 +211,8 @@ class AdminPanel extends Component {
           </ul>
         </div>
       </>
-    )
+    );
   }
-
 }
 
 export default AdminPanel;

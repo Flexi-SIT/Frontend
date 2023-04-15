@@ -1,0 +1,29 @@
+.color-nav {
+    background-color: #D2D3D5 !important;
+}
+
+.slider {
+    width: 100%;
+}
+
+.slider-slider {
+    width: 100%;
+}
+
+.vote-election-img {
+    width: 25rem;
+}
+
+.container-2-text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    color: black;
+    font-weight: 800;
+}
+
+.container-3-text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    color: black;
+    font-weight: 900;
+}
