@@ -82,6 +82,7 @@ class NewCandidate extends Component {
     // }
 
     render() {
+        //DESIGN CODE HERE:
         return (
             <div className="container">
                 <form onSubmit={this.handleSubmit}>
