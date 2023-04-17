@@ -28,16 +28,15 @@ function App() {
         <Route path="/election/vote" element={<VotingList />} />
         <Route path="/voter-registration" element={<VoterRegistration />} />
         <Route path="/voting" element={<Voting />} />
-        <Route path="/vote" element={<Vote />} />
         <Route path="/votecount" element={<VoteCounting />} />
         <Route path="/audit" element={<Audit />} />
         <Route path="/adminPanel" element={<AdminPanel />} />
 
         <Route path="/create-election" element={<CreateElections />} />
         <Route path="/candidates/:id" element={<NewCandidate />} />
-        <Route exact path="/vote/:id" component={Vote} />
+        <Route path="/vote/:id" element={<Vote />} />
 
-        
+
 
       </Routes>
     </BrowserRouter>

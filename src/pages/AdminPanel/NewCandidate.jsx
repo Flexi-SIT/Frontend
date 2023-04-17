@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Web3 from 'web3';
 import Election from '../../build/Election.json'
-
+import { useParams } from 'react-router-dom';
 
 class NewCandidate extends Component {
 
@@ -58,7 +58,7 @@ class NewCandidate extends Component {
             .once('receipt', (receipt) => {
                 console.log(receipt);
                 this.setState({ loading: false })
-                window.location.assign("/");
+                window.location.assign("/adminPanel");
             })
     }
 
@@ -74,12 +74,14 @@ class NewCandidate extends Component {
         this.addCandidates = this.addCandidates.bind(this)
     }
 
-    // componentDidMount() {
-    //     let id = this.props.match.params.id;
-    //     this.setState({
-    //         id: id,
-    //     })
-    // }
+    componentDidMount() {
+        //let id = this.props.match.params.id;
+        const pathParts = window.location.pathname.split('/');
+        let id = pathParts[pathParts.length - 1];
+        this.setState({
+            id: id,
+        })
+    }
 
     render() {
         //DESIGN CODE HERE:

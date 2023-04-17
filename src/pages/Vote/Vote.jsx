@@ -79,12 +79,13 @@ class Vote extends Component {
       });
   }
 
-  // componentDidMount() {
-  //   let id = this.props.match.params.id;
-  //   this.setState({
-  //     id: id,
-  //   })
-  // }
+  componentDidMount() {
+    const pathParts = window.location.pathname.split('/');
+    let id = pathParts[pathParts.length - 1];
+    this.setState({
+      id: id,
+    })
+  }
 
   constructor(props) {
     super(props);
@@ -142,108 +143,7 @@ class Vote extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        {/* Design Code Start*/}
-        <Container fluid>
-          <Row>
-            <Col className="container-1 my-3">
-              <Swiper
-                spaceBetween={30}
-                slidesPerView={3}
-                grabCursor={true}
-                centeredSlides={true}
-                autoplay={{
-                  delay: 1500,
-                  disableOnInteraction: false,
-                }}
-                pagination={{
-                  clickable: true,
-                }}
-                navigation={true}
-                modules={[Autoplay, Pagination, Navigation]}
-                className="slider-slider"
-                breakpoints={{
-                  320: {
-                    slidesPerView: 1,
-                    spaceBetween: 30,
-                  },
-                  375: {
-                    width: 375,
-                    slidesPerView: 1,
-                    spaceBetween: 100,
-                  },
-                  425: {
-                    slidesPerView: 1,
-                    spaceBetween: 405,
-                  },
-                  768: {
-                    width: 768,
-                    slidesPerView: 2,
-                    spaceBetween: 230,
-                  },
-                  1024: {
-                    slidesPerView: 3,
-                    spaceBetween: 490,
-                  },
-                  1440: {
-                    slidesPerView: 3,
-                    spaceBetween: 100,
-                  },
-                  2560: {
-                    slidesPerView: 5,
-                    spaceBetween: 200,
-                  },
-                }}
-              >
-                <SwiperSlide className="swiper-slide">
-                  <img src={img1} className="vote-election-img" alt="vote" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={img2} className="vote-election-img" alt="vote" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={img3} className="vote-election-img" alt="vote" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={img2} className="vote-election-img" alt="vote" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={img1} className="vote-election-img" alt="vote" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={img3} className="vote-election-img" alt="vote" />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <img src={img1} className="vote-election-img" alt="vote" />
-                </SwiperSlide>
-              </Swiper>
-            </Col>
-          </Row>
-        </Container>
-        <Container fluid className="container-2">
-          <p className="container-2-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </Container>
-        <Container fluid className="container-3">
-          <Row>
-            <Col className="justify-content-center align-items-center">
-              <h1 className="container-3-text">VOTE HERE</h1>
-            </Col>
-            <Row>
-              <Col className="justify-content-center align-items-center">
-                <h1 className="container-3-text">CREATE NEW ELECTION</h1>
-                <NewElection />
-              </Col>
-            </Row>
-          </Row>
-        </Container>
-        {/* Design Code End */}
+
         <div className="container">
           <ul className="collection">
             <li className="collection-item avatar">
