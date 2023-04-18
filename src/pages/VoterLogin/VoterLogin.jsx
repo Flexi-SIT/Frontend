@@ -6,6 +6,7 @@ import Login from "./Login";
 import Logout from "./Logout";
 import { useEffect, useState } from "react";
 import { gapi } from "gapi-script";
+import img1 from "../../assets/7.svg";
 import "./VoterLogin.css";
 
 import { Link, Routes, Route, useNavigate } from "react-router-dom";
@@ -34,15 +35,35 @@ function LoginSection() {
   //Axios.post("http://localhost:3002/voterdata", { email: email, password: pass });
 
   return (
-    <Row className="d-flex flex-cloumn container">
-      <Col className="img-container justify-content-center align-items-center">
-        <img src="./1.svg" alt="login" className="login-img" />
+    <Row className="voter-login-container">
+      <Col className=" justify-content-center align-items-center voter-login-img">
+        <img src={img1} alt="login" className="login-img" />
       </Col>
-      <Col className="text-container d-flex justify-content-center">
-        <form method="POST" action="http://localhost:3001/voter">
-          <input type="email" placeholder="Email Address" name="email"></input>
-          <input type="password" placeholder="Password" name="pass"></input>
-          <input type="submit" />
+      <Col className="text-container justify-content-center align-item-center voter-login-container-right">
+        <form method="POST" action="http://localhost:3001/admin">
+          <label htmlFor="name" className="voter-login-label">
+            Email
+          </label>
+          <br />
+          <input
+            type="email"
+            name="email"
+            className="voter-login-input"
+          ></input>
+          <br />
+          <br />
+          <label htmlFor="name" className="voter-login-label">
+            Password
+          </label>
+          <br />
+          <input
+            type="password"
+            name="pass"
+            className="voter-login-input"
+          ></input>
+          <br />
+          <br />
+          <input type="submit" className="voter-login-submit" />
         </form>
         {/* <Form className='mb-4' onSubmit={handleSubmit} method="POST" action="/voterdata">
           <Form.Group className="mb-4 login-email" controlId="formBasicEmail">

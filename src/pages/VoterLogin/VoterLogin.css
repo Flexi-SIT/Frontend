@@ -42,24 +42,24 @@
 }
 
 /* New CSS Starts */
-.voterr-container-image {
-    margin-top: -7rem;
+.login-img {
+    margin-top: -1rem !important;
     margin-left: 1rem;
-    padding-left: 3rem;
-    width: 30rem;
+    padding-left: 14rem;
+    width: 9rem !important;
 }
 
-.voterr-container-right {
+.voter-login-container-right {
     margin-top: -1rem !important;
     margin-left: -19rem;
 }
 
-.voterr-container-left {
+.voter-login-container-left {
     margin-left: -80rem;
     margin-bottom: -12rem !important;
 }
 
-.voterr-container-left-text {
+.voter-login-container-left-text {
     font-family: 'Montserrat';
     font-style: normal;
     color: #E0E0E0;
@@ -74,14 +74,14 @@
     top: 8rem !important;
 }
 
-.voterr-container-label {
+.voter-login-label {
     font-family: 'Montserrat';
     font-style: normal;
     font-size: 1.2rem;
     font-weight: 700;
 }
 
-.voterr-container-input {
+.voter-login-input {
     margin-top: 1rem;
     margin-bottom: 1rem;
     margin-right: 1rem;
@@ -92,7 +92,7 @@
     width: 40%;
 }
 
-.voterr-container-submit {
+.voter-login-submit {
     font-family: 'Montserrat';
     font-style: normal;
     font-size: 1.2rem;
