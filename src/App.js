@@ -28,7 +28,7 @@ function App() {
         <Route path="/election/vote" element={<VotingList />} />
         <Route path="/voter-registration" element={<VoterRegistration />} />
         <Route path="/voting" element={<Voting />} />
-        <Route path="/votecount" element={<VoteCounting />} />
+        <Route path="/voteCount/:id" element={<VoteCounting />} />
         <Route path="/audit" element={<Audit />} />
         <Route path="/adminPanel" element={<AdminPanel />} />
 
