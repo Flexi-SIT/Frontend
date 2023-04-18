@@ -27,3 +27,39 @@
     color: black;
     font-weight: 900;
 }
+
+/* New CSS Start */
+.vote-item{
+    display: flex;
+    justify-content: center;
+    border: 2px solid #D9D9D9;
+}
+
+.vote-ballot {
+    font-family: 'Montserrat';
+    font-style: normal;
+    color: #000000;
+}
+
+.vote-button {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 103.5%;
+    text-align: center;
+    color: #000000;
+    border-radius: 2rem;
+}
+
+.vote-list {
+    margin: 3rem;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+/* New CSS End */

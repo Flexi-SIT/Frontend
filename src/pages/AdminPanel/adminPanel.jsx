@@ -141,9 +141,10 @@ class AdminPanel extends Component {
   render() {
     const electionList = this.state.final.map((election) => {
       return (
-        <div className="contact" key={election.election_id}>
-          <li className="collection-item avatar">
-            <i className="material-icons circle blue darken-2">ballot</i>
+        <div className="admin-panel-item" key={election.election_id}>
+          <div className="contact">
+            {/* <li className="collection-item avatar"> */}
+            <h5 className="admin-panel-ballot">Ballot</h5>
             <p>
               <b>{election.election_name}</b>
             </p>
@@ -155,7 +156,7 @@ class AdminPanel extends Component {
             >
               <button
                 id={election.election_id}
-                className="waves-effect waves-light btn yellow darken-3"
+                className="admin-panel-candidate-button"
               >
                 Add candidate
               </button>
@@ -168,12 +169,15 @@ class AdminPanel extends Component {
             >
               <button
                 id={election.election_id}
-                className="waves-effect waves-light btn red darken-3"
+                className="admin-panel-candidate-button"
               >
                 View vote Count
               </button>
+              <br />
+              <br />
             </Link>
-          </li>
+            {/* </li> */}
+          </div>
         </div>
       );
     });
@@ -201,13 +205,14 @@ class AdminPanel extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <div className="container">
-          <ul className="collection">
+        <div className="admin-panel-container">
+          {/* <h1 className="admin-container-text">Election</h1> */}
+          {electionList}
+          {/* <ul className="collection">
             <li className="collection-item avatar">
               <h3>Elections</h3>
             </li>
-            {electionList}
-          </ul>
+          </ul> */}
         </div>
       </>
     );

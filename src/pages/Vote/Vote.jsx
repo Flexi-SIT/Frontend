@@ -80,11 +80,11 @@ class Vote extends Component {
   }
 
   componentDidMount() {
-    const pathParts = window.location.pathname.split('/');
+    const pathParts = window.location.pathname.split("/");
     let id = pathParts[pathParts.length - 1];
     this.setState({
       id: id,
-    })
+    });
   }
 
   constructor(props) {
@@ -102,23 +102,25 @@ class Vote extends Component {
   render() {
     const electionList = this.state.candidates.map((candidates) => {
       return (
-        <div className="contact" key={candidates.id}>
-          <li className="collection-item avatar">
-            <i className="material-icons circle blue darken-2">ballot</i>
-            <p>
-              <b>{candidates.name}</b>
-            </p>
-            <p>{candidates.details}</p>
-            <a href="" className="secondary-content">
-              <button
-                id={candidates.id}
-                onClick={this.handleInputChange}
-                className="waves-effect waves-light btn blue darken-2"
-              >
-                Vote
-              </button>
-            </a>
-          </li>
+        <div className="vote-item" key={candidates.id}>
+          <div className="contact">
+            <li className="collection-item avatar">
+              <h5 className="vote-ballot">Ballot</h5>
+              <p>
+                <b>{candidates.name}</b>
+              </p>
+              <p>{candidates.details}</p>
+              <a href="" className="secondary-content">
+                <button
+                  id={candidates.id}
+                  onClick={this.handleInputChange}
+                  className="vote-button"
+                >
+                  Vote
+                </button>
+              </a>
+            </li>
+          </div>
         </div>
       );
     });
@@ -144,7 +146,7 @@ class Vote extends Component {
           </Navbar.Collapse>
         </Navbar>
 
-        <div className="container">
+        <div className="vote-list">
           <ul className="collection">
             <li className="collection-item avatar">
               <h3>Candidates</h3>
