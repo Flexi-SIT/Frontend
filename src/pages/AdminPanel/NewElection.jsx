@@ -41,6 +41,10 @@ class NewElection extends Component {
       <div className="container">
         {/* <h4>Create New Election</h4> */}
         <form onSubmit={this.handleSubmit}>
+          <label htmlFor="name" className="election-container-text">
+            Election Name
+          </label>
+          <br />
           <input
             type="text"
             id="election_name"
@@ -49,10 +53,11 @@ class NewElection extends Component {
             required
             className="election-container"
           />
-          <label htmlFor="name" className="election-container-text">
-            Election Name
-          </label>
           <br></br>
+          <label htmlFor="name" className="election-container-text">
+            Election Organizer
+          </label>
+          <br />
           <input
             type="text"
             id="election_organizer"
@@ -61,10 +66,12 @@ class NewElection extends Component {
             required
             className="election-container"
           />
-          <label htmlFor="name" className="election-container-text">
-            Election Organizer
-          </label>
+
           <br></br>
+          <label htmlFor="name" className="election-container-text">
+            Election Password
+          </label>
+          <br />
           <input
             type="password"
             id="election_password"
@@ -73,9 +80,7 @@ class NewElection extends Component {
             required
             className="election-container"
           />
-          <label htmlFor="name" className="election-container-text">
-            Election Password
-          </label>
+
           <br></br>
           <br></br>
           <button
