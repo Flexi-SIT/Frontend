@@ -75,7 +75,7 @@ class Vote extends Component {
       .send({ from: this.state.account })
       .once("receipt", (receipt) => {
         this.setState({ loading: false });
-        window.location.assign("/");
+        window.location.assign("/voting");
       });
   }
 

@@ -72,12 +72,17 @@ class VoteCounting extends Component {
       })
   }
 
-  // componentDidMount(){
-  //     let id = this.props.match.params.id;
-  //     this.setState({
-  //         id: id,
-  //     })
-  // }
+  componentDidMount() {
+    // let id = this.props.match.params.id;
+    // this.setState({
+    //     id: id,
+    // })
+    const pathParts = window.location.pathname.split('/');
+    let id = pathParts[pathParts.length - 1];
+    this.setState({
+      id: id,
+    })
+  }
 
   constructor(props) {
     super(props)
