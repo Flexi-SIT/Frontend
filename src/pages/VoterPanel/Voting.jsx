@@ -9,8 +9,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "./Voting.css";
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 class Voting extends Component {
   constructor(props) {
@@ -27,17 +27,17 @@ class Voting extends Component {
   componentDidMount() {
     let currentComponent = this;
 
-    axios.get('http://localhost:3001/api/electionName', {})
+    axios
+      .get("http://localhost:3001/api/electionName", {})
       .then(function (response) {
         var data = response.data;
         currentComponent.setState({
-          final: data
-        })
+          final: data,
+        });
       })
       .catch(function (err) {
         console.error(err);
       });
-
   }
 
   handleInputChange = (e) => {
@@ -52,26 +52,42 @@ class Voting extends Component {
     }
     var id = this.state.election_id[index];
     this.setState({
-      id: id
-    })
+      id: id,
+    });
   };
   render() {
-    const electionList = this.state.final.map(election => {
+    const electionList = this.state.final.map((election) => {
       return (
-        <div className="contact" key={election.election_id}>
-          <li className="collection-item avatar">
-            <i className="material-icons circle blue darken-2">ballot</i>
-            <Link to={"/vote/" + election.election_id} className="title" onClick={this.handleInputChange}>{election.election_name}</Link>
-          </li>
+        <div className="election-item" key={election.election_id}>
+          <div className="voting-contact">
+            {/* <li className="collection-item avatar"> */}
+            <h5 className="voting-ballot">Ballot</h5>
+            <Link
+              to={"/vote/" + election.election_id}
+              className="voting-title"
+              onClick={this.handleInputChange}
+            >
+              {election.election_name}
+            </Link>
+            {/* </li> */}
+          </div>
         </div>
-      )
-    })
+      );
+    });
     return (
       <>
-        <Navbar className="color-nav" bg="invisible" expand="lg" variant="light ">
+        <Navbar
+          className="color-nav"
+          bg="invisible"
+          expand="lg"
+          variant="light "
+        >
           {/* <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand> */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+          <Navbar.Collapse
+            id="basic-navbar-nav"
+            className="justify-content-end"
+          >
             <Nav className="px-2 mr-auto">
               <Nav.Link className="px-4 nav-items" href="/vote">
                 Elections
@@ -79,19 +95,17 @@ class Voting extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <div className="container">
-          <ul className="collection">
+        <div className="election-list">
+          {/* <ul className="collection">
             <li className="collection-item avatar">
               <h3>Elections</h3>
             </li>
-            {electionList}
-          </ul>
+          </ul> */}
+          {electionList}
         </div>
       </>
-    )
+    );
   }
-
-
-};
+}
 
 export default Voting;

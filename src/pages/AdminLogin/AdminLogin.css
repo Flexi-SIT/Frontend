@@ -41,6 +41,68 @@
     margin-bottom: 1.3rem;
 }
 
+/* New CSS Starts */
+.adminn-container-image {
+    margin-top: -7rem;
+    margin-left: 1rem;
+    padding-left: 3rem;
+    width: 30rem;
+}
+
+.adminn-container-right {
+    margin-top: -25rem !important;
+    margin-left: 39rem;
+}
+
+.adminn-container-left {
+    margin-left: -80rem;
+    margin-bottom: -12rem !important;
+}
+
+.adminn-container-left-text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    color: #E0E0E0;
+    font-size: 7.8rem;
+    font-weight: 800;
+    line-height: 7.7rem;
+    letter-spacing: .4rem;
+    position: absolute;
+    width: 37rem !important;
+    height: 50rem;
+    left: -.5rem;
+    top: 8rem !important;
+}
+
+.adminn-container-label {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.adminn-container-input {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    border-radius: 1rem;
+    background: #E9E9E9;
+    border: solid #E9E9E9;
+    height: 2.2rem;
+    width: 80% !important;
+}
+
+.adminn-container-submit {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #000000;
+    width: 20rem;
+    border-radius: 2rem;
+}
+
+/* New CSS Ends */
 .submit-button {
     font-size: 1rem !important;
     color: white;

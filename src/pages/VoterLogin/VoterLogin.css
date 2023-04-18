@@ -5,8 +5,8 @@
 }
 
 .text-container {
-    margin-left: 1rem;
-    margin-top: 12rem !important;
+    margin-left: 12rem;
+    margin-top: 6rem !important;
 }
 
 .login-email {
@@ -14,23 +14,95 @@
 }
 
 .email-input {
+    width: 100% !important;
     font-size: 1rem;
     padding: .5rem 3.55rem;
-    border-radius: .25rem;
-    border: solid grey;
+    border-bottom: solid 2px grey !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+}
+
+.email-input-label {
+    margin-bottom: 2rem;
 }
 
 .password-input {
+    width: 100% !important;
     font-size: 1rem;
     padding: .5rem 3.55rem;
-    border-radius: .25rem;
-    border: solid grey;
+    border-bottom: solid 2px grey !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
 }
 
 .login-password {
     margin-bottom: 1.3rem;
 }
 
+/* New CSS Starts */
+.voterr-container-image {
+    margin-top: -7rem;
+    margin-left: 1rem;
+    padding-left: 3rem;
+    width: 30rem;
+}
+
+.voterr-container-right {
+    margin-top: -1rem !important;
+    margin-left: -19rem;
+}
+
+.voterr-container-left {
+    margin-left: -80rem;
+    margin-bottom: -12rem !important;
+}
+
+.voterr-container-left-text {
+    font-family: 'Montserrat';
+    font-style: normal;
+    color: #E0E0E0;
+    font-size: 7.8rem;
+    font-weight: 800;
+    line-height: 7.7rem;
+    letter-spacing: .4rem;
+    position: absolute;
+    width: 37rem !important;
+    height: 50rem;
+    left: -.5rem;
+    top: 8rem !important;
+}
+
+.voterr-container-label {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.voterr-container-input {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    border-radius: 1rem;
+    background: #E9E9E9;
+    border: solid #E9E9E9;
+    height: 2.2rem;
+    width: 40%;
+}
+
+.voterr-container-submit {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-size: 1.2rem;
+    text-align: center;
+    color: #000000;
+    width: 20rem;
+    border-radius: 2rem;
+}
+
+/* New CSS Ends */
 .submit-button {
     font-size: 1rem !important;
     color: white;
@@ -44,9 +116,4 @@
 
 .submit-button:hover {
     background-color: #0953f2;
-}
-
-.hrr {
-    margin-top: 1.3rem;
-    margin-bottom: 1.6rem;
 }

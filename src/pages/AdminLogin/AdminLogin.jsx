@@ -1,10 +1,12 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Container } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Login from "./Login";
 import { useEffect } from "react";
 import { gapi } from "gapi-script";
+import img1 from "../../assets/7.svg";
 import "./AdminLogin.css";
 
 import { Link, Routes, Route, useNavigate } from "react-router-dom";
@@ -30,48 +32,47 @@ function LoginSection() {
   });
 
   return (
-    <Row className="container">
-      {/* <Col className="img-container justify-content-center align-items-center">
-        <img src="./1.svg" alt="login" className="login-img" />
-      </Col> */}
-      <Col className="text-container justify-content-center">
-        <form method="POST" action="http://localhost:3001/admin">
-          <input type="email" placeholder="Email Address" name="email"></input>
-          <input type="password" placeholder="Password" name="pass"></input>
-          <input type="submit" />
-        </form>
-        {/* <Form className="mb-4">
-          <Form.Group className="mb-4 login-email" controlId="formBasicEmail">
-            <Form.Control
+    <Container>
+      <Row className="adminn-container">
+        <Col className="img-container justify-content-center-align-items-center">
+          <img src={img1} className="adminn-container-image" alt="img-1" />
+        </Col>
+        <Col className="text-container justify-content-center adminn-container-right">
+          <form method="POST" action="http://localhost:3001/admin">
+            <label htmlFor="name" className="adminn-container-label">
+              Email
+            </label>
+            <br />
+            <input
               type="email"
-              placeholder="Email Address"
-              className="email-input"
-            />
-          </Form.Group>
-
-          <Form.Group
-            className="mb-4 login-password"
-            controlId="formBasicEmail"
-          >
-            <Form.Control
+              name="email"
+              className="adminn-container-input"
+            ></input>
+            <br />
+            <br />
+            <label htmlFor="name" className="adminn-container-label">
+              Password
+            </label>
+            <br />
+            <input
               type="password"
-              placeholder="Password"
-              className="password-input"
-            />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Remember Me" />
-          </Form.Group>
-          <Button variant="primary" type="submit" className="submit-button">
-            SIGN IN
-          </Button>
-          <hr className="hrr" />
-          <Login />
-        </Form> */}
-        {/* <Logout /> */}
-      </Col>
-    </Row>
+              name="pass"
+              className="adminn-container-input"
+            ></input>
+            <br />
+            <br />
+            <input type="submit" className="adminn-container-submit" />
+          </form>
+        </Col>
+        {/* <Col className="text-container justify-content-center align-items-center admin-container-left">
+          <h1 className="admin-container-left-text">
+            ADMIN
+            <br />
+            LOGIN
+          </h1>
+        </Col> */}
+      </Row>
+    </Container>
   );
 }
 
