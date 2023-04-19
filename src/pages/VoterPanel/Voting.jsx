@@ -61,7 +61,7 @@ class Voting extends Component {
         <div className="election-item" key={election.election_id}>
           <div className="voting-contact">
             {/* <li className="collection-item avatar"> */}
-            <h5 className="voting-ballot">Ballot</h5>
+            <p >Election Name:</p>
             <Link
               to={"/vote/" + election.election_id}
               className="voting-title"
