@@ -40,7 +40,7 @@ function LoginSection() {
         <img src={img1} alt="login" className="login-img" />
       </Col>
       <Col className="text-container justify-content-center align-item-center voter-login-container-right">
-        <form method="POST" action="http://localhost:3001/admin">
+        <form method="POST" action="http://localhost:3001/voter">
           <label htmlFor="name" className="voter-login-label">
             Email
           </label>
