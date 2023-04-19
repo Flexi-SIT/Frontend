@@ -55,3 +55,169 @@
     width: 22rem;
     border-radius: 2rem;
 }
+
+/* For screens smaller than 576px */
+@media (max-width: 575.98px) {
+    .candidate-img {
+        margin-top: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+    }
+
+    .candidate-left {
+        margin-left: -15rem;
+    }
+
+    .candidate-left-text {
+        font-size: 4.8rem;
+        line-height: 5.7rem;
+        width: 80%;
+        top: 10rem !important;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .candidate-right {
+        margin-left: -15rem;
+        margin-right: -15rem;
+    }
+
+    .candidate-input {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 1rem;
+        background: #E9E9E9;
+        border: solid white;
+        height: 2.2rem;
+        width: 80%;
+    }
+
+    .candidate-label {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    .candidate-submit {
+        width: 80%;
+        font-size: 1.2rem;
+        border-radius: 2rem;
+    }
+}
+
+/* For screens between 576px and 768px */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .candidate-img {
+        margin-top: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+    }
+
+    .candidate-left {
+        margin-left: -20rem;
+    }
+
+    .candidate-left-text {
+        font-size: 4.8rem;
+        line-height: 5.7rem;
+        width: 80%;
+        top: 10rem !important;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .candidate-right {
+        margin-left: -10rem;
+        margin-right: -10rem;
+    }
+
+    .candidate-input {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 1rem;
+        background: #E9E9E9;
+        border: solid white;
+        height: 2.2rem;
+        width: 60%;
+    }
+
+    .candidate-label {
+        font-size: 1.2rem;
+        font-weight: 700;
+    }
+
+    .candidate-submit {
+        width: 60%;
+        font-size: 1.2rem;
+        border-radius: 2rem;
+    }
+}
+
+/* For screens between 768px and 992px */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .candidate-img {
+        margin-top: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    .candidate-left {
+        margin-left: -25rem;
+    }
+
+    .candidate-left-text {
+        font-size: 5.8rem;
+        line-height: 5.7rem;
+        width: 80%;
+        top: 10rem !important;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .candidate-right {
+        margin-left: -5rem;
+        margin-right: -5rem;
+    }
+        @media only screen and (max-width: 767px) {
+            .candidate-img {
+                margin-top: 2rem;
+                margin-left: auto;
+                margin-right: auto;
+                width: 80%;
+            }
+    
+            .candidate-left {
+                margin-left: -20rem;
+            }
+    
+            .candidate-left-text {
+                font-size: 4.8rem;
+                line-height: 5.7rem;
+                width: 100%;
+                top: 12rem !important;
+                text-align: center;
+            }
+    
+            .candidate-right {
+                margin-left: -5rem;
+            }
+    
+            .candidate-input {
+                width: 100%;
+            }
+    
+            .candidate-submit {
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+    }
