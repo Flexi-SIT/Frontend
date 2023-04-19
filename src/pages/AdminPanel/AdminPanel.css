@@ -139,4 +139,65 @@
     font-size: 4rem;
 }
 
+@media screen and (max-width: 768px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.admin-panel-item {
+    display: flex;
+    justify-content: center;
+    border: 2px solid #D9D9D9;
+    padding-top: 1rem;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.admin-panel-ballot {
+    font-family: 'Montserrat';
+    font-style: normal;
+    color: #000000;
+}
+
+.admin-panel-candidate-button {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 103.5%;
+    text-align: center;
+    color: #000000;
+    border-radius: 2rem;
+}
+
+.admin-panel-container {
+    margin: 3rem;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.admin-panel-container-text {
+    justify-content: center;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 4rem;
+}
+
 /* New CSS Ends */
