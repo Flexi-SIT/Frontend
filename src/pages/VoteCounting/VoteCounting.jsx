@@ -102,10 +102,10 @@ class VoteCounting extends Component {
       return (
         <div className="contact" key={candidates.id}>
           <li className="collection-item avatar">
-            <i className="material-icons circle blue darken-2">ballot</i>
-            <p><b>{candidates.name}</b></p>
-            <p>{candidates.details}</p>
-            <p className="secondary-content"><b>{candidates.voteCount}</b></p>
+            <i className="material-icons circle blue darken-2">Ballot:<p><b>{candidates.name}</b></p></i>
+
+            <p>{candidates.details} :<b>{candidates.voteCount}</b></p>
+
           </li>
         </div>
       )
