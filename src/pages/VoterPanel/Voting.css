@@ -163,10 +163,10 @@
     font-weight: 800;
 }
 
-.voting-title:hover {
+/* .voting-title:hover {
     transform: translateY(-2px);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-}
+} */
 
 .voting-contact {
     margin-top: 1rem;

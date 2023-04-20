@@ -12,12 +12,12 @@
     border: solid black;
     height: 2.2rem;
     width: 100%;
-    position: relative;
+    /* position: relative;
     overflow: hidden;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; */
 }
 
-.election-container::before {
+/* .election-container::before {
     content: "";
     position: absolute;
     top: 0;
@@ -30,7 +30,7 @@
 
 .election-container:hover::before {
     width: 100%;
-}
+} */
 
 .election-container-text {
     font-family: 'Montserrat';
