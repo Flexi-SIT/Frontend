@@ -2,6 +2,11 @@
     margin-top: 2rem;
     margin-left: 25rem;
     width: 16rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.img-1:hover {
+    transform: scale(1.1);
 }
 
 .container-left {
@@ -21,4 +26,10 @@
     height: 50rem;
     left: -.5rem;
     top: 15rem !important;
+    transition: color 0.3s ease-in-out, top 0.3s ease-in-out;
+}
+
+.container-left-text:hover {
+    color: black;
+    top: 12rem;
 }
