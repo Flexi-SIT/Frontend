@@ -141,10 +141,9 @@ class AdminPanel extends Component {
   render() {
     const electionList = this.state.final.map((election) => {
       return (
-        <div className="admin-panel-item" key={election.election_id}>
-          <div className="contact">
+        <div className="election-list" key={election.election_id}>
+          <div className="election-box">
             {/* <li className="collection-item avatar"> */}
-            <h5 className="admin-panel-ballot">Ballot</h5>
             <p>
               <b>{election.election_name}</b>
             </p>
@@ -156,12 +155,11 @@ class AdminPanel extends Component {
             >
               <button
                 id={election.election_id}
-                className="admin-panel-candidate-button"
+                className="add-candidate-btn"
               >
                 Add candidate
               </button>
             </Link>
-            &nbsp;&nbsp;&nbsp;
             <Link
               to={"/voteCount/" + election.election_id}
               className="title"
@@ -169,11 +167,10 @@ class AdminPanel extends Component {
             >
               <button
                 id={election.election_id}
-                className="admin-panel-candidate-button"
+                className="view-count-btn"
               >
                 View vote Count
               </button>
-              <br />
               <br />
             </Link>
             {/* </li> */}

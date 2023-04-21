@@ -100,13 +100,22 @@ class VoteCounting extends Component {
   render() {
     const electionList = this.state.candidates.map(candidates => {
       return (
-        <div className="contact" key={candidates.id}>
-          <li className="collection-item avatar">
-            <i className="material-icons circle blue darken-2">Ballot:<p><b>{candidates.name}</b></p></i>
+        // <div className="contact" key={candidates.id}>
+        //   <li className="collection-item avatar">
+        //     <i className="material-icons circle blue darken-2">Candidate Name:<p><b>{candidates.name}</b></p></i>
 
-            <p>{candidates.details} :<b>{candidates.voteCount}</b></p>
+        //     <p>Details: {candidates.details}
+        //       <br></br><b>Votes: {candidates.voteCount}</b></p>
 
-          </li>
+        //   </li>
+        // </div>
+        <div className="candidate-box" key={candidates.id}>
+          <h5>Candidate Name:</h5>
+          <h3><b>{candidates.name}</b></h3>
+          <h5>Details:</h5>
+          <h3>{candidates.details}</h3>
+          <h5>Votes:</h5>
+          <p><b>{candidates.voteCount}</b></p>
         </div>
       )
     })
@@ -134,13 +143,11 @@ class VoteCounting extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <div className="container">
-          <ul className="collection">
-            <li className="collection-item avatar">
-              <p className="title">Candidates</p>
-            </li>
-            {electionList}
-          </ul>
+        <div>
+          {/* <ul className="collection"> */}
+          <h2 className="title">CANDIDATES:</h2>
+          <div className="candidates-container">{electionList}</div>
+          {/* </ul> */}
         </div>
       </>
     );

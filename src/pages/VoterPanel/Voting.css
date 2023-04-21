@@ -123,6 +123,7 @@
 
 .election-item {
     display: flex;
+    width: 90%;
     justify-content: center;
     border: none;
     padding: 1rem;
@@ -173,3 +174,8 @@
 }
 
 /* New CSS End */
+
+.title {
+    margin: 3rem;
+    padding: 2rem;
+}

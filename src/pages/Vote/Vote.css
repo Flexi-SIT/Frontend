@@ -29,7 +29,7 @@
 }
 
 /* New CSS Start */
-.vote-item {
+/* .vote-item {
     display: flex;
     justify-content: center;
     border: none;
@@ -71,7 +71,7 @@
     line-height: 1.5;
     text-align: center;
     color: black;
-    /* background-color: #000000; */
+     background-color: #000000; 
     border: none;
     border-radius: 2rem;
     padding: 0.8rem 1.5rem;
@@ -100,6 +100,48 @@
 .vote-list:hover {
     transform: translateY(-2px);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-}
+} */
 
 /* New CSS End */
+
+.vote-list {
+    margin: 50px auto;
+    width: 80%;
+}
+
+.collection {
+    margin-top: 30px;
+}
+
+.vote-item {
+    border: 1px solid #ddd;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact p {
+    margin: 0;
+}
+
+.vote-button {
+    background-color: #6c757d;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.vote-button:hover {
+    background-color: #495057;
+}

@@ -8,9 +8,7 @@ import Web3 from "web3";
 import Election from "../../build/Election.json";
 import { Container } from "react-bootstrap";
 import { Row, Col } from "react-bootstrap";
-import img1 from "../../assets/9.jpg";
-import img2 from "../../assets/10.jpg";
-import img3 from "../../assets/11.jpg";
+
 import "./Vote.css";
 import NewElection from "../AdminPanel/NewElection";
 
@@ -148,9 +146,7 @@ class Vote extends Component {
 
         <div className="vote-list">
           <ul className="collection">
-            <li className="collection-item avatar">
-              <h3>Candidates</h3>
-            </li>
+            <h3>Candidates</h3>
             {electionList}
           </ul>
         </div>

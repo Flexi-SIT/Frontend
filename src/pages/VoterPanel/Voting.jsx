@@ -61,7 +61,6 @@ class Voting extends Component {
         <div className="election-item" key={election.election_id}>
           <div className="voting-contact">
             {/* <li className="collection-item avatar"> */}
-            <p >Election Name:</p>
             <Link
               to={"/vote/" + election.election_id}
               className="voting-title"
@@ -98,7 +97,9 @@ class Voting extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
+        <h1 class="title">Elections:</h1>
         <div className="election-list">
+
           {/* <ul className="collection">
             <li className="collection-item avatar">
               <h3>Elections</h3>
