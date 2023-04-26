@@ -162,7 +162,6 @@
 }
 
 /* Media Queries */
-
 @media screen and (max-width: 1440px) {
     .main-img {
         margin-top: 2rem !important;
@@ -178,7 +177,7 @@
     }
         
     .web-text-right {
-        left: 60rem !important;
+        left: 55rem !important;
         top: 10.2rem !important;
         font-size: 2.7rem !important;
     }
@@ -188,27 +187,27 @@
     }
         
     .web-text-right-p {
-        left: 60rem !important;
+        left: 55rem !important;
         top: 20rem !important;
         font-size: 1.5rem !important;
     }
         
     .submit-button-admin {
-        left: 70rem !important;
-        top: 29rem !important;
+        left: 54rem !important;
+        top: 34rem !important;
         width: 13rem !important;
         height: 2.4rem !important;
     }
         
     .submit-button-company {
-        left: 55rem !important;
+        left: 54rem !important;
         top: 29rem !important;
         width: 13rem !important;
         height: 2.4rem !important;
     }
         
     .submit-button-register {
-        left: 55rem !important;
+        left: 56rem !important;
         top: 20rem !important;
         width: 13rem !important;
         height: 2.4rem !important;
@@ -269,22 +268,22 @@
 
 @media screen and (max-width: 768px) {
     .main-img {
-        width: 20rem !important;
+        width: 18rem !important;
         margin-left: 7.6rem !important;
-        margin-top: -4.7rem !important;
+        /* margin-top: -.7rem !important; */
     }
 
     .web-text-left {
         margin-top: -5rem !important;
-        font-size: 3.7rem !important;
-        line-height: 5rem !important;
-        top: 12rem !important;
+        font-size: 3.5rem !important;
+        line-height: 3.9rem !important;
+        top: 14rem !important;
     }
 
     .web-text-right {
-        left: 34rem !important;
-        top: 6.2rem !important;
-        font-size: 2.2rem !important;
+        left: 30rem !important;
+        top: 3.2rem !important;
+        font-size: 2rem !important;
 
     }
 
@@ -293,8 +292,8 @@
     }
 
     .web-text-right-p {
-        left: 34rem !important;
-        top: 14rem !important;
+        left: 32rem !important;
+        top: 11rem !important;
         font-size: 1rem !important;
     }
 
