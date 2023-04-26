@@ -55,6 +55,12 @@ class Voting extends Component {
       id: id,
     });
   };
+
+  handleLogout() {
+    localStorage.setItem('voter', false)
+    window.location.href = 'http://localhost:3000/voter';
+  }
+
   render() {
     const electionList = this.state.final.map((election) => {
       return (
@@ -93,6 +99,9 @@ class Voting extends Component {
               </Nav.Link>
               <Nav.Link className="px-4 nav-items" href="/">
                 Home
+              </Nav.Link>
+              <Nav.Link className="px-4 nav-items" onClick={this.handleLogout}>
+                Log Out
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

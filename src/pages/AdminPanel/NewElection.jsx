@@ -34,6 +34,7 @@ class NewElection extends Component {
       .catch(function (err) {
         console.error(err);
       });
+    window.location.href = 'http://localhost:3000/adminPanel'
   };
 
   render() {

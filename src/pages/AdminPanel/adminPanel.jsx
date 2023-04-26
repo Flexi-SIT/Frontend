@@ -102,11 +102,15 @@ class AdminPanel extends Component {
       final: [],
       id: null,
     };
+    this.handleLogout = this.handleLogout.bind(this); // bind the method to the component's context
   }
 
+  handleLogout() {
+    localStorage.setItem('admin', false)
+    window.location.href = 'http://localhost:3000/admin';
+  }
   componentDidMount() {
     let currentComponent = this;
-
     axios
       .get("http://localhost:3001/api/electionName", {})
       .then(function (response) {
@@ -137,6 +141,8 @@ class AdminPanel extends Component {
       id: id,
     });
   };
+
+
 
   render() {
     const electionList = this.state.final.map((election) => {
@@ -201,6 +207,9 @@ class AdminPanel extends Component {
               </Nav.Link>
               <Nav.Link className="px-4 nav-items" href="/adminPanel">
                 Current Elections
+              </Nav.Link>
+              <Nav.Link className="px-4 nav-items" onClick={this.handleLogout}>
+                Log Out
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

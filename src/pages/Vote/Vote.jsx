@@ -97,6 +97,11 @@ class Vote extends Component {
       selectedId: null,
     };
   }
+
+  handleLogout() {
+    localStorage.setItem('voter', false)
+    window.location.href = 'http://localhost:3000/voter';
+  }
   render() {
     const electionList = this.state.candidates.map((candidates) => {
       return (
@@ -137,8 +142,11 @@ class Vote extends Component {
             className="justify-content-end"
           >
             <Nav className="px-2 mr-auto">
-              <Nav.Link className="px-4 nav-items" href="/vote">
+              <Nav.Link className="px-4 nav-items" href="/voting">
                 Elections
+              </Nav.Link>
+              <Nav.Link className="px-4 nav-items" onClick={this.handleLogout}>
+                Log Out
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

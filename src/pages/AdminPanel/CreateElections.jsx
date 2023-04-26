@@ -14,7 +14,13 @@ import VoteCount from "./VoteCount";
 import "./CreateElection.css";
 import img1 from "../../assets/6.svg";
 
+function handleLogout() {
+  localStorage.setItem('admin', false)
+  window.location.href = 'http://localhost:3000/voter';
+}
+
 const CreateElections = () => {
+
   return (
     <>
       <Navbar className="color-nav" bg="invisible" expand="lg" variant="light ">
@@ -31,6 +37,10 @@ const CreateElections = () => {
             <Nav.Link className="px-4 nav-items" href="/adminPanel">
               Current Elections
             </Nav.Link>
+            <Nav.Link className="px-4 nav-items" onClick={handleLogout}>
+              Log Out
+            </Nav.Link>
+
           </Nav>
         </Navbar.Collapse>
       </Navbar>

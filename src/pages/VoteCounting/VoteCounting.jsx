@@ -9,6 +9,10 @@ import Election from '../../build/Election.json'
 import "./VoteCounting.css";
 
 class VoteCounting extends Component {
+  handleLogout() {
+    localStorage.setItem('admin', false)
+    window.location.href = 'http://localhost:3000/admin';
+  }
   async componentWillMount() {
     await this.loadWeb3()
     await this.loadBlockchainData()
@@ -139,6 +143,9 @@ class VoteCounting extends Component {
               </Nav.Link>
               <Nav.Link className="px-4 nav-items" href="/adminPanel">
                 Current Elections
+              </Nav.Link>
+              <Nav.Link className="px-4 nav-items" onClick={this.handleLogout}>
+                Log Out
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>

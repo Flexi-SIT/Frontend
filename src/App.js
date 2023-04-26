@@ -19,23 +19,25 @@ import "bootstrap/dist/css/bootstrap.min.css";
 //import 'semantic-ui-css/semantic.min.css'
 
 function App() {
+  let adminCheck = localStorage.getItem('admin');
+  console.log(adminCheck)
+  let voterCheck = localStorage.getItem('voter');
+  console.log(voterCheck)
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/voter" element={<VoterLoginSection />} />
         <Route path="/admin" element={<AdminLoginSection />} />
-        <Route path="/election/vote" element={<VotingList />} />
+        {/* {voterCheck == "true" && <Route path="/election/vote" element={<VotingList />} />} */}
         <Route path="/voter-registration" element={<VoterRegistration />} />
-        <Route path="/voting" element={<Voting />} />
-        <Route path="/voteCount/:id" element={<VoteCounting />} />
-        <Route path="/audit" element={<Audit />} />
-        <Route path="/adminPanel" element={<AdminPanel />} />
+        {voterCheck == "true" && <Route path="/voting" element={<Voting />} />}
+        {voterCheck == "true" && <Route path="/vote/:id" element={<Vote />} />}
 
-        <Route path="/create-election" element={<CreateElections />} />
-        <Route path="/candidates/:id" element={<NewCandidate />} />
-        <Route path="/vote/:id" element={<Vote />} />
-
+        {adminCheck == "true" && <Route path="/adminPanel" element={<AdminPanel />} />}
+        {adminCheck == "true" && <Route path="/create-election" element={<CreateElections />} />}
+        {adminCheck == "true" && <Route path="/voteCount/:id" element={<VoteCounting />} />}
+        {adminCheck == "true" && <Route path="/candidates/:id" element={<NewCandidate />} />}
 
 
       </Routes>

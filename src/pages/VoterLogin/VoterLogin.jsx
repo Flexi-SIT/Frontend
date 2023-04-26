@@ -19,6 +19,7 @@ function LoginSection() {
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     console.log("Registered");
+    localStorage.setItem('voter', 'true')
   };
 
   useEffect(() => {
@@ -31,6 +32,7 @@ function LoginSection() {
 
     gapi.load("client:auth2", start);
   });
+
 
   //Axios.post("http://localhost:3002/voterdata", { email: email, password: pass });
 
@@ -63,7 +65,7 @@ function LoginSection() {
           ></input>
           <br />
           <br />
-          <input type="submit" className="voter-login-submit" />
+          <input type="submit" className="voter-login-submit" onClick={handleSubmit} />
         </form>
         {/* <Form className='mb-4' onSubmit={handleSubmit} method="POST" action="/voterdata">
           <Form.Group className="mb-4 login-email" controlId="formBasicEmail">

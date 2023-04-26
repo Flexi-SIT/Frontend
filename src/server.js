@@ -37,22 +37,31 @@ app.post('/voter', (req, res) => {
     })
 });
 
-app.post('/admin', (req, res) => {
+app.post('/admin', async (req, res) => {
 
     const email = req.body.email
     const pass = req.body.pass;
-    const voter = new AdminModel({ email: req.body.email, password: req.body.pass })
-    // console.log(req.body)
-    // console.log(req.body.email);
+    const admin = new AdminModel({ email: req.body.email, password: req.body.password })
 
 
-    //const voter = new VoterModel(req.body);
-    voter.save().then(() => {
-        console.log("Success");
-        res.redirect("http://localhost:3000/adminPanel")
-    }).catch((err) => {
-        console.log(err);
-    })
+    const user = await AdminModel.findOne({ email: req.body.email });
+    console.log(req.body.email)
+    if (!user) {
+        return res.status(404).send({ message: 'User not found' });
+    }
+
+    if (user.password !== req.body.password) {
+        return res.status(401).send({ message: 'Incorrect password' });
+    }
+    res.status(200).json({ message: 'Login successful' });
+
+
+    // admin.save().then(() => {
+    //     console.log("Success");
+    //     res.redirect("http://localhost:3000/adminPanel")
+    // }).catch((err) => {
+    //     console.log(err);
+    // })
 });
 
 //Add election
