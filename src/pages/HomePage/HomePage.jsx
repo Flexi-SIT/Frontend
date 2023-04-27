@@ -40,9 +40,10 @@ const HomePage = () => {
         </Navbar.Collapse>
       </Navbar>
       <Carousel activeIndex={index1} onSelect={handleSelect1}>
+        {/* First slide */}
         <Carousel.Item>
-          <Container fluid className="main-container">
-            <Row>
+          <Container fluid className="main-container vh-100 d-flex flex-column">
+            <Row className="flex-grow-1">
               <Col className="justify-content-center align-items-center">
                 <img src={mainimg} className="main-img" alt="main-img" />
               </Col>
@@ -68,6 +69,10 @@ const HomePage = () => {
                   <br />
                   e-voting platform.
                 </h5>
+              </Col>
+            </Row>
+            <Row>
+              <Col className="d-flex justify-content-center">
                 <Button
                   variant="dark"
                   type="submit"
@@ -88,9 +93,11 @@ const HomePage = () => {
             </Row>
           </Container>
         </Carousel.Item>
+
+        {/* Second slide */}
         <Carousel.Item>
-          <Container fluid className="main-container">
-            <Row>
+          <Container fluid className="main-container vh-100 d-flex flex-column">
+            <Row className="flex-grow-1">
               <Col className="justify-content-center align-items-center">
                 <img src={mainimg} className="main-img" alt="main-img" />
               </Col>
@@ -104,6 +111,10 @@ const HomePage = () => {
               </Col>
               <Col className="text-container justify-content-center align-items-center right-text">
                 <h3 className="web-text-right-2">ONGOING POLL</h3>
+              </Col>
+            </Row>
+            <Row>
+              <Col className="d-flex justify-content-center">
                 <Button
                   variant="dark"
                   type="submit"
@@ -112,7 +123,6 @@ const HomePage = () => {
                 >
                   Register
                 </Button>
-                <br />
               </Col>
             </Row>
           </Container>

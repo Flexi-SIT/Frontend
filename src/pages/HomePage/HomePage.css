@@ -12,7 +12,7 @@
 }
 
 .main-img {
-    margin-top: 15rem;
+    margin-top: 4rem;
     margin-left: 20rem;
     width: 24.8rem;
 }
@@ -20,7 +20,7 @@
 .left-text {
     margin-left: -80rem;
     margin-bottom: -23rem;
-    
+
 }
 
 .right-text {
@@ -38,7 +38,7 @@
     position: absolute;
     width: 47rem;
     height: 50rem;
-    left: -.5rem;
+    left: -8rem !important;
     top: 8rem !important;
 }
 
@@ -46,13 +46,13 @@
     position: absolute;
     width: 28rem;
     height: 1rem;
-    left: 60rem;
-    top: 8.5rem !important;
+    left: 50rem !important;
+    top: 8rem !important;
     letter-spacing: .189rem;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 800;
-    font-size: 3.9rem;
+    font-size: 3rem;
     line-height: 99%;
     color: #000000;
 }
@@ -61,7 +61,7 @@
     position: absolute;
     width: 30rem;
     height: 2.78rem;
-    left: 55rem;
+    left: 50rem !important;
     top: 15.59rem;
     font-family: 'Montserrat';
     font-style: normal;
@@ -76,7 +76,7 @@
     width: 21rem;
     height: 6rem;
     left: 58rem !important;
-    top: 20.6rem !important;
+    top: 19.6rem !important;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
@@ -85,7 +85,7 @@
     color: #454545;
 }
 
-.web-text-right-p > span {
+.web-text-right-p>span {
     font-weight: 700;
 }
 
@@ -93,30 +93,30 @@
     position: absolute;
     width: 18rem;
     height: 2.8rem;
-    left: 60rem;
-    top: 3rem;
+    left: 50rem;
+    top: 24rem;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
     font-size: 1.75rem;
     line-height: 103.5%;
     text-align: center;
-    color: #000000;
+    /* color: #000000; */
 }
 
 .submit-button-company {
     position: absolute;
     width: 18rem;
     height: 2.8rem;
-    left: 60rem;
-    top: 38rem;
+    left: 55rem;
+    top: 28rem;
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
     font-size: 1.75rem;
     line-height: 103.5%;
     text-align: center;
-    color: #000000;
+    /* color: #000000; */
 }
 
 .submit-button-register {
@@ -131,7 +131,7 @@
     font-size: 1.75rem;
     line-height: 103.5%;
     text-align: center;
-    color: #000000;
+    /* color: #000000; */
 }
 
 .container-uses-register {
@@ -162,6 +162,7 @@
 }
 
 /* Media Queries */
+
 @media screen and (max-width: 1440px) {
     .main-img {
         margin-top: 2rem !important;
@@ -170,42 +171,43 @@
     }
 
     .web-text-left {
+        margin-left: -4rem !important;
         margin-top: -2rem !important;
-        font-size: 6.7rem !important;
-        line-height: 6.7rem !important;
-        top: 10rem !important;
+        font-size: 7.7rem !important;
+        line-height: 7.2rem !important;
+        top: 15rem !important;
     }
-        
+
     .web-text-right {
-        left: 55rem !important;
+        left: 45rem !important;
         top: 10.2rem !important;
         font-size: 2.7rem !important;
     }
-        
+
     .web-text-right-2 {
-        left: 55rem !important;
+        left: 47rem !important;
     }
-        
+
     .web-text-right-p {
-        left: 55rem !important;
+        left: 52rem !important;
         top: 20rem !important;
         font-size: 1.5rem !important;
     }
-        
+
     .submit-button-admin {
         left: 54rem !important;
         top: 34rem !important;
         width: 13rem !important;
         height: 2.4rem !important;
     }
-        
+
     .submit-button-company {
         left: 54rem !important;
         top: 29rem !important;
         width: 13rem !important;
         height: 2.4rem !important;
     }
-        
+
     .submit-button-register {
         left: 56rem !important;
         top: 20rem !important;
@@ -221,44 +223,45 @@
     }
 
     .web-text-left {
+        margin-left: -6rem !important;
         margin-top: -2rem !important;
         font-size: 5.7rem !important;
         line-height: 6.7rem !important;
-        top: 13rem !important;
+        top: 10rem !important;
     }
 
     .web-text-right {
-        left: 45rem !important;
+        left: 32rem !important;
         top: 10.2rem !important;
         font-size: 2.9rem !important;
     }
-        
+
     .web-text-right-2 {
-        left: 45rem !important;
+        left: 33rem !important;
     }
-        
+
     .web-text-right-p {
-        left: 45rem !important;
+        left: 37rem !important;
         top: 20rem !important;
         font-size: 1.1rem !important;
     }
 
     .submit-button-admin {
-        left: 45rem !important;
+        left: 42rem !important;
         top: 25rem !important;
         width: 13rem !important;
         height: 2.4rem !important;
     }
-        
+
     .submit-button-company {
-        left: 45rem !important;
+        left: 42rem !important;
         top: 29rem !important;
         width: 13rem !important;
         height: 2.4rem !important;
     }
-        
+
     .submit-button-register {
-        left: 45rem !important;
+        left: 42rem !important;
         top: 22rem !important;
         width: 13rem !important;
         height: 2.4rem !important;
@@ -274,6 +277,7 @@
     }
 
     .web-text-left {
+        margin-left: -9rem !important;
         margin-top: -5rem !important;
         font-size: 3.5rem !important;
         line-height: 3.9rem !important;
@@ -281,41 +285,42 @@
     }
 
     .web-text-right {
-        left: 30rem !important;
-        top: 3.2rem !important;
+        left: 20rem !important;
+        top: 4.2rem !important;
         font-size: 2rem !important;
 
     }
 
     .web-text-right-2 {
-        left: 34rem !important;
+        top: 10rem !important;
+        left: 20rem !important;
     }
 
     .web-text-right-p {
-        left: 32rem !important;
+        left: 27rem !important;
         top: 11rem !important;
         font-size: 1rem !important;
     }
 
     .submit-button-admin {
-        left: 34rem !important;
-        top: 19rem !important;
+        left: 30rem !important;
+        top: 16rem !important;
         width: 10rem !important;
         height: 2.4rem !important;
         font-size: .8rem !important;
     }
 
     .submit-button-company {
-        left: 34rem !important;
-        top: 22rem !important;
+        left: 30rem !important;
+        top: 20rem !important;
         width: 10rem !important;
         height: 2.4rem !important;
         font-size: .8rem !important;
     }
 
     .submit-button-register {
-        left: 34rem !important;
-        top: 19rem !important;
+        left: 29rem !important;
+        top: 14rem !important;
         width: 10rem !important;
         height: 2.4rem !important;
         font-size: .8rem !important;
@@ -326,15 +331,15 @@
     .main-img {
         width: 15rem !important;
         margin-left: 7.6rem !important;
-        margin-top: -7rem !important;
+        /* margin-top: -7rem !important; */
     }
-        
+
     .web-text-left {
-        margin-top: -4.6rem !important;
+        margin-top: -7.6rem !important;
         font-size: 3.7rem !important;
-        line-height: 4.1rem !important;
+        line-height: 4rem !important;
     }
-        
+
     /* .web-text-right {
         display: flex;
         flex-direction: row;
@@ -342,20 +347,22 @@
         top: 6.2rem !important;
         font-size: 2.2rem !important;
     } */
-        
+
     .web-text-right-2 {
-        left: 3rem !important;
+        margin-left: -7rem !important;
+        left: 1rem !important;
         top: 24rem !important;
     }
-        
-     .web-text-right-p {
+
+    .web-text-right-p {
         display: flex;
         flex-direction: column;
-        left: 3rem !important;
+        margin-left: -2rem !important;
+        left: 1rem !important;
         top: 22.5rem !important;
         font-size: 1.1rem !important;
     }
-        
+
     .submit-button-admin {
         left: 3rem !important;
         top: 28.8rem !important;
@@ -363,7 +370,7 @@
         height: 2rem !important;
         font-size: .7rem !important;
     }
-        
+
     .submit-button-company {
         left: 3rem !important;
         top: 31.5rem !important;
@@ -371,7 +378,7 @@
         height: 2rem !important;
         font-size: .7rem !important;
     }
-        
+
     .submit-button-register {
         left: 3rem !important;
         top: 27rem !important;

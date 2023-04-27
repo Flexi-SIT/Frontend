@@ -7,8 +7,8 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./NewCandidate.css";
 import img1 from "../../assets/5.svg";
-import { useCookies } from 'react-cookie';
-import { withCookies } from 'react-cookie';
+import { useCookies } from "react-cookie";
+import { withCookies } from "react-cookie";
 
 class NewCandidate extends Component {
   constructor(props) {
@@ -22,13 +22,12 @@ class NewCandidate extends Component {
     };
     this.addCandidates = this.addCandidates.bind(this);
     this.handleLogout = this.handleLogout.bind(this); // bind the method to the component's context
-
   }
   handleLogout() {
     const { cookies } = this.props;
-    cookies.set('adminLoggedIn', false);
-    localStorage.setItem('admin', false)
-    window.location.href = 'http://localhost:3000/admin';
+    cookies.set("adminLoggedIn", false);
+    localStorage.setItem("admin", false);
+    window.location.href = "http://localhost:3000/admin";
   }
   async componentWillMount() {
     await this.loadWeb3();
@@ -92,8 +91,6 @@ class NewCandidate extends Component {
       });
   }
 
-
-
   componentDidMount() {
     //let id = this.props.match.params.id;
     const pathParts = window.location.pathname.split("/");
@@ -105,14 +102,14 @@ class NewCandidate extends Component {
 
   render() {
     const { cookies } = this.props;
-    console.log(cookies.get('adminLoggedIn'));
-    if (cookies.get('adminLoggedIn') == 'false') {
-      console.log("sauoyduasydiu")
+    console.log(cookies.get("adminLoggedIn"));
+    if (cookies.get("adminLoggedIn") == "false") {
+      console.log("sauoyduasydiu");
       return (
         <>
           <h1>You have not logged in</h1>
         </>
-      )
+      );
     }
     //DESIGN CODE HERE:
     return (
@@ -150,13 +147,13 @@ class NewCandidate extends Component {
             <Col className="img-container justify-content-center align-items-center">
               <img src={img1} className="candidate-img" alt="img-1" />
             </Col>
-            <Col className="text-container justify-content-center align-items-center candidate-left">
+            {/* <Col className="text-container justify-content-center align-items-center candidate-left">
               <h1 className="candidate-left-text">
                 ADD <br /> CANDI
                 <br />
                 DATE
               </h1>
-            </Col>
+            </Col> */}
             <Col className="justify-content-center align-items-center candidate-right">
               <div className="container">
                 <form onSubmit={this.handleSubmit}>

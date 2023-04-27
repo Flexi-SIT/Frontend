@@ -1,5 +1,6 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { Container } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Login from "./Login";
@@ -19,7 +20,7 @@ function LoginSection() {
   const navigate = useNavigate();
   const handleSubmit = (event) => {
     console.log("Registered");
-    localStorage.setItem('voter', 'true')
+    localStorage.setItem("voter", "true");
   };
 
   useEffect(() => {
@@ -33,61 +34,50 @@ function LoginSection() {
     gapi.load("client:auth2", start);
   });
 
-
   //Axios.post("http://localhost:3002/voterdata", { email: email, password: pass });
 
   return (
-    <Row className="voter-login-container">
-      <Col className=" justify-content-center align-items-center voter-login-img">
-        <img src={img1} alt="login" className="login-img" />
-      </Col>
-      <Col className="text-container justify-content-center align-item-center voter-login-container-right">
-        <form method="POST" action="http://localhost:3001/voter">
-          <label htmlFor="name" className="voter-login-label">
-            Email
-          </label>
-          <br />
-          <input
-            type="email"
-            name="email"
-            className="voter-login-input"
-          ></input>
-          <br />
-          <br />
-          <label htmlFor="name" className="voter-login-label">
-            Password
-          </label>
-          <br />
-          <input
-            type="password"
-            name="pass"
-            className="voter-login-input"
-          ></input>
-          <br />
-          <br />
-          <input type="submit" className="voter-login-submit" onClick={handleSubmit} />
-        </form>
-        {/* <Form className='mb-4' onSubmit={handleSubmit} method="POST" action="/voterdata">
-          <Form.Group className="mb-4 login-email" controlId="formBasicEmail">
-            <Form.Control type="email" placeholder='Email Address' className='email-input' id="email" />
-          </Form.Group>
-
-          <Form.Group className="mb-4 login-password" controlId="formBasicEmail">
-            <Form.Control type="password" placeholder='Password' className='password-input' id="pass" />
-          </Form.Group>
-
-          <Form.Group className="mb-3" controlId="formBasicCheckbox">
-            <Form.Check type="checkbox" label="Remember Me" />
-          </Form.Group>
-          <Button variant="primary" type="submit" className='submit-button'>
-            SIGN IN
-          </Button>
-          <hr className='hrr' />
-          <Login />
-        </Form> */}
-        {/* <Logout /> */}
-      </Col>
-    </Row>
+    <Container>
+      <Row className="adminn-container">
+        <Col className="img-container justify-content-center-align-items-center">
+          <img src={img1} className="adminn-container-image" alt="img-1" />
+        </Col>
+        <Col className="text-container justify-content-center adminn-container-right">
+          <form method="POST" action="http://localhost:3001/voter">
+            <label htmlFor="name" className="adminn-container-label">
+              Email
+            </label>
+            <br />
+            <input
+              type="email"
+              name="email"
+              className="adminn-container-input"
+            ></input>
+            <br />
+            <br />
+            <label htmlFor="name" className="adminn-container-label">
+              Password
+            </label>
+            <br />
+            <input
+              type="password"
+              name="pass"
+              className="adminn-container-input"
+            ></input>
+            <br />
+            <br />
+            <input type="submit" className="adminn-container-submit" />
+          </form>
+        </Col>
+        {/* <Col className="text-container justify-content-center align-items-center admin-container-left">
+          <h1 className="admin-container-left-text">
+            ADMIN
+            <br />
+            LOGIN
+          </h1>
+        </Col> */}
+      </Row>
+    </Container>
   );
 }
 
