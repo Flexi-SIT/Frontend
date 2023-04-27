@@ -2,24 +2,21 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import VoterLoginSection from "./pages/VoterLogin/VoterLogin";
 import AdminLoginSection from "./pages/AdminLogin/AdminLogin";
 import HomePage from "./pages/HomePage/HomePage";
-import VotingList from "./pages/election/VotingList";
 import VoteCounting from "./pages/VoteCounting/VoteCounting";
 import VoterRegistration from "./pages/VoterRegistration/VoterRegistration";
 import Voting from "./pages/VoterPanel/Voting";
-import Audit from "./pages/Audit/Audit";
 
 import Vote from "./pages/Vote/Vote"
 import AdminPanel from "./pages/AdminPanel/adminPanel"
 import CreateElections from "./pages/AdminPanel/CreateElections"
 import NewCandidate from "./pages/AdminPanel/NewCandidate"
 
-
-
+//Importing Bootstrap for the whole application
 import "bootstrap/dist/css/bootstrap.min.css";
-//import 'semantic-ui-css/semantic.min.css'
 
 function App() {
   return (
+    //Routes protected by cookies in the components itself
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />

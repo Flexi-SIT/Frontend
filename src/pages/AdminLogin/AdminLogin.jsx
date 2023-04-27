@@ -8,9 +8,8 @@ import { gapi } from "gapi-script";
 import img1 from "../../assets/7.svg";
 import "./AdminLogin.css";
 
-import { Link, Routes, Route, useNavigate } from "react-router-dom";
-import Axios from "axios";
 
+//For OAuth, future scope
 const clientID =
   "630166332593-b2k4a2l3lq0rr8d1ko70g12qdnjb5i5a.apps.googleusercontent.com";
 
@@ -18,15 +17,14 @@ function LoginSection() {
   const [cookies, setCookie] = useCookies(['adminLoggedIn']);
   console.log(cookies.adminLoggedIn);
 
-  const navigate = useNavigate();
   const handleFormSubmit = async (event) => {
+    //To define custom behavior
     event.preventDefault();
 
     const emailInput = event.target.email.value;
     const passwordInput = event.target.pass.value;
 
-    //Cookies
-
+    //Sending post HTTP request and fetching data asynchronously
     const response = await fetch('http://localhost:3001/admin', {
       method: 'POST',
       headers: {
@@ -37,20 +35,20 @@ function LoginSection() {
         password: passwordInput
       })
     });
+
     const data = await response.json();
     console.log(data)
     if (response.ok) {
       setCookie('adminLoggedIn', true);
-      // Redirect to admin panel
       window.location.href = 'http://localhost:3000/adminPanel';
     } else {
-      // Display error message
       alert(data.message);
     }
 
-    //setting admin logged in state to true
-    localStorage.setItem('admin', 'true');
   };
+
+
+  //Initializing GAPI after component has rendered
   useEffect(() => {
     function start() {
       gapi.client.init({
@@ -58,7 +56,6 @@ function LoginSection() {
         scope: "",
       });
     }
-
     gapi.load("client:auth2", start);
   });
 
@@ -70,7 +67,6 @@ function LoginSection() {
           <img src={img1} className="adminn-container-image" alt="img-1" />
         </Col>
         <Col className="text-container justify-content-center adminn-container-right">
-          {/* <form method="POST" action="http://localhost:3001/admin"> */}
           <form onSubmit={handleFormSubmit}>
             <label htmlFor="name" className="adminn-container-label">
               Email
@@ -97,13 +93,6 @@ function LoginSection() {
             <input type="submit" className="adminn-container-submit" />
           </form>
         </Col>
-        {/* <Col className="text-container justify-content-center align-items-center admin-container-left">
-          <h1 className="admin-container-left-text">
-            ADMIN
-            <br />
-            LOGIN
-          </h1>
-        </Col> */}
       </Row>
     </Container>
   );

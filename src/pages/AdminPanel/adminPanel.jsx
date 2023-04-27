@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
 import { Component } from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -7,7 +6,6 @@ import "swiper/css";
 import "./AdminPanel.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useCookies } from 'react-cookie';
 import { withCookies } from 'react-cookie';
 
 class AdminPanel extends Component {
@@ -22,12 +20,14 @@ class AdminPanel extends Component {
     };
     this.handleLogout = this.handleLogout.bind(this); // bind the method to the component's context
   }
+
   handleLogout() {
     const { cookies } = this.props;
     cookies.set('adminLoggedIn', false);
     localStorage.setItem('admin', false)
     window.location.href = 'http://localhost:3000/admin';
   }
+
   componentDidMount() {
     let currentComponent = this;
     axios
@@ -35,9 +35,6 @@ class AdminPanel extends Component {
       .then(function (response) {
         var data = response.data;
         currentComponent.setState({
-          // election_name: data[0],
-          // election_organizer: data[1],
-          // election_id: data[2],
           final: data,
         });
       })
@@ -61,8 +58,6 @@ class AdminPanel extends Component {
     });
   };
 
-
-
   render() {
 
     //If admin is not logged in display:
@@ -76,7 +71,7 @@ class AdminPanel extends Component {
       )
     }
 
-    //if admin is logged in carry all of this out
+    //to display list of elections
     const electionList = this.state.final.map((election) => {
       return (
         <div className="election-list" key={election.election_id}>
@@ -111,7 +106,6 @@ class AdminPanel extends Component {
               </button>
               <br />
             </Link>
-            {/* </li> */}
           </div>
         </div>
       );
@@ -126,7 +120,6 @@ class AdminPanel extends Component {
           expand="lg"
           variant="light "
         >
-          {/* <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand> */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse
             id="basic-navbar-nav"
@@ -149,13 +142,7 @@ class AdminPanel extends Component {
           </Navbar.Collapse>
         </Navbar>
         <div className="admin-panel-container">
-          {/* <h1 className="admin-container-text">Election</h1> */}
           {electionList}
-          {/* <ul className="collection">
-            <li className="collection-item avatar">
-              <h3>Elections</h3>
-            </li>
-          </ul> */}
         </div>
       </>
     );

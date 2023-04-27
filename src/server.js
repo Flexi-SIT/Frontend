@@ -1,5 +1,10 @@
+//Running local server on Express
 const express = require('express');
+
+//MongoDB through Mongoose
 const mongoose = require('mongoose');
+
+//Protect against cross-site scripting attacks
 const cors = require('cors');
 const app = express();
 
@@ -11,26 +16,21 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cors())
 
-
+//Connecting to MongoDB Cloud
 mongoose.connect("mongodb+srv://vardh:vardh@cluster0.aggcl0r.mongodb.net/voters?retryWrites=true&w=majority", {
     useNewUrlParser: true,
 });
+
+
+//For first entry, creation of voterdata:
 //const voter = new VoterModel({ email: "vardh@gmail", password: "2133414" })
 //VoterModel.insertMany(voter, function (error, docs) { });
 
 
-
 app.post('/voter', (req, res) => {
 
-    // const email = req.body.email
-    // const pass = req.body.password;
-
     const voter = new VoterModel({ email: req.body.email, password: req.body.password })
-    // console.log(req.body)
-    // console.log(req.body.email);
 
-
-    //const voter = new VoterModel(req.body);
     voter.save().then(() => {
         res.status(200).json({ message: 'Login successful' });
         console.log("Success");
@@ -42,11 +42,6 @@ app.post('/voter', (req, res) => {
 
 app.post('/admin', async (req, res) => {
 
-    const email = req.body.email
-    const pass = req.body.pass;
-    const admin = new AdminModel({ email: req.body.email, password: req.body.password })
-
-
     const user = await AdminModel.findOne({ email: req.body.email });
     console.log(req.body.email)
     if (!user) {
@@ -57,17 +52,10 @@ app.post('/admin', async (req, res) => {
         return res.status(401).send({ message: 'Incorrect password' });
     }
     res.status(200).json({ message: 'Login successful' });
-
-
-    // admin.save().then(() => {
-    //     console.log("Success");
-    //     res.redirect("http://localhost:3000/adminPanel")
-    // }).catch((err) => {
-    //     console.log(err);
-    // })
 });
 
-//Add election
+
+//Get election List to map
 app.get('/api/electionName', function (req, res) {
     var electionNames = []
     var electionOrganizers = []
@@ -88,6 +76,7 @@ app.get('/api/electionName', function (req, res) {
     })
 })
 
+//Create new election
 app.post('/api/electionName', async function (req, res) {
     electionName.create({
         election_id: Math.floor(Math.random() * 100),
@@ -99,6 +88,7 @@ app.post('/api/electionName', async function (req, res) {
     });
 });
 
+//Server running on port 3001
 app.listen(3001, () => {
     console.log("Server running on port 3001")
 });

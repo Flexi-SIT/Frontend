@@ -29,6 +29,7 @@ class NewCandidate extends Component {
     localStorage.setItem("admin", false);
     window.location.href = "http://localhost:3000/admin";
   }
+
   async componentWillMount() {
     await this.loadWeb3();
     console.log("Check");
