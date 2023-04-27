@@ -108,7 +108,7 @@ class NewCandidate extends Component {
       console.log("sauoyduasydiu");
       return (
         <>
-          <h1>You have not logged in</h1>
+          <h1 className="new-candidate-logout">You have not logged in</h1>
         </>
       );
     }

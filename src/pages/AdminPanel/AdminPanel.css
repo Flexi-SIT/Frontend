@@ -291,3 +291,11 @@ transition: all 0.3s ease-in-out;
 .view-count-btn {
     margin-top: 10px;
 }
+
+.admin-panel-logout {
+    font-family: 'Montserrat';
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}

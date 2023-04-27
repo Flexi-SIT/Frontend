@@ -87,6 +87,14 @@
     opacity: 1;
 }
 
+.new-candidate-logout {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
 @media screen and (max-width: 768px) {
     .candidate-right {
         padding: 3rem;

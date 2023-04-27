@@ -25,7 +25,7 @@ const CreateElections = () => {
   if (cookies.adminLoggedIn == "false") {
     return (
       <>
-        <h1>You have not logged in</h1>
+        <h1 className="create-election-logout">You have not logged in</h1>
       </>
     );
   }

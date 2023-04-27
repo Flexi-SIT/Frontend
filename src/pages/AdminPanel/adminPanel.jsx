@@ -6,7 +6,7 @@ import "swiper/css";
 import "./AdminPanel.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { withCookies } from 'react-cookie';
+import { withCookies } from "react-cookie";
 
 class AdminPanel extends Component {
   constructor(props) {
@@ -23,9 +23,9 @@ class AdminPanel extends Component {
 
   handleLogout() {
     const { cookies } = this.props;
-    cookies.set('adminLoggedIn', false);
-    localStorage.setItem('admin', false)
-    window.location.href = 'http://localhost:3000/admin';
+    cookies.set("adminLoggedIn", false);
+    localStorage.setItem("admin", false);
+    window.location.href = "http://localhost:3000/admin";
   }
 
   componentDidMount() {
@@ -59,16 +59,15 @@ class AdminPanel extends Component {
   };
 
   render() {
-
     //If admin is not logged in display:
     const { cookies } = this.props;
-    console.log(cookies.get('adminLoggedIn'));
-    if (cookies.get('adminLoggedIn') == 'false') {
+    console.log(cookies.get("adminLoggedIn"));
+    if (cookies.get("adminLoggedIn") == "false") {
       return (
         <>
-          <h1>You have not logged in</h1>
+          <h1 className="admin-panel-logout">You have not logged in</h1>
         </>
-      )
+      );
     }
 
     //to display list of elections
@@ -86,10 +85,7 @@ class AdminPanel extends Component {
               className="title"
               onClick={this.handleInputChange}
             >
-              <button
-                id={election.election_id}
-                className="add-candidate-btn"
-              >
+              <button id={election.election_id} className="add-candidate-btn">
                 Add candidate
               </button>
             </Link>
@@ -98,10 +94,7 @@ class AdminPanel extends Component {
               className="title"
               onClick={this.handleInputChange}
             >
-              <button
-                id={election.election_id}
-                className="view-count-btn"
-              >
+              <button id={election.election_id} className="view-count-btn">
                 View vote Count
               </button>
               <br />
@@ -110,7 +103,6 @@ class AdminPanel extends Component {
         </div>
       );
     });
-
 
     return (
       <>
@@ -141,9 +133,7 @@ class AdminPanel extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <div className="admin-panel-container">
-          {electionList}
-        </div>
+        <div className="admin-panel-container">{electionList}</div>
       </>
     );
   }
