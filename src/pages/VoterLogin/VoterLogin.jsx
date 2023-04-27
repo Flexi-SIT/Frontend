@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { gapi } from "gapi-script";
 import img1 from "../../assets/7.svg";
 import "./VoterLogin.css";
-import { useCookies } from 'react-cookie';
+import { useCookies } from "react-cookie";
 
 import { Link, Routes, Route, useNavigate } from "react-router-dom";
 import Axios from "axios";
@@ -14,11 +14,10 @@ const clientID =
   "630166332593-b2k4a2l3lq0rr8d1ko70g12qdnjb5i5a.apps.googleusercontent.com";
 
 function LoginSection() {
-  const [cookies, setCookie] = useCookies(['voterLoggedIn']);
+  const [cookies, setCookie] = useCookies(["voterLoggedIn"]);
   console.log(cookies.voterLoggedIn);
 
   const navigate = useNavigate();
-
 
   //cookie:
   const handleFormSubmit = async (event) => {
@@ -29,29 +28,29 @@ function LoginSection() {
 
     //Cookies
 
-    const response = await fetch('http://localhost:3001/voter', {
-      method: 'POST',
+    const response = await fetch("http://localhost:3001/voter", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         email: emailInput,
-        password: passwordInput
-      })
+        password: passwordInput,
+      }),
     });
     const data = await response.json();
-    console.log(data)
+    console.log(data);
     if (response.ok) {
-      setCookie('voterLoggedIn', true);
+      setCookie("voterLoggedIn", true);
       // Redirect to admin panel
-      window.location.href = 'http://localhost:3000/voting';
+      window.location.href = "http://localhost:3000/voting";
     } else {
       // Display error message
       alert(data.message);
     }
 
     //setting admin logged in state to true
-    localStorage.setItem('voter', 'true');
+    localStorage.setItem("voter", "true");
   };
 
   useEffect(() => {
@@ -84,6 +83,7 @@ function LoginSection() {
               type="email"
               name="email"
               className="adminn-container-input"
+              required
             ></input>
             <br />
             <br />
@@ -95,6 +95,7 @@ function LoginSection() {
               type="password"
               name="pass"
               className="adminn-container-input"
+              required
             ></input>
             <br />
             <br />
