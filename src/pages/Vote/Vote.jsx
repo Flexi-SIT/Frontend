@@ -1,13 +1,20 @@
 import React, { Component } from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
 import Web3 from "web3";
 import Election from "../../build/Election.json";
-import { withCookies } from 'react-cookie';
+import { Container } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
+
 import "./Vote.css";
+import NewElection from "../AdminPanel/NewElection";
 
 class Vote extends Component {
+
+  //1
   constructor(props) {
     super(props);
     this.state = {
@@ -19,26 +26,19 @@ class Vote extends Component {
       loading: true,
       selectedId: null,
     };
-    this.handleLogout = this.handleLogout.bind(this); // bind the method to the component's context
-
   }
 
-  handleLogout() {
-    const { cookies } = this.props;
-    cookies.set('voterLoggedIn', false);
-    localStorage.setItem('voter', false)
-    window.location.href = 'http://localhost:3000/voter';
-  }
-
+  //2
   async componentWillMount() {
     await this.loadWeb3();
     await this.loadBlockchainData();
   }
 
-  async loadWeb3() {
+  //3
+  async loadWeb3() { //loads web3 library
     if (window.ethereum) {
       window.web3 = new Web3(window.ethereum);
-      await window.ethereum.enable();
+      await window.ethereum.enable(); //enables user's eth acc for use within the application
     } else if (window.web3) {
       window.web3 = new Web3(window.web3.currentProvider);
     } else {
@@ -48,23 +48,24 @@ class Vote extends Component {
     }
   }
 
+  //4
   async loadBlockchainData() {
-    const web3 = window.web3;
-    const accounts = await web3.eth.getAccounts();
+    const web3 = window.web3; //loads web3 instance
+    const accounts = await web3.eth.getAccounts(); //gets current user's account
     console.log(accounts);
     this.setState({ account: accounts[0] });
-    const networkId = await web3.eth.net.getId();
+    const networkId = await web3.eth.net.getId(); //gets networkID
     const networkData = Election.networks[networkId];
     if (networkData) {
-      const election = new web3.eth.Contract(Election.abi, networkData.address);
-      this.setState({ election });
+      const election = new web3.eth.Contract(Election.abi, networkData.address); //fetches deployed contract
+      this.setState({ election }); // setState updates the state that is initialized in the constructor
       const candCount = await election.methods.candidatesCount().call();
       this.setState({ candCount });
-      for (var i = 1; i <= candCount; i++) {
+      for (var i = 1; i <= candCount; i++) { // retrieves no. of candidates
         const candidates = await election.methods.candidates(i).call();
         if (candidates.election_id === this.state.id) {
           this.setState({
-            candidates: [...this.state.candidates, candidates],
+            candidates: [...this.state.candidates, candidates], // adds candidates to components state
           });
         }
       }
@@ -74,7 +75,8 @@ class Vote extends Component {
     }
   }
 
-  handleInputChange = (e) => {
+  //5
+  handleInputChange = (e) => { //sets selected CandidateID in the components state and calls vote method
     console.log(e.target.id);
     this.setState({
       selectedId: e.target.id,
@@ -82,7 +84,8 @@ class Vote extends Component {
     this.vote(e.target.id);
   };
 
-  vote(id) {
+  //6
+  vote(id) { //sends a vote transaction to the Election contract with the selected candidate's ID and user's account
     console.log(this.state.selectedId);
     this.setState({ loading: true });
     this.state.election.methods
@@ -94,7 +97,8 @@ class Vote extends Component {
       });
   }
 
-  componentDidMount() {
+  //7
+  componentDidMount() { //retrives ID of election from URL and sets it in components state
     const pathParts = window.location.pathname.split("/");
     let id = pathParts[pathParts.length - 1];
     this.setState({
@@ -102,18 +106,11 @@ class Vote extends Component {
     });
   }
 
-
+  handleLogout() {
+    localStorage.setItem('voter', false)
+    window.location.href = 'http://localhost:3000/voter';
+  }
   render() {
-    //If admin is not logged in display:
-    const { cookies } = this.props;
-    console.log(cookies.get('voterLoggedIn'));
-    if (cookies.get('voterLoggedIn') == 'false') {
-      return (
-        <>
-          <h1>You have not logged in</h1>
-        </>
-      )
-    }
     const electionList = this.state.candidates.map((candidates) => {
       return (
         <div className="vote-item" key={candidates.id}>
@@ -174,4 +171,4 @@ class Vote extends Component {
   }
 }
 
-export default withCookies(Vote);
+export default Vote;
