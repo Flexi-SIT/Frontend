@@ -69,7 +69,6 @@ class AdminPanel extends Component {
     const { cookies } = this.props;
     console.log(cookies.get('adminLoggedIn'));
     if (cookies.get('adminLoggedIn') == 'false') {
-      console.log("sauoyduasydiu")
       return (
         <>
           <h1>You have not logged in</h1>

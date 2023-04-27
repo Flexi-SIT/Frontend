@@ -19,10 +19,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 //import 'semantic-ui-css/semantic.min.css'
 
 function App() {
-  let adminCheck = localStorage.getItem('admin');
-  console.log(adminCheck)
-  let voterCheck = localStorage.getItem('voter');
-  console.log(voterCheck)
   return (
     <BrowserRouter>
       <Routes>
@@ -31,15 +27,14 @@ function App() {
         <Route path="/admin" element={<AdminLoginSection />} />
         {/* {voterCheck == "true" && <Route path="/election/vote" element={<VotingList />} />} */}
         <Route path="/voter-registration" element={<VoterRegistration />} />
-        {voterCheck == "true" && <Route path="/voting" element={<Voting />} />}
-        {voterCheck == "true" && <Route path="/vote/:id" element={<Vote />} />}
+        <Route path="/voting" element={<Voting />} />
+        <Route path="/vote/:id" element={<Vote />} />
 
         {/* {adminCheck == "true" && <Route path="/adminPanel" element={<AdminPanel />} />} */}
         <Route path="/adminPanel" element={<AdminPanel />} />
         <Route path="/create-election" element={<CreateElections />} />
         <Route path="/voteCount/:id" element={<VoteCounting />} />
         <Route path="/candidates/:id" element={<NewCandidate />} />
-
 
       </Routes>
     </BrowserRouter>

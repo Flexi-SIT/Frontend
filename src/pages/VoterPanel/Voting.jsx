@@ -7,6 +7,8 @@ import "swiper/css";
 import "./Voting.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useCookies } from 'react-cookie';
+import { withCookies } from 'react-cookie';
 
 class Voting extends Component {
   constructor(props) {
@@ -18,8 +20,15 @@ class Voting extends Component {
       final: [],
       id: null,
     };
-  }
+    this.handleLogout = this.handleLogout.bind(this); // bind the method to the component's context
 
+  }
+  handleLogout() {
+    const { cookies } = this.props;
+    cookies.set('voterLoggedIn', false);
+    localStorage.setItem('voter', false)
+    window.location.href = 'http://localhost:3000/voter';
+  }
   componentDidMount() {
     let currentComponent = this;
 
@@ -52,12 +61,18 @@ class Voting extends Component {
     });
   };
 
-  handleLogout() {
-    localStorage.setItem('voter', false)
-    window.location.href = 'http://localhost:3000/voter';
-  }
 
   render() {
+    //If admin is not logged in display:
+    const { cookies } = this.props;
+    console.log(cookies.get('voterLoggedIn'));
+    if (cookies.get('voterLoggedIn') == 'false') {
+      return (
+        <>
+          <h1>You have not logged in</h1>
+        </>
+      )
+    }
     const electionList = this.state.final.map((election) => {
       return (
         <div className="election-item" key={election.election_id}>
@@ -102,7 +117,7 @@ class Voting extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <h1 class="title">Elections:</h1>
+        <h1 className="title">Elections:</h1>
         <div className="election-list">
 
           {/* <ul className="collection">
@@ -117,4 +132,4 @@ class Voting extends Component {
   }
 }
 
-export default Voting;
+export default withCookies(Voting);

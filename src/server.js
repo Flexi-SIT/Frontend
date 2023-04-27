@@ -22,15 +22,17 @@ mongoose.connect("mongodb+srv://vardh:vardh@cluster0.aggcl0r.mongodb.net/voters?
 
 app.post('/voter', (req, res) => {
 
-    const email = req.body.email
-    const pass = req.body.pass;
-    const voter = new VoterModel({ email: req.body.email, password: req.body.pass })
+    // const email = req.body.email
+    // const pass = req.body.password;
+
+    const voter = new VoterModel({ email: req.body.email, password: req.body.password })
     // console.log(req.body)
     // console.log(req.body.email);
 
 
     //const voter = new VoterModel(req.body);
     voter.save().then(() => {
+        res.status(200).json({ message: 'Login successful' });
         console.log("Success");
         res.redirect("http://localhost:3000/voting")
     }).catch((err) => {

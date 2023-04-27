@@ -1,18 +1,35 @@
 import React, { Component } from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
 import Web3 from "web3";
 import Election from "../../build/Election.json";
-import { Container } from "react-bootstrap";
-import { Row, Col } from "react-bootstrap";
-
+import { withCookies } from 'react-cookie';
 import "./Vote.css";
-import NewElection from "../AdminPanel/NewElection";
 
 class Vote extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: null,
+      account: "",
+      election: null,
+      candCount: 0,
+      candidates: [],
+      loading: true,
+      selectedId: null,
+    };
+    this.handleLogout = this.handleLogout.bind(this); // bind the method to the component's context
+
+  }
+
+  handleLogout() {
+    const { cookies } = this.props;
+    cookies.set('voterLoggedIn', false);
+    localStorage.setItem('voter', false)
+    window.location.href = 'http://localhost:3000/voter';
+  }
+
   async componentWillMount() {
     await this.loadWeb3();
     await this.loadBlockchainData();
@@ -85,24 +102,18 @@ class Vote extends Component {
     });
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      id: null,
-      account: "",
-      election: null,
-      candCount: 0,
-      candidates: [],
-      loading: true,
-      selectedId: null,
-    };
-  }
 
-  handleLogout() {
-    localStorage.setItem('voter', false)
-    window.location.href = 'http://localhost:3000/voter';
-  }
   render() {
+    //If admin is not logged in display:
+    const { cookies } = this.props;
+    console.log(cookies.get('voterLoggedIn'));
+    if (cookies.get('voterLoggedIn') == 'false') {
+      return (
+        <>
+          <h1>You have not logged in</h1>
+        </>
+      )
+    }
     const electionList = this.state.candidates.map((candidates) => {
       return (
         <div className="vote-item" key={candidates.id}>
@@ -163,4 +174,4 @@ class Vote extends Component {
   }
 }
 
-export default Vote;
+export default withCookies(Vote);

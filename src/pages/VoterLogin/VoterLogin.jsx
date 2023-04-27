@@ -1,14 +1,11 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Container } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Login from "./Login";
-import Logout from "./Logout";
 import { useEffect, useState } from "react";
 import { gapi } from "gapi-script";
 import img1 from "../../assets/7.svg";
 import "./VoterLogin.css";
+import { useCookies } from 'react-cookie';
 
 import { Link, Routes, Route, useNavigate } from "react-router-dom";
 import Axios from "axios";
@@ -17,10 +14,44 @@ const clientID =
   "630166332593-b2k4a2l3lq0rr8d1ko70g12qdnjb5i5a.apps.googleusercontent.com";
 
 function LoginSection() {
+  const [cookies, setCookie] = useCookies(['voterLoggedIn']);
+  console.log(cookies.voterLoggedIn);
+
   const navigate = useNavigate();
-  const handleSubmit = (event) => {
-    console.log("Registered");
-    localStorage.setItem("voter", "true");
+
+
+  //cookie:
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    const emailInput = event.target.email.value;
+    const passwordInput = event.target.pass.value;
+
+    //Cookies
+
+    const response = await fetch('http://localhost:3001/voter', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: emailInput,
+        password: passwordInput
+      })
+    });
+    const data = await response.json();
+    console.log(data)
+    if (response.ok) {
+      setCookie('voterLoggedIn', true);
+      // Redirect to admin panel
+      window.location.href = 'http://localhost:3000/voting';
+    } else {
+      // Display error message
+      alert(data.message);
+    }
+
+    //setting admin logged in state to true
+    localStorage.setItem('voter', 'true');
   };
 
   useEffect(() => {
@@ -43,7 +74,8 @@ function LoginSection() {
           <img src={img1} className="adminn-container-image" alt="img-1" />
         </Col>
         <Col className="text-container justify-content-center adminn-container-right">
-          <form method="POST" action="http://localhost:3001/voter">
+          {/* <form method="POST" action="http://localhost:3001/voter"> */}
+          <form onSubmit={handleFormSubmit}>
             <label htmlFor="name" className="adminn-container-label">
               Email
             </label>
