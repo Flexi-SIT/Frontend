@@ -7,9 +7,27 @@ import votecountingimg from "../../assets/5.svg";
 import Web3 from 'web3';
 import Election from '../../build/Election.json'
 import "./VoteCounting.css";
+import { useCookies } from 'react-cookie';
+import { withCookies } from 'react-cookie';
 
 class VoteCounting extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      id: null,
+      account: '',
+      election: null,
+      candCount: 0,
+      candidates: [],
+      loading: true,
+      selectedId: null
+    }
+    this.handleLogout = this.handleLogout.bind(this); // bind the method to the component's context
+  }
+
   handleLogout() {
+    const { cookies } = this.props;
+    cookies.set('adminLoggedIn', false);
     localStorage.setItem('admin', false)
     window.location.href = 'http://localhost:3000/admin';
   }
@@ -88,20 +106,19 @@ class VoteCounting extends Component {
     })
   }
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      id: null,
-      account: '',
-      election: null,
-      candCount: 0,
-      candidates: [],
-      loading: true,
-      selectedId: null
-    }
-  }
+
 
   render() {
+    const { cookies } = this.props;
+    console.log(cookies.get('adminLoggedIn'));
+    if (cookies.get('adminLoggedIn') == 'false') {
+      console.log("sauoyduasydiu")
+      return (
+        <>
+          <h1>You have not logged in</h1>
+        </>
+      )
+    }
     const electionList = this.state.candidates.map(candidates => {
       return (
         // <div className="contact" key={candidates.id}>
@@ -161,4 +178,4 @@ class VoteCounting extends Component {
   };
 }
 
-export default VoteCounting;
+export default withCookies(VoteCounting);

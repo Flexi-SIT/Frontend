@@ -1,10 +1,9 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Container } from "react-bootstrap";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
-import Login from "./Login";
 import { useEffect } from "react";
+import { useCookies } from 'react-cookie';
+
 import { gapi } from "gapi-script";
 import img1 from "../../assets/7.svg";
 import "./AdminLogin.css";
@@ -16,18 +15,17 @@ const clientID =
   "630166332593-b2k4a2l3lq0rr8d1ko70g12qdnjb5i5a.apps.googleusercontent.com";
 
 function LoginSection() {
+  const [cookies, setCookie] = useCookies(['adminLoggedIn']);
+  console.log(cookies.adminLoggedIn);
+
   const navigate = useNavigate();
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // const form = event.target;
 
     const emailInput = event.target.email.value;
     const passwordInput = event.target.pass.value;
-    // const formData = new FormData();
-    // formData.append('email', emailInput);
-    // formData.append('password', passwordInput);
-    // console.log(emailInput, passwordInput)
-    // console.log(formData)
+
+    //Cookies
 
     const response = await fetch('http://localhost:3001/admin', {
       method: 'POST',
@@ -42,6 +40,7 @@ function LoginSection() {
     const data = await response.json();
     console.log(data)
     if (response.ok) {
+      setCookie('adminLoggedIn', true);
       // Redirect to admin panel
       window.location.href = 'http://localhost:3000/adminPanel';
     } else {

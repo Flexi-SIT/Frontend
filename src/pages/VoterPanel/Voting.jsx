@@ -2,11 +2,7 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Button from "react-bootstrap/Button";
-import votingimg from "../../assets/7.svg";
-import Card from "react-bootstrap/Card";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper";
+
 import "swiper/css";
 import "./Voting.css";
 import axios from "axios";

@@ -2,11 +2,6 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Button from "react-bootstrap/Button";
-import votingimg from "../../assets/7.svg";
-import Card from "react-bootstrap/Card";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper";
 import "swiper/css";
 import NewCandidate from "./NewCandidate";
 import NewElection from "./NewElection";
@@ -14,13 +9,28 @@ import VoteCount from "./VoteCount";
 import "./CreateElection.css";
 import img1 from "../../assets/6.svg";
 
-function handleLogout() {
-  localStorage.setItem('admin', false)
-  window.location.href = 'http://localhost:3000/voter';
-}
+import { useCookies } from 'react-cookie';
+import { withCookies } from 'react-cookie';
+
+
 
 const CreateElections = () => {
+  const [cookies, setCookie] = useCookies(['adminLoggedIn']);
 
+  function handleLogout() {
+    console.log(cookies.adminLoggedIn);
+    setCookie('adminLoggedIn', false)
+    localStorage.setItem('admin', false)
+    window.location.href = 'http://localhost:3000/voter';
+  }
+  console.log(cookies.adminLoggedIn);
+  if (cookies.adminLoggedIn == 'false') {
+    return (
+      <>
+        <h1>You have not logged in</h1>
+      </>
+    )
+  }
   return (
     <>
       <Navbar className="color-nav" bg="invisible" expand="lg" variant="light ">

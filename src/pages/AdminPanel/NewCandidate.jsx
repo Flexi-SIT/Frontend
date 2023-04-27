@@ -7,8 +7,29 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./NewCandidate.css";
 import img1 from "../../assets/5.svg";
+import { useCookies } from 'react-cookie';
+import { withCookies } from 'react-cookie';
 
 class NewCandidate extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      account: "",
+      election: null,
+      candidate_name: null,
+      candidate_details: null,
+      id: null,
+    };
+    this.addCandidates = this.addCandidates.bind(this);
+    this.handleLogout = this.handleLogout.bind(this); // bind the method to the component's context
+
+  }
+  handleLogout() {
+    const { cookies } = this.props;
+    cookies.set('adminLoggedIn', false);
+    localStorage.setItem('admin', false)
+    window.location.href = 'http://localhost:3000/admin';
+  }
   async componentWillMount() {
     await this.loadWeb3();
     console.log("Check");
@@ -71,17 +92,7 @@ class NewCandidate extends Component {
       });
   }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      account: "",
-      election: null,
-      candidate_name: null,
-      candidate_details: null,
-      id: null,
-    };
-    this.addCandidates = this.addCandidates.bind(this);
-  }
+
 
   componentDidMount() {
     //let id = this.props.match.params.id;
@@ -93,6 +104,16 @@ class NewCandidate extends Component {
   }
 
   render() {
+    const { cookies } = this.props;
+    console.log(cookies.get('adminLoggedIn'));
+    if (cookies.get('adminLoggedIn') == 'false') {
+      console.log("sauoyduasydiu")
+      return (
+        <>
+          <h1>You have not logged in</h1>
+        </>
+      )
+    }
     //DESIGN CODE HERE:
     return (
       <>
@@ -117,6 +138,9 @@ class NewCandidate extends Component {
               </Nav.Link>
               <Nav.Link className="px-4 nav-items" href="/adminPanel">
                 Current Elections
+              </Nav.Link>
+              <Nav.Link className="px-4 nav-items" onClick={this.handleLogout}>
+                Log Out
               </Nav.Link>
             </Nav>
           </Navbar.Collapse>
@@ -182,4 +206,4 @@ class NewCandidate extends Component {
   }
 }
 
-export default NewCandidate;
+export default withCookies(NewCandidate);

@@ -11,6 +11,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cors())
 
+
 mongoose.connect("mongodb+srv://vardh:vardh@cluster0.aggcl0r.mongodb.net/voters?retryWrites=true&w=majority", {
     useNewUrlParser: true,
 });

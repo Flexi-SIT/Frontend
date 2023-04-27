@@ -34,10 +34,11 @@ function App() {
         {voterCheck == "true" && <Route path="/voting" element={<Voting />} />}
         {voterCheck == "true" && <Route path="/vote/:id" element={<Vote />} />}
 
-        {adminCheck == "true" && <Route path="/adminPanel" element={<AdminPanel />} />}
-        {adminCheck == "true" && <Route path="/create-election" element={<CreateElections />} />}
-        {adminCheck == "true" && <Route path="/voteCount/:id" element={<VoteCounting />} />}
-        {adminCheck == "true" && <Route path="/candidates/:id" element={<NewCandidate />} />}
+        {/* {adminCheck == "true" && <Route path="/adminPanel" element={<AdminPanel />} />} */}
+        <Route path="/adminPanel" element={<AdminPanel />} />
+        <Route path="/create-election" element={<CreateElections />} />
+        <Route path="/voteCount/:id" element={<VoteCounting />} />
+        <Route path="/candidates/:id" element={<NewCandidate />} />
 
 
       </Routes>
