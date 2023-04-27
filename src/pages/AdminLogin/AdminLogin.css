@@ -44,15 +44,15 @@
 /* New CSS Starts */
 .adminn-container-image {
     margin-top: -7rem;
-    margin-left: 1rem;
-    padding-left: 3rem;
+    /* padding-left: 3rem; */
+    margin-left: -10rem;
     width: 30rem;
     animation: slide-in 1s ease-out;
 }
 
 .adminn-container-right {
-    margin-top: -25rem !important;
-    margin-left: 39rem;
+    margin-top: 2rem !important;
+    margin-left: 30rem;
     animation: slide-in 1s ease-out;
 }
 
@@ -94,10 +94,10 @@
     background-color: #F7F7F7;
     border: none;
     height: 2.5rem;
-    width: 100%;
+    width: 90%;
     font-size: 1rem;
     padding: 0.5rem;
-    color: #333333;
+    color: #333333 !important;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease-in-out;
 }
@@ -141,158 +141,78 @@
     }
 }
 
-/* Styles for screens up to 768px wide */
-@media only screen and (max-width: 768px) {
+@media screen and (max-width: 1440px) {
     .adminn-container-image {
-        margin-top: 0;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 1rem;
-        width: 100%;
-        max-width: 30rem;
-    }
-
-    .adminn-container-right {
-        margin-top: -20rem !important;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .adminn-container-left {
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: -10rem !important;
-    }
-
-    .adminn-container-left-text {
-        font-size: 4rem;
-        line-height: 4.7rem;
-        letter-spacing: 0.2rem;
-        width: 100% !important;
-        height: auto;
-        left: 0;
-        top: 5rem !important;
-        text-align: center;
+        width: 35rem;
+        margin-top: -2rem;
     }
 
     .adminn-container-label {
-        font-size: 1rem;
-        font-weight: 700;
+        font-size: 1.5rem !important;
     }
 
     .adminn-container-input {
-        width: 100% !important;
-        margin: 0.5rem 0;
-    }
-
-    .adminn-container-submit {
-        font-size: 1rem;
-        width: 100%;
+        width: 70%;
     }
 }
 
-/* Styles for screens larger than 768px */
-@media only screen and (min-width: 769px) {
+@media screen and (max-width: 1024px) {
     .adminn-container-image {
-        margin-top: -7rem;
+        width: 25rem;
+        margin-top: -3rem;
+    }
+
+    .adminn-container-right {
+        margin-left: 30rem;
+        margin-top: -21rem !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .adminn-container-image {
+        width: 22rem;
+        margin-top: -3rem;
+    }
+
+    .adminn-container-label {
+        font-size: 1rem !important;
+    }
+
+    .adminn-container-right {
+        margin-left: 25rem;
+        margin-top: -19rem !important;
+    }
+
+    .adminn-container-input {
+        height: 2rem;
+    }
+
+    .adminn-container-submit {
+        width: 13rem;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .adminn-container-image {
+        width: 15rem;
+        margin-left: 3rem;
+        margin-top: -7rem !important;
+    }
+
+    .adminn-container-image {
         margin-left: 1rem;
-        padding-left: 3rem;
-        width: 30rem;
     }
 
     .adminn-container-right {
-        margin-top: -25rem !important;
-        margin-left: 39rem;
-    }
-
-    .adminn-container-left {
-        margin-left: -80rem;
-        margin-bottom: -12rem !important;
-    }
-
-    .adminn-container-left-text {
-        font-size: 7.8rem;
-        line-height: 7.7rem;
-        letter-spacing: 0.4rem;
-        position: absolute;
-        width: 37rem !important;
-        height: 50rem;
-        left: -0.5rem;
-        top: 8rem !important;
-    }
-
-    .adminn-container-label {
-        font-size: 1.2rem;
-        font-weight: 700;
-    }
-
-    .adminn-container-input {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-        margin-right: 1rem;
-        border-radius: 1rem;
-        background: #E9E9E9;
-        border: solid #E9E9E9;
-        height: 2.2rem;
-        width: 80% !important;
+        margin-left: 6rem;
+        margin-top: 2rem !important;
     }
 
     .adminn-container-submit {
-        font-size: 1.2rem;
-        text-align: center;
-        color: #000000;
-        width: 20rem;
-        border-radius: 2rem;
+        width: 11rem;
     }
 }
 
-/* Styles for screens smaller than 768px */
-@media (max-width: 767px) {
-    .adminn-container-image {
-        margin-top: -4rem;
-        margin-left: 0;
-        padding-left: 0;
-        width: 100%;
-    }
-
-    .adminn-container-right {
-        margin-top: -18rem !important;
-        margin-left: 0;
-    }
-
-    .adminn-container-left {
-        margin-left: 0;
-        margin-bottom: 0;
-    }
-
-    .adminn-container-left-text {
-        font-size: 4.5rem;
-        line-height: 4.5rem;
-        letter-spacing: 0.2rem;
-        position: static;
-        width: 100% !important;
-        height: auto;
-        left: auto;
-        top: auto !important;
-        margin-bottom: 2rem;
-    }
-
-    .adminn-container-label {
-        font-size: 1rem;
-    }
-
-    .adminn-container-input {
-        margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
-        margin-right: 0;
-        width: 100% !important;
-    }
-
-    .adminn-container-submit {
-        font-size: 1rem;
-        width: 100%;
-    }
-}
 
 /* New CSS Ends */
 .submit-button {
@@ -309,4 +229,3 @@
 .submit-button:hover {
     background-color: #0953f2;
 }
-

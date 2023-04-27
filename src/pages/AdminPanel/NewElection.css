@@ -52,3 +52,23 @@
     cursor: pointer;
     transform: scale(1.05);
 }
+
+@media screen and (max-width: 425px) {
+    .container {
+        margin-right: 22rem !important;
+    }
+
+    .election-container {
+        width: 70% !important;
+    }
+
+    .election-container-submit {
+        width: 70% !important;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .container {
+        margin-right: 10rem !important;
+    }
+}

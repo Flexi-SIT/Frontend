@@ -12,13 +12,10 @@ margin-top: -2.7rem;
 margin-left: 35rem !important;
 width: 35.4rem;
 }
-
 .admin-left-text-1 {
     margin-left: -80rem;
     margin-bottom: -23rem;
-
 }
-
 .admin-text-1 {
     font-family: 'Montserrat';
     font-style: normal;
@@ -33,7 +30,6 @@ width: 35.4rem;
     left: -.5rem;
     top: 12rem !important;
 }
-
 .admin-text-2 {
     font-family: 'Montserrat';
     font-style: normal;
@@ -45,31 +41,26 @@ width: 35.4rem;
     left: 1rem;
     top: 32rem !important;
 }
-
 .container-2 {
     background: #D9D9D9;
     box-sizing: border-box;
     border: solid 1px #000000;
     margin: 4rem;
 }
-
 .election-1 {
     border: solid 1px #D2D3D5;
 }
-
 .election-img-1 {
     width: 27rem;
     height: 22rem;
     margin-left: 3rem;
 }
-
 .election-text {
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 900;
     margin-top: -5rem !important;
 }
-
 .election-button {
     font-family: 'Montserrat';
     font-style: normal;
@@ -84,7 +75,6 @@ width: 35.4rem;
     height: 2.4rem;
     border-radius: 2rem;
 }
-
 */
 
 /* New CSS Starts */
@@ -142,7 +132,6 @@ padding: 0.8rem 1.5rem;
 cursor: pointer;
 transition: all 0.3s ease-in-out;
 }
-
 */
 /* .admin-panel-candidate-button:hover {
     transform: translateY(-2px);
@@ -196,8 +185,40 @@ transition: all 0.3s ease-in-out;
 
 @media screen and (max-width: 480px) {
     .admin-panel-container {
+        margin-left: -1rem;
         max-width: 100%;
         grid-template-columns: 1fr;
+    }
+
+    .add-candidate-btn,
+    .view-count-btn {
+        margin-top: 15px !important;
+        margin-left: -2rem !important;
+        width: 8rem;
+        font-size: .9rem;
+    }
+
+    .election-box {
+        margin-left: 1rem !important;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .admin-panel-container {
+        max-width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .add-candidate-btn,
+    .view-count-btn {
+        margin-top: 15px !important;
+        margin-left: -5.2rem !important;
+        width: 8rem;
+        font-size: .8rem;
+    }
+
+    .election-box {
+        width: 100%;
     }
 }
 
@@ -207,13 +228,11 @@ transition: all 0.3s ease-in-out;
     border: 2px solid #D9D9D9;
     padding-top: 1rem;
 }
-
 .container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
-
 .admin-panel-ballot {
     font-family: 'Montserrat';
     font-style: normal;

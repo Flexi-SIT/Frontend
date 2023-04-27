@@ -42,24 +42,27 @@
 }
 
 /* New CSS Starts */
-.login-img {
-    margin-top: -1rem !important;
-    margin-left: 1rem;
-    padding-left: 14rem;
-    width: 9rem !important;
+.adminn-container-image {
+    margin-top: -7rem;
+    /* padding-left: 3rem; */
+    margin-left: -10rem;
+    width: 30rem;
+    animation: slide-in 1s ease-out;
 }
 
-.voter-login-container-right {
-    margin-top: -1rem !important;
-    margin-left: -19rem;
+.adminn-container-right {
+    margin-top: 2rem !important;
+    margin-left: 30rem;
+    animation: slide-in 1s ease-out;
 }
 
-.voter-login-container-left {
+.adminn-container-left {
     margin-left: -80rem;
     margin-bottom: -12rem !important;
+    animation: slide-in 1s ease-out;
 }
 
-.voter-login-container-left-text {
+.adminn-container-left-text {
     font-family: 'Montserrat';
     font-style: normal;
     color: #E0E0E0;
@@ -72,27 +75,40 @@
     height: 50rem;
     left: -.5rem;
     top: 8rem !important;
+    animation: slide-in 1s ease-out;
 }
 
-.voter-login-label {
-    font-family: 'Montserrat';
-    font-style: normal;
+.adminn-container-label {
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.2rem;
     font-weight: 700;
+    color: #333333;
+    margin-bottom: 0.5rem;
 }
 
-.voter-login-input {
-    margin-top: 1rem;
+.adminn-container-input {
+    margin-top: 0.5rem;
     margin-bottom: 1rem;
     margin-right: 1rem;
-    border-radius: 1rem;
-    background: #E9E9E9;
-    border: solid #E9E9E9;
-    height: 2.2rem;
-    width: 40%;
+    border-radius: 0.5rem;
+    background-color: #F7F7F7;
+    border: none;
+    height: 2.5rem;
+    width: 90%;
+    font-size: 1rem;
+    padding: 0.5rem;
+    color: #333333 !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
 }
 
-.voter-login-submit {
+.adminn-container-input:focus {
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #FFFFFF;
+}
+
+.adminn-container-submit {
     font-family: 'Montserrat';
     font-style: normal;
     font-size: 1.2rem;
@@ -100,7 +116,103 @@
     color: #000000;
     width: 20rem;
     border-radius: 2rem;
+    animation: fade-in 1s ease-out;
 }
+
+@keyframes slide-in {
+    from {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .adminn-container-image {
+        width: 35rem;
+        margin-top: -2rem;
+    }
+
+    .adminn-container-label {
+        font-size: 1.5rem !important;
+    }
+
+    .adminn-container-input {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .adminn-container-image {
+        width: 25rem;
+        margin-top: -3rem;
+    }
+
+    .adminn-container-right {
+        margin-left: 30rem;
+        margin-top: -21rem !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .adminn-container-image {
+        width: 22rem;
+        margin-top: -3rem;
+    }
+
+    .adminn-container-label {
+        font-size: 1rem !important;
+    }
+
+    .adminn-container-right {
+        margin-left: 25rem;
+        margin-top: -19rem !important;
+    }
+
+    .adminn-container-input {
+        height: 2rem;
+    }
+
+    .adminn-container-submit {
+        width: 13rem;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .adminn-container-image {
+        width: 15rem;
+        margin-left: 3rem;
+        margin-top: -7rem !important;
+    }
+
+    .adminn-container-image {
+        margin-left: 1rem;
+    }
+
+    .adminn-container-right {
+        margin-left: 6rem;
+        margin-top: 2rem !important;
+    }
+
+    .adminn-container-submit {
+        width: 11rem;
+    }
+}
+
 
 /* New CSS Ends */
 .submit-button {
