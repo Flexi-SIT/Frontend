@@ -4,6 +4,8 @@ const express = require("express");
 //MongoDB through Mongoose
 const mongoose = require("mongoose");
 
+const bodyParser = require("body-parser")
+
 //Protect against cross-site scripting attacks
 const cors = require("cors");
 const app = express();
@@ -12,10 +14,13 @@ const VoterModel = require("./models/voter");
 const AdminModel = require("./models/admin");
 const electionName = require("./models/electionName");
 const multer = require("multer");
+const { useAsyncValue } = require("react-router-dom");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 //Connecting to MongoDB Cloud
 mongoose.connect(
@@ -31,29 +36,53 @@ mongoose.connect(
 
 const upload = multer({ dest: "uploads/" });
 
-app.post(
-  "/voter",
-  upload.fields([{ name: "idFrontImage" }, { name: "idBackImage" }]),
-  (req, res) => {
-    const voter = new VoterModel({
-      email: req.body.email,
-      password: req.body.password,
-      idFrontImage: req.files["idFrontImage"][0].path,
-      idBackImage: req.files["idBackImage"][0].path,
-    });
+// app.post(
+//   "/voter",
+//   upload.fields([{ name: "idFrontImage" }, { name: "idBackImage" }]),
+//   (req, res) => {
+//     const voter = new VoterModel({
+//       email: req.body.email,
+//       password: req.body.password,
+//       idFrontImage: req.files["idFrontImage"][0].path,
+//       idBackImage: req.files["idBackImage"][0].path,
+//     });
 
-    voter
-      .save()
-      .then(() => {
-        res.status(200).json({ message: "Login successful" });
-        console.log("Success");
-        res.redirect("http://localhost:3000/voting");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }
-);
+//     voter
+//       .save()
+//       .then(() => {
+//         res.status(200).json({ message: "Login successful" });
+//         console.log("Success");
+//         res.redirect("http://localhost:3000/voting");
+//       })
+//       .catch((err) => {
+//         console.log(err);
+//       });
+//   }
+// );
+
+app.post('/voter', upload.none(), async (req, res) => {
+
+
+  const voter = new VoterModel({ 
+    email: req.body.email, 
+    password: req.body.pass, 
+    idFrontImage: req.body.front, 
+    idBackImage: req.body.back,
+  })
+  // console.log(req.body)
+  console.log(req.body.email);
+
+
+  //const voter = new VoterModel(req.body);
+  voter.save().then(() => {
+    console.log("Success");
+    res.json({success: true})
+  }).catch((err) => {
+    console.log(err);
+  })
+});
+
+
 
 app.post("/admin", async (req, res) => {
   const user = await AdminModel.findOne({ email: req.body.email });
@@ -67,6 +96,16 @@ app.post("/admin", async (req, res) => {
   }
   res.status(200).json({ message: "Login successful" });
 });
+
+
+//Get Images
+app.get("/api/getImages", async (req, res) => {
+  const userEmail = req.query.email;
+  const user = await VoterModel.findOne({ email: userEmail });
+  console.log("Endpoint getImages hit")
+  res.send(user);
+});
+
 
 //Get election List to map
 app.get("/api/electionName", function (req, res) {

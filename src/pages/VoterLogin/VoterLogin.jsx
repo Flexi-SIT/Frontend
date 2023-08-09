@@ -19,6 +19,12 @@ function LoginSection() {
 
   const navigate = useNavigate();
 
+  // const handleFile1Upload = async (e) => {
+  //   const file = e.target.files[0];
+  //   base64_front = await convertToBase64(file);
+  //   console.log(base64)
+  // }
+
   //cookie:
   const handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -26,14 +32,18 @@ function LoginSection() {
     const emailInput = event.target.email.value;
     const passwordInput = event.target.pass.value;
     const idFrontImage = event.target.idFrontImage.files[0];
+    const base64_front = await convertToBase64(idFrontImage);
+
     const idBackImage = event.target.idBackImage.files[0];
+    const base64_back = await convertToBase64(idBackImage);
 
     const formData = new FormData();
     formData.append("email", emailInput);
-    formData.append("password", passwordInput);
-    formData.append("idFrontImage", idFrontImage);
-    formData.append("idBackImage", idBackImage);
+    formData.append("pass", passwordInput);
+    formData.append("front", base64_front);
+    formData.append("back", base64_back);
 
+    
     //Cookies
 
     try {
@@ -46,6 +56,7 @@ function LoginSection() {
         setCookie("voterLoggedIn", true);
         navigate("/voting");
       } else {
+        const data = await response.json();
         alert(data.message);
       }
       localStorage.setItem("voter", "true");
@@ -153,3 +164,18 @@ function LoginSection() {
 }
 
 export default LoginSection;
+
+
+//Converting file to base64
+function convertToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = () => {
+      resolve(fileReader.result)
+    };
+    fileReader.onerror = (error) => {
+      reject(error)
+    }
+  })
+}

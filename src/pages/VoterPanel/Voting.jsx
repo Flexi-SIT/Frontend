@@ -11,6 +11,7 @@ import { useCookies } from 'react-cookie';
 import { withCookies } from 'react-cookie';
 
 class Voting extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -29,8 +30,16 @@ class Voting extends Component {
     localStorage.setItem('voter', false)
     window.location.href = 'http://localhost:3000/voter';
   }
+
+
   componentDidMount() {
+
+    var image = new Image();
+
+
+
     let currentComponent = this;
+
 
     axios
       .get("http://localhost:3001/api/electionName", {})
@@ -43,6 +52,26 @@ class Voting extends Component {
       .catch(function (err) {
         console.error(err);
       });
+
+
+      //NEW CODE to get user images
+      axios
+      .get("http://localhost:3001/api/getImages", { 
+        params: {
+          email: "vardhjainrox@gmail.com"
+        }
+      })
+      .then(function (response) {
+        console.log(response.data.idFrontImage)
+        image.src = response.data.idFrontImage;
+
+        document.body.appendChild(image);
+      })
+      .catch(function (err) {
+        console.error(err);
+      });
+    
+    
   }
 
   handleInputChange = (e) => {
@@ -65,7 +94,7 @@ class Voting extends Component {
   render() {
     //If admin is not logged in display:
     const { cookies } = this.props;
-    console.log(cookies.get('voterLoggedIn'));
+    // console.log(cookies.get('voterLoggedIn'));
     if (cookies.get('voterLoggedIn') == 'false') {
       return (
         <>
