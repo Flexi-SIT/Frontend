@@ -62,10 +62,8 @@ class Voting extends Component {
         }
       })
       .then(function (response) {
-        console.log(response.data.idFrontImage)
         image.src = response.data.idFrontImage;
 
-        document.body.appendChild(image);
       })
       .catch(function (err) {
         console.error(err);

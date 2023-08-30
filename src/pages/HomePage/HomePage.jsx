@@ -10,6 +10,9 @@ import vote from "../../assets/3.svg";
 import result from "../../assets/4.svg";
 import "./HomePage.css";
 
+import BarcodeScannerApp from "../../components/barcodeScan/BarcodeScanApp";
+
+
 const HomePage = () => {
   const [index1, setIndex1] = useState(0);
 
@@ -39,6 +42,9 @@ const HomePage = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+
+      <BarcodeScannerApp />
+
       <Carousel activeIndex={index1} onSelect={handleSelect1}>
         {/* First slide */}
         <Carousel.Item>

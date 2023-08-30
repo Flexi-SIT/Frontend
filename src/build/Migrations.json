@@ -59,7 +59,7 @@
   "sourceMap": "32:326:1:-;;;192:52;8:9:-1;5:2;;;30:1;27;20:12;5:2;192:52:1;228:10;220:5;;:18;;;;;;;;;;;;;;;;;;32:326;;;;;;",
   "deployedSourceMap": "32:326:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;32:326:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;82:36;;;:::i;:::-;;;;;;;;;;;;;;;;;;;57:20;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;250:105;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;250:105:1;;;;;;;;;;;;;;;;;:::i;:::-;;82:36;;;;:::o;57:20::-;;;;;;;;;;;;;:::o;250:105::-;172:5;;;;;;;;;;;158:19;;:10;:19;;;154:26;;;340:9;313:24;:36;;;;154:26;250:105;:::o",
   "source": "pragma solidity ^0.5.16;\r\n\r\n\r\n\r\ncontract Migrations {\r\n  address public owner;\r\n  uint public last_completed_migration;\r\n\r\n  modifier restricted() {\r\n    if (msg.sender == owner) _;\r\n  }\r\n\r\n  constructor() public {\r\n    owner = msg.sender;\r\n  }\r\n\r\n  function setCompleted(uint completed) public restricted {\r\n    last_completed_migration = completed;\r\n  }\r\n}\r\n",
-  "sourcePath": "C:\\Users\\ABHISHEK\\Desktop\\CODE\\Web Development\\Web Application\\Flexi\\frontend\\contracts\\Migrations.sol",
+  "sourcePath": "C:\\Vardhaman\\WebChainVote\\Frontend\\contracts\\Migrations.sol",
   "ast": {
     "absolutePath": "project:/contracts/Migrations.sol",
     "exportedSymbols": {
@@ -958,12 +958,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x25f090Bfd2a2d1820bF3A5c773c48D885848A658",
-      "transactionHash": "0xaaee78e3efa2e87f830bab859de24340d9c42d754f1fdcc50629196c5688ea5b"
+      "address": "0x4d9C3A1666FD4aF94Bb40F93cA34D6E6144bB938",
+      "transactionHash": "0x2e79dba6d730827c977431ac63c734c8d75bbcd7bf29c9842b3fa207fc1633a5"
     }
   },
-  "schemaVersion": "3.4.13",
-  "updatedAt": "2023-04-28T03:38:51.609Z",
+  "schemaVersion": "3.4.14",
+  "updatedAt": "2023-08-10T15:30:18.486Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
