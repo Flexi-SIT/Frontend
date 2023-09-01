@@ -12,7 +12,6 @@ import "./HomePage.css";
 
 import BarcodeScannerApp from "../../components/barcodeScan/BarcodeScanApp";
 
-
 const HomePage = () => {
   const [index1, setIndex1] = useState(0);
 
