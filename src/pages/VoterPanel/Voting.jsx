@@ -7,11 +7,12 @@ import "swiper/css";
 import "./Voting.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useCookies } from 'react-cookie';
-import { withCookies } from 'react-cookie';
+import { useCookies } from "react-cookie";
+import { withCookies } from "react-cookie";
+
+import bgImage from "../../assets/bg-team.svg";
 
 class Voting extends Component {
-  
   constructor(props) {
     super(props);
     this.state = {
@@ -22,24 +23,18 @@ class Voting extends Component {
       id: null,
     };
     this.handleLogout = this.handleLogout.bind(this); // bind the method to the component's context
-
   }
   handleLogout() {
     const { cookies } = this.props;
-    cookies.set('voterLoggedIn', false);
-    localStorage.setItem('voter', false)
-    window.location.href = 'http://localhost:3000/voter';
+    cookies.set("voterLoggedIn", false);
+    localStorage.setItem("voter", false);
+    window.location.href = "http://localhost:3000/voter";
   }
 
-
   componentDidMount() {
-
     var image = new Image();
 
-
-
     let currentComponent = this;
-
 
     axios
       .get("http://localhost:3001/api/electionName", {})
@@ -53,23 +48,19 @@ class Voting extends Component {
         console.error(err);
       });
 
-
-      //NEW CODE to get user images
-      axios
-      .get("http://localhost:3001/api/getImages", { 
+    //NEW CODE to get user images
+    axios
+      .get("http://localhost:3001/api/getImages", {
         params: {
-          email: "vardhjainrox@gmail.com"
-        }
+          email: "vardhjainrox@gmail.com",
+        },
       })
       .then(function (response) {
         image.src = response.data.idFrontImage;
-
       })
       .catch(function (err) {
         console.error(err);
       });
-    
-    
   }
 
   handleInputChange = (e) => {
@@ -88,17 +79,16 @@ class Voting extends Component {
     });
   };
 
-
   render() {
     //If admin is not logged in display:
     const { cookies } = this.props;
     // console.log(cookies.get('voterLoggedIn'));
-    if (cookies.get('voterLoggedIn') == 'false') {
+    if (cookies.get("voterLoggedIn") == "false") {
       return (
         <>
           <h1>You have not logged in</h1>
         </>
-      )
+      );
     }
     const electionList = this.state.final.map((election) => {
       return (
@@ -120,10 +110,10 @@ class Voting extends Component {
     return (
       <>
         <Navbar
-          className="color-nav"
-          bg="invisible"
+          style={{ backgroundColor: "#0089d6" }}
+          bg="#0089d6"
           expand="lg"
-          variant="light "
+          variant="light"
         >
           {/* <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand> */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -144,16 +134,20 @@ class Voting extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <h1 className="title">Elections:</h1>
-        <div className="election-list">
-
-          {/* <ul className="collection">
-            <li className="collection-item avatar">
-              <h3>Elections</h3>
-            </li>
-          </ul> */}
-          {electionList}
-        </div>
+        <header className="header" style={{ backgroundColor: "#0089d6" }}>
+          <div className="header-content">
+            <div className="header-text">
+              <h1 className="header-title">Election Page</h1>
+              <p className="header-description">
+                Welcome to the Ongoing Election Page.
+              </p>
+            </div>
+            <div className="header-image">
+              <img src={bgImage} alt="Election Team" />
+            </div>
+          </div>
+        </header>
+        <div className="election-list">{electionList}</div>
       </>
     );
   }
