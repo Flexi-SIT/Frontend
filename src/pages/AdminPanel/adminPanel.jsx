@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { Container, Row, Col } from "react-bootstrap";
+import mainimg from "../../assets/1.svg";
+import Button from "react-bootstrap/Button";
 import { Component } from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -133,7 +136,55 @@ class AdminPanel extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <div className="admin-panel-container">{electionList}</div>
+
+        <Container
+          fluid
+          className="admin-panel-container vh-100 d-flex flex-column"
+        >
+          <Row className="flex-grow-1">
+            <Col className="justify-content-center align-items-center">
+              <img src={mainimg} className="main-img" alt="main-img" />
+            </Col>
+            <Col className="text-container justify-content-center align-items-center left-text">
+              <h1 className="admin-panel-text-left">
+                WE<span>B</span> <br />
+                CHAI<span>N</span>
+                <br />
+                VOT<span>E</span>
+              </h1>
+            </Col>
+            <Col className="text-container justify-content-center align-items-center right-text">
+              {/* <h3 className="web-text-right">
+              WEB <br />
+              CHAIN
+              <br />
+              VOTE
+            </h3> */}
+              <h5 className="admin-panel-text-right-p">
+                <span>"Your Voice, Your Vote!"</span>
+                <br />
+                Make it count with our secure
+                <br />
+                e-voting platform.
+              </h5>
+            </Col>
+          </Row>
+          <Row>
+            <Col className="d-flex justify-content-center">
+              <Button
+                variant="dark"
+                type="submit"
+                className="admin-panel-button"
+                href="/create-election"
+              >
+                New Election
+              </Button>
+            </Col>
+          </Row>
+        </Container>
+        <Container className="admin-panel-container-2">
+          <div className="admin-panel-container">{electionList}</div>
+        </Container>
       </>
     );
   }
