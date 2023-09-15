@@ -35,6 +35,13 @@
   align-items: center;
 }
 
+a {
+  font-family: "Poppins" !important;
+  color: black !important;
+  text-decoration: none !important;
+  font-size: 1.3rem;
+}
+
 .voting-ballot {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
