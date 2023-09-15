@@ -77,12 +77,11 @@ class AdminPanel extends Component {
     const electionList = this.state.final.map((election) => {
       return (
         <div className="election-list" key={election.election_id}>
-          <div className="election-box">
-            {/* <li className="collection-item avatar"> */}
-            <p>
-              <b>{election.election_name}</b>
-            </p>
-            <br></br>
+          {/* <li className="collection-item avatar"> */}
+          <p>
+            <b>{election.election_name}</b>
+          </p>
+          <div className="button-container">
             <Link
               to={"/candidates/" + election.election_id}
               className="title"
@@ -182,8 +181,8 @@ class AdminPanel extends Component {
             </Col>
           </Row>
         </Container>
-        <Container className="admin-panel-container-2">
-          <div className="admin-panel-container">{electionList}</div>
+        <Container>
+          <div className="admin-panel-container-2">{electionList}</div>
         </Container>
       </>
     );
