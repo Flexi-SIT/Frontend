@@ -15,10 +15,10 @@
   opacity: 0.8 !important;
 }
 
-/* .left-text {
+.left-text {
   margin-left: -80rem;
   margin-bottom: 43rem !important;
-} */
+}
 
 .right-text {
   margin-left: 40rem;
@@ -29,9 +29,9 @@
   text-shadow: 0px 4px 50px rgba(0, 0, 0, 0.08) !important;
   font-style: normal;
   color: #000000 !important;
-  font-size: 7rem !important;
+  font-size: 6.5rem !important;
   font-weight: 800;
-  line-height: 7.7rem;
+  line-height: 7rem;
   letter-spacing: 0.4rem;
   position: absolute;
   width: 47rem;
@@ -45,7 +45,7 @@
   width: 28rem;
   height: 1rem;
   left: 50rem !important;
-  top: 8rem !important;
+  top: 9rem !important;
   letter-spacing: 0.189rem;
   font-family: "Montserrat";
   font-style: normal;
@@ -59,8 +59,8 @@
   position: absolute;
   width: 21rem;
   height: 6rem;
-  left: 58rem !important;
-  top: 19.6rem !important;
+  left: 54rem !important;
+  top: 15.6rem !important;
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
@@ -77,8 +77,8 @@
   position: absolute;
   width: 18rem;
   height: 2.8rem;
-  left: 50rem;
-  top: 24rem;
+  left: 55rem;
+  top: 26rem;
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
@@ -93,7 +93,7 @@
   width: 18rem;
   height: 2.8rem;
   left: 55rem;
-  top: 28rem;
+  top: 30rem;
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 500;
