@@ -45,10 +45,10 @@ const HomePage = () => {
           </Col>
           <Col className="text-container justify-content-center align-items-center left-text">
             <h1 className="web-text-left">
-              WEB <br />
-              CHAIN
+              WE<span>B</span> <br />
+              CHAI<span>N</span>
               <br />
-              VOTE
+              VOT<span>E</span>
             </h1>
           </Col>
           <Col className="text-container justify-content-center align-items-center right-text">

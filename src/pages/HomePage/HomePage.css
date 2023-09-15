@@ -30,14 +30,18 @@
   font-style: normal;
   color: #000000 !important;
   font-size: 6rem !important;
-  font-weight: 600;
-  line-height: 7rem;
-  letter-spacing: 0.4rem;
+  font-weight: 700;
+  line-height: 6rem;
+  letter-spacing: 0.2rem;
   position: absolute;
   width: 47rem;
   height: 50rem;
-  left: -8rem !important;
-  top: 13rem !important;
+  left: -6rem !important;
+  top: 15rem !important;
+}
+
+.web-text-left > span {
+  opacity: 0.2;
 }
 
 .web-text-right {
