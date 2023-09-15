@@ -1,14 +1,10 @@
-.color-nav {
-  background-color: #0089d6;
-}
-
 .nav-items {
-  color: #000000 !important;
+  color: #ffffff !important;
   font-weight: 800 !important;
 }
 
 .main-container {
-  background-color: #f6f6f6 !important;
+  background-color: #ffffff !important;
   width: 100%;
 }
 
@@ -19,17 +15,18 @@
   opacity: 0.8 !important;
 }
 
-.left-text {
+/* .left-text {
   margin-left: -80rem;
-  margin-bottom: -23rem;
-}
+  margin-bottom: 43rem !important;
+} */
 
 .right-text {
   margin-left: 40rem;
 }
 
 .web-text-left {
-  font-family: "Montserrat";
+  font-family: "Montserrat" !important;
+  text-shadow: 0px 4px 50px rgba(0, 0, 0, 0.08) !important;
   font-style: normal;
   color: #000000 !important;
   font-size: 7rem !important;
@@ -40,7 +37,7 @@
   width: 47rem;
   height: 50rem;
   left: -8rem !important;
-  top: 8rem !important;
+  top: 13rem !important;
 }
 
 .web-text-right {
@@ -55,20 +52,6 @@
   font-weight: 800;
   font-size: 3rem;
   line-height: 99%;
-  color: #000000;
-}
-
-.web-text-right-2 {
-  position: absolute;
-  width: 30rem;
-  height: 2.78rem;
-  left: 50rem !important;
-  top: 15.59rem;
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 800 !important;
-  font-size: 6.81 !important;
-  line-height: 103.5%;
   color: #000000;
 }
 
@@ -102,7 +85,7 @@
   font-size: 1.75rem;
   line-height: 103.5%;
   text-align: center;
-  /* color: #000000; */
+  background-color: #0089d6 !important;
 }
 
 .submit-button-company {
@@ -117,49 +100,7 @@
   font-size: 1.75rem;
   line-height: 103.5%;
   text-align: center;
-  /* color: #000000; */
-}
-
-.submit-button-register {
-  position: absolute;
-  width: 18rem;
-  height: 2.8rem;
-  left: 55rem;
-  top: 25rem;
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1.75rem;
-  line-height: 103.5%;
-  text-align: center;
-  /* color: #000000; */
-}
-
-.container-uses-register {
-  width: 28rem;
-}
-
-.container-uses-vote {
-  width: 28rem !important;
-}
-
-.container-uses-vote-img {
-  height: 30rem;
-}
-
-.container-uses-result {
-  width: 28rem !important;
-  margin-left: 3rem;
-}
-
-.container-uses-result-img {
-  height: 30rem;
-}
-
-.carousel-inner .carousel-item {
-  transition: -webkit-transform 1s ease;
-  transition: transform 1s ease;
-  transition: transform 1s ease, -webkit-transform 1s ease;
+  background-color: #0089d6 !important;
 }
 
 /* Media Queries */

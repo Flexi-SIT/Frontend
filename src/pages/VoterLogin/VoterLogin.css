@@ -5,89 +5,56 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-/* New Layout Starts */
-.adminn-container {
-  margin-top: -4rem !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  background-color: #f5f5f5;
+.cascading-right {
+  padding-top: -50px;
+  margin-left: 30px;
+  margin-right: -80px;
 }
 
-.adminn-container-image {
-  width: 100%;
-  max-width: 400px;
-  border-top-left-radius: 1rem;
-  border-bottom-left-radius: 1rem;
-  object-fit: cover;
-  animation: slide-in 1s ease-out;
-  margin-left: 13rem;
-  padding-left: 5rem;
+/* Style for the form container */
+.main-container {
+  color: #0089d6 !important;
 }
 
-.adminn-container-right {
-  flex: 1;
-  padding: 2rem;
-  margin: 2rem;
-  background-color: #ffffff;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  animation: slide-in 1s ease-out;
+.card.cascading-right {
+  background: hsla(0, 0%, 100%, 0.55);
+  backdrop-filter: blur(30px);
+  height: 100%;
 }
 
-.adminn-container-label {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #333333;
-  margin-bottom: 1rem;
+/* Style for the form elements */
+.form-control {
+  border-radius: 1.5rem;
 }
 
-.adminn-container-input {
-  width: 100%;
-  font-size: 1rem;
-  padding: 1.25rem;
-  border: 2px solid #d9d9d9;
-  border-radius: 0.5rem;
-  background-color: #f7f7f7;
-  color: #333333;
-  transition: border-color 0.3s ease-in-out;
+/* Style for the Sign Up button */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: 1.5rem;
+  padding: 0.75rem 2rem;
+  margin: 1rem !important;
+  font-weight: bold;
 }
 
-.adminn-container-input:focus {
-  outline: none;
-  border-color: #3471f4;
-  background-color: #ffffff;
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
 }
 
-.adminn-container-submit {
-  font-size: 1.2rem;
-  color: #ffffff;
-  padding: 1.25rem 2.5rem;
-  background-color: #3471f4;
-  border-radius: 2rem;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+/* Style for the images on the right */
+.img1-w-100 {
+  max-width: 110% !important;
+  padding: 2rem !important;
+  height: 100vh;
 }
 
-.adminn-container-submit:hover {
-  background-color: #0953f2;
+/* Style for the card shadow */
+.shadow-5 {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
-/* New Layout Ends */
-
-/* Media Queries */
-@media screen and (max-width: 992px) {
-  .adminn-container-image {
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-    margin-left: 0;
-    padding-left: 0;
-  }
-
-  .adminn-container-right {
-    margin-left: 0;
-    margin-top: 2rem;
-  }
+/* Center the card contents vertically */
+.align-items-center {
+  align-items: center !important;
 }

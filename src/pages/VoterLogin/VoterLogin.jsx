@@ -1,9 +1,7 @@
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { gapi } from "gapi-script";
-import img1 from "../../assets/7.svg";
+import img1 from "../../assets/12.jpg";
 import "./VoterLogin.css";
 import { useCookies } from "react-cookie";
 
@@ -31,6 +29,7 @@ function LoginSection() {
 
     const emailInput = event.target.email.value;
     const passwordInput = event.target.pass.value;
+    // const prnInput = event.target.prn.value;
     const idFrontImage = event.target.idFrontImage.files[0];
     const base64_front = await convertToBase64(idFrontImage);
 
@@ -40,6 +39,7 @@ function LoginSection() {
     const formData = new FormData();
     formData.append("email", emailInput);
     formData.append("pass", passwordInput);
+    // formData.append("prn", prnInput);
     formData.append("front", base64_front);
     formData.append("back", base64_back);
 
@@ -102,62 +102,135 @@ function LoginSection() {
   //Axios.post("http://localhost:3002/voterdata", { email: email, password: pass });
 
   return (
-    <Container>
-      <Row className="adminn-container">
-        <Col className="img-container justify-content-center-align-items-center">
-          <img src={img1} className="adminn-container-image" alt="img-1" />
-        </Col>
-        <Col className="text-container justify-content-center adminn-container-right">
-          {/* <form method="POST" action="http://localhost:3001/voter"> */}
-          <form onSubmit={handleFormSubmit}>
-            <label htmlFor="name" className="adminn-container-label">
-              Email
-            </label>
-            <br />
-            <input
-              type="email"
-              name="email"
-              className="adminn-container-input"
-              required
-            ></input>
-            <br />
-            <br />
-            <label htmlFor="name" className="adminn-container-label">
-              Password
-            </label>
-            <br />
-            <input
-              type="password"
-              name="pass"
-              className="adminn-container-input"
-              required
-            ></input>
-            <br />
-            <br />
-            <label htmlFor="idFrontImage" className="adminn-container-label">
-              Attach ID Front Image
-            </label>
-            <br />
-            <input type="file" name="idFrontImage" accept="image/*" required />
-            <br />
-            <br />
-            <label htmlFor="idBackImage" className="adminn-container-label">
-              Attach ID Back Image
-            </label>
-            <input type="file" name="idBackImage" accept="image/*" required />
-            <br />
-            <br />
-            <input type="submit" className="adminn-container-submit" />
-          </form>
-        </Col>
-        {/* <Col className="text-container justify-content-center align-items-center admin-container-left">
-          <h1 className="admin-container-left-text">
-            ADMIN
-            <br />
-            LOGIN
-          </h1>
-        </Col> */}
-      </Row>
+    // <Container>
+    //   <Row className="adminn-container">
+    //     <Col className="img-container justify-content-center-align-items-center">
+    //       <img src={img1} className="adminn-container-image" alt="img-1" />
+    //     </Col>
+    //     <Col className="text-container justify-content-center adminn-container-right">
+    //       {/* <form method="POST" action="http://localhost:3001/voter"> */}
+    //       <form onSubmit={handleFormSubmit}>
+    //         <label htmlFor="name" className="adminn-container-label">
+    //           Email
+    //         </label>
+    //         <br />
+    //         <input
+    //           type="email"
+    //           name="email"
+    //           className="adminn-container-input"
+    //           required
+    //         ></input>
+    //         <br />
+    //         <br />
+    //         <label htmlFor="name" className="adminn-container-label">
+    //           Password
+    //         </label>
+    //         <br />
+    //         <input
+    //           type="password"
+    //           name="pass"
+    //           className="adminn-container-input"
+    //           required
+    //         ></input>
+    //         <br />
+    //         <br />
+    //         <label htmlFor="idFrontImage" className="adminn-container-label">
+    //           Attach ID Front Image
+    //         </label>
+    //         <br />
+    //         <input type="file" name="idFrontImage" accept="image/*" required />
+    //         <br />
+    //         <br />
+    //         <label htmlFor="idBackImage" className="adminn-container-label">
+    //           Attach ID Back Image
+    //         </label>
+    //         <input type="file" name="idBackImage" accept="image/*" required />
+    //         <br />
+    //         <br />
+    //         <input type="submit" className="adminn-container-submit" />
+    //       </form>
+    //     </Col>
+    //     {/* <Col className="text-container justify-content-center align-items-center admin-container-left">
+    //       <h1 className="admin-container-left-text">
+    //         ADMIN
+    //         <br />
+    //         LOGIN
+    //       </h1>
+    //     </Col> */}
+    //   </Row>
+    // </Container>
+
+    <Container
+      className="text-center text-lg-start main-container"
+      style={{ height: "100vh" }}
+    >
+      <Container fluid>
+        <Row className="g-0 align-items-center">
+          <Col lg={6} className="mb-5 mb-lg-0">
+            <div
+              className="card cascading-right"
+              style={{
+                background: "hsla(0, 0%, 100%, 0.55)",
+                backdropFilter: "blur(30px)",
+                height: "100%",
+              }}
+            >
+              <div className="card-body p-5 shadow-5 text-center">
+                <h2 className="fw-bold mb-5">Voter Login</h2>
+                <Form onSubmit={handleFormSubmit}>
+                  <Form.Group controlId="email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                      type="email"
+                      placeholder="Enter your email"
+                      required
+                    />
+                  </Form.Group>
+
+                  <Form.Group controlId="pass">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
+                      type="password"
+                      placeholder="Enter your password"
+                      required
+                    />
+                  </Form.Group>
+
+                  {/* <Form.Group controlId="prn">
+                    <Form.Label>PRN</Form.Label>
+                    <Form.Control
+                      type="text"
+                      placeholder="Enter your PRN"
+                      required
+                    />
+                  </Form.Group> */}
+
+                  <Form.Group controlId="idFrontImage">
+                    <Form.Label>Attach ID Front Image</Form.Label>
+                    <Form.Control type="file" accept="image/*" required />
+                  </Form.Group>
+
+                  <Form.Group controlId="idBackImage">
+                    <Form.Label>Attach ID Back Image</Form.Label>
+                    <Form.Control type="file" accept="image/*" required />
+                  </Form.Group>
+
+                  <Button
+                    type="submit"
+                    className="btn btn-primary btn-block mb-4"
+                  >
+                    Sign up
+                  </Button>
+                </Form>
+              </div>
+            </div>
+          </Col>
+
+          <Col lg={6} className="mb-5 mb-lg-0">
+            <img src={img1} className="img1-w-100 rounded-4 shadow-4" alt="" />
+          </Col>
+        </Row>
+      </Container>
     </Container>
   );
 }

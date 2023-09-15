@@ -8,6 +8,10 @@ const VoterSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  // prn: {
+  //   type: String,
+  //   required: true,
+  // },
   idFrontImage: {
     type: String,
     required: true,

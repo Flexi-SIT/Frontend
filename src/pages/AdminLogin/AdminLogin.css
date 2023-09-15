@@ -1,231 +1,59 @@
-.login-img {
-    width: 42rem !important;
-    margin-top: 8rem;
-    margin-left: 2rem !important;
+/* Reset margin and padding on the body */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
 }
 
-.text-container {
-    margin-left: 12rem;
-    margin-top: 6rem !important;
+.cascading-right {
+  padding-top: -50px;
+  margin-left: 30px;
+  margin-right: -80px;
 }
 
-.login-email {
-    margin-bottom: 1.3rem;
+/* Style for the form container */
+.main-container {
+  color: #0089d6 !important;
 }
 
-.email-input {
-    width: 100% !important;
-    font-size: 1rem;
-    padding: .5rem 3.55rem;
-    border-bottom: solid 2px grey !important;
-    border-top: none !important;
-    border-left: none !important;
-    border-right: none !important;
+.card.cascading-right {
+  background: hsla(0, 0%, 100%, 0.55);
+  backdrop-filter: blur(30px);
+  height: 100%;
 }
 
-.email-input-label {
-    margin-bottom: 2rem;
+/* Style for the form elements */
+.form-control {
+  border-radius: 1.5rem;
 }
 
-.password-input {
-    width: 100% !important;
-    font-size: 1rem;
-    padding: .5rem 3.55rem;
-    border-bottom: solid 2px grey !important;
-    border-top: none !important;
-    border-left: none !important;
-    border-right: none !important;
+/* Style for the Sign Up button */
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: 1.5rem;
+  padding: 0.75rem 2rem;
+  margin: 1rem !important;
+  font-weight: bold;
 }
 
-.login-password {
-    margin-bottom: 1.3rem;
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
 }
 
-/* New CSS Starts */
-.adminn-container-image {
-    margin-top: -7rem;
-    /* padding-left: 3rem; */
-    margin-left: -10rem;
-    width: 30rem;
-    animation: slide-in 1s ease-out;
+/* Style for the images on the right */
+.image-w-100 {
+  padding: 2rem !important;
+  height: 80vh;
 }
 
-.adminn-container-right {
-    margin-top: 2rem !important;
-    margin-left: 30rem;
-    animation: slide-in 1s ease-out;
+/* Style for the card shadow */
+.shadow-5 {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
-.adminn-container-left {
-    margin-left: -80rem;
-    margin-bottom: -12rem !important;
-    animation: slide-in 1s ease-out;
-}
-
-.adminn-container-left-text {
-    font-family: 'Montserrat';
-    font-style: normal;
-    color: #E0E0E0;
-    font-size: 7.8rem;
-    font-weight: 800;
-    line-height: 7.7rem;
-    letter-spacing: .4rem;
-    position: absolute;
-    width: 37rem !important;
-    height: 50rem;
-    left: -.5rem;
-    top: 8rem !important;
-    animation: slide-in 1s ease-out;
-}
-
-.adminn-container-label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #333333;
-    margin-bottom: 0.5rem;
-}
-
-.adminn-container-input {
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-    margin-right: 1rem;
-    border-radius: 0.5rem;
-    background-color: #F7F7F7;
-    border: none;
-    height: 2.5rem;
-    width: 90%;
-    font-size: 1rem;
-    padding: 0.5rem;
-    color: #333333 !important;
-    box-shadow: 0 1px 2px rgba(21, 21, 21, 0.1);
-    transition: all 0.3s ease-in-out;
-}
-
-.adminn-container-input:focus {
-    outline: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #FFFFFF;
-}
-
-.adminn-container-submit {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-size: 1.2rem;
-    text-align: center;
-    color: #000000;
-    width: 20rem;
-    border-radius: 2rem;
-    animation: fade-in 1s ease-out;
-}
-
-@keyframes slide-in {
-    from {
-        opacity: 0;
-        transform: translateX(-50%);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@media screen and (max-width: 1440px) {
-    .adminn-container-image {
-        width: 35rem;
-        margin-top: -2rem;
-    }
-
-    .adminn-container-label {
-        font-size: 1.5rem !important;
-    }
-
-    .adminn-container-input {
-        width: 70%;
-    }
-}
-
-@media screen and (max-width: 1024px) {
-    .adminn-container-image {
-        width: 25rem;
-        margin-top: -3rem;
-    }
-
-    .adminn-container-right {
-        margin-left: 30rem;
-        margin-top: -21rem !important;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .adminn-container-image {
-        width: 22rem;
-        margin-top: -3rem;
-    }
-
-    .adminn-container-label {
-        font-size: 1rem !important;
-    }
-
-    .adminn-container-right {
-        margin-left: 25rem;
-        margin-top: -19rem !important;
-    }
-
-    .adminn-container-input {
-        height: 2rem;
-    }
-
-    .adminn-container-submit {
-        width: 13rem;
-    }
-}
-
-@media screen and (max-width: 425px) {
-    .adminn-container-image {
-        width: 15rem;
-        margin-left: 3rem;
-        margin-top: -7rem !important;
-    }
-
-    .adminn-container-image {
-        margin-left: 1rem;
-    }
-
-    .adminn-container-right {
-        margin-left: 6rem;
-        margin-top: 2rem !important;
-    }
-
-    .adminn-container-submit {
-        width: 11rem;
-    }
-}
-
-
-/* New CSS Ends */
-.submit-button {
-    font-size: 1rem !important;
-    color: white;
-    margin-top: 1.1rem !important;
-    padding: .7rem 7.94rem !important;
-    background-color: #3471f4;
-    border-radius: .25rem;
-    cursor: pointer;
-    border: solid #3471f4;
-}
-
-.submit-button:hover {
-    background-color: #0953f2;
+/* Center the card contents vertically */
+.align-items-center {
+  align-items: center !important;
 }
