@@ -12,7 +12,7 @@
 .election-item {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
   justify-content: center;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -35,33 +35,11 @@
   align-items: center;
 }
 
-.voting-ballot {
-  font-family: "Montserrat", sans-serif;
-  font-style: normal;
-  color: #000000;
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 1rem;
-}
-
-.voting-title {
-  font-family: "Montserrat";
-  font-style: normal;
-  color: #000000;
-  font-size: large;
-  font-weight: 800;
-  /* Remove hover styles for now */
-}
-
-/* .voting-title:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-} */
-
-.voting-contact {
-  margin-top: 1rem;
+a {
+  color: black !important;
+  text-decoration: none !important;
+  font-family: "Poppins" !important;
+  font-size: 1.3rem;
 }
 
 /* New CSS End */
