@@ -107,10 +107,10 @@ class AdminPanel extends Component {
     return (
       <>
         <Navbar
-          className="color-nav"
-          bg="invisible"
+          style={{ backgroundColor: "#0089d6" }}
+          bg="#0089d6"
           expand="lg"
-          variant="light "
+          variant="light"
         >
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse

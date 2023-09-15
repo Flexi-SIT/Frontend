@@ -139,7 +139,8 @@ class Voting extends Component {
             <div className="header-text">
               <h1 className="header-title">Election Page</h1>
               <p className="header-description">
-                Welcome to the Ongoing Election Page.
+                "Embrace Your Civic Duty." Join the ongoing election and
+                exercise your right to vote.
               </p>
             </div>
             <div className="header-image">

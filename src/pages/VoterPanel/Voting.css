@@ -1,4 +1,7 @@
-/* New CSS Start */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
 .election-list {
   margin: 3rem;
   padding: 2rem;
@@ -12,7 +15,7 @@
 .election-item {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 100%;
   justify-content: center;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -42,47 +45,17 @@ a {
   font-size: 1.3rem;
 }
 
-.voting-ballot {
-  font-family: "Montserrat", sans-serif;
-  font-style: normal;
-  color: #000000;
-  font-size: 1.5rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 1rem;
-}
-
-.voting-title {
-  font-family: "Montserrat";
-  font-style: normal;
-  color: #000000;
-  font-size: large;
-  font-weight: 800;
-  /* Remove hover styles for now */
-}
-
-/* .voting-title:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-} */
-
-.voting-contact {
-  margin-top: 1rem;
-}
-
-/* New CSS End */
-
 .title {
   margin: 3rem;
   padding: 2rem;
 }
 
-/* Header styles */
 .header {
   padding: 60px 0;
-  color: #fff;
-  text-align: center;
+  text-align: center !important;
+  position: relative !important;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 3vw));
+  min-height: 450px;
 }
 
 .header-content {
@@ -101,18 +74,18 @@ a {
 
 .header-title {
   font-family: "Poppins" !important;
-  font-size: 4rem !important;
+  font-size: 4.5rem !important;
   padding-right: 4rem;
   padding-bottom: 2rem;
   margin-bottom: 20px;
+  color: #ffffff;
 }
 
 .header-description {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   margin-bottom: 30px;
 }
 
-/* Header image */
 .header-image {
   flex: 1;
   display: flex;
