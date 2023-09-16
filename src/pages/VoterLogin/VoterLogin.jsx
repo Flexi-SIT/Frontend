@@ -29,19 +29,19 @@ function LoginSection() {
 
     const emailInput = event.target.email.value;
     const passwordInput = event.target.pass.value;
-    // const prnInput = event.target.prn.value;
-    const idFrontImage = event.target.idFrontImage.files[0];
-    const base64_front = await convertToBase64(idFrontImage);
+    const prnInput = event.target.prn.value;
+    // const idFrontImage = event.target.idFrontImage.files[0];
+    // const base64_front = await convertToBase64(idFrontImage);
 
-    const idBackImage = event.target.idBackImage.files[0];
-    const base64_back = await convertToBase64(idBackImage);
+    // const idBackImage = event.target.idBackImage.files[0];
+    // const base64_back = await convertToBase64(idBackImage);
 
     const formData = new FormData();
     formData.append("email", emailInput);
     formData.append("pass", passwordInput);
-    // formData.append("prn", prnInput);
-    formData.append("front", base64_front);
-    formData.append("back", base64_back);
+    formData.append("prn", prnInput);
+    // formData.append("front", base64_front);
+    // formData.append("back", base64_back);
 
     //Cookies
 
@@ -196,16 +196,16 @@ function LoginSection() {
                     />
                   </Form.Group>
 
-                  {/* <Form.Group controlId="prn">
+                  <Form.Group controlId="prn">
                     <Form.Label>PRN</Form.Label>
                     <Form.Control
                       type="text"
                       placeholder="Enter your PRN"
                       required
                     />
-                  </Form.Group> */}
+                  </Form.Group>
 
-                  <Form.Group controlId="idFrontImage">
+                  {/* <Form.Group controlId="idFrontImage">
                     <Form.Label>Attach ID Front Image</Form.Label>
                     <Form.Control type="file" accept="image/*" required />
                   </Form.Group>
@@ -213,7 +213,7 @@ function LoginSection() {
                   <Form.Group controlId="idBackImage">
                     <Form.Label>Attach ID Back Image</Form.Label>
                     <Form.Control type="file" accept="image/*" required />
-                  </Form.Group>
+                  </Form.Group> */}
 
                   <Button
                     type="submit"
@@ -238,15 +238,15 @@ function LoginSection() {
 export default LoginSection;
 
 //Converting file to base64
-function convertToBase64(file) {
-  return new Promise((resolve, reject) => {
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(file);
-    fileReader.onload = () => {
-      resolve(fileReader.result);
-    };
-    fileReader.onerror = (error) => {
-      reject(error);
-    };
-  });
-}
+// function convertToBase64(file) {
+//   return new Promise((resolve, reject) => {
+//     const fileReader = new FileReader();
+//     fileReader.readAsDataURL(file);
+//     fileReader.onload = () => {
+//       resolve(fileReader.result);
+//     };
+//     fileReader.onerror = (error) => {
+//       reject(error);
+//     };
+//   });
+// }
