@@ -7,7 +7,7 @@ import NewCandidate from "./NewCandidate";
 import NewElection from "./NewElection";
 import VoteCount from "./VoteCount";
 import "./CreateElection.css";
-import img1 from "../../assets/6.svg";
+import bgImage from "../../assets/bg-team.svg";
 
 import { useCookies } from "react-cookie";
 import { withCookies } from "react-cookie";
@@ -31,8 +31,12 @@ const CreateElections = () => {
   }
   return (
     <>
-      <Navbar className="color-nav" bg="invisible" expand="lg" variant="light ">
-        {/* <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand> */}
+      <Navbar
+        style={{ backgroundColor: "#0089d6" }}
+        bg="#0089d6"
+        expand="lg"
+        variant="light"
+      >
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
           <Nav className="px-2 mr-auto">
@@ -51,22 +55,27 @@ const CreateElections = () => {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+      <header
+        className="create-election-header"
+        style={{ backgroundColor: "#0089d6" }}
+      >
+        <div className="create-election-header-content">
+          <div className="create-election-header-text">
+            <h1 className="create-election-header-title">Start New Election</h1>
+            <p className="create-election-header-description">
+              "Empower Change with Your Vote." Begin a new election and inspire
+              others to participate in the democratic process
+            </p>
+          </div>
+          <div className="create-election-header-image">
+            <img src={bgImage} alt="Election Team" />
+          </div>
+        </div>
+      </header>
       <Container fluid className="main-container">
-        <Row>
-          <Col className="img-container">
-            <img src={img1} className="img-1" alt="img-1" />
-          </Col>
-          {/* <Col className="text-container container-left">
-            <h1 className="container-left-text">
-              NEW
-              <br />
-              ELECTION
-            </h1>
-          </Col> */}
-          <Col className="container-right">
-            <NewElection />
-          </Col>
-        </Row>
+        <Col className="container-right">
+          <NewElection />
+        </Col>
       </Container>
       {/* <VoteCount /> */}
     </>

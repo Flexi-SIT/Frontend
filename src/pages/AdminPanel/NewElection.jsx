@@ -34,65 +34,97 @@ class NewElection extends Component {
       .catch(function (err) {
         console.error(err);
       });
-    window.location.href = 'http://localhost:3000/adminPanel'
+    window.location.href = "http://localhost:3000/adminPanel";
   };
 
   render() {
     return (
       <div className="container">
-        {/* <h4>Create New Election</h4> */}
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="name" className="election-container-text">
-            Election Name
-          </label>
-          <br />
-          <input
-            type="text"
-            id="election_name"
-            name="election_name"
-            onChange={this.handleInputChange}
-            required
-            className="election-container"
-          />
-          <br></br>
-          <label htmlFor="name" className="election-container-text">
-            Election Organizer
-          </label>
-          <br />
-          <input
-            type="text"
-            id="election_organizer"
-            name="election_organizer"
-            onChange={this.handleInputChange}
-            required
-            className="election-container"
-          />
+        <div
+          className="px-4 py-5 px-md-5 my-5 text-center text-lg-start"
+          style={{ backgroundColor: "hsl(0, 0%, 96%)" }}
+        >
+          <div className="row gx-lg-5 align-items-center">
+            <div className="col-lg-6 mb-5 mb-lg-0">
+              <h1 className="my-5 display-3 fw-bold ls-tight">
+                Unlock Your Vote: <br />
+                <span className="text-primary">Create Election Magic.</span>
+              </h1>
+              <p style={{ color: "hsl(217, 10%, 50.8%)" }}>
+                "Empowering Citizens: Your Voice, Your Vote. Embrace your civic
+                responsibility with our cutting-edge voting platform. Take part
+                in shaping the future of your community through active
+                participation in elections!"
+              </p>
+            </div>
 
-          <br></br>
-          <label htmlFor="name" className="election-container-text">
-            Election Password
-          </label>
-          <br />
-          <input
-            type="password"
-            id="election_password"
-            name="election_password"
-            onChange={this.handleInputChange}
-            required
-            className="election-container"
-          />
+            <div className="col-lg-6 mb-5 mb-lg-0">
+              <div className="card">
+                <div className="card-body py-5 px-md-5">
+                  <form onSubmit={this.handleSubmit}>
+                    <div className="row">
+                      <div className="col-md-6 mb-4">
+                        <div className="form-outline">
+                          <input
+                            type="text"
+                            id="election_name"
+                            name="election_name"
+                            onChange={this.handleInputChange}
+                            required
+                            className="form-control"
+                          />
+                          <label className="form-label" htmlFor="election_name">
+                            Election Name
+                          </label>
+                        </div>
+                      </div>
+                      <div className="col-md-6 mb-4">
+                        <div className="form-outline">
+                          <input
+                            type="text"
+                            id="election_organizer"
+                            name="election_organizer"
+                            onChange={this.handleInputChange}
+                            required
+                            className="form-control"
+                          />
+                          <label
+                            className="form-label"
+                            htmlFor="election_organizer"
+                          >
+                            Election Organizer
+                          </label>
+                        </div>
+                      </div>
+                    </div>
 
-          <br></br>
-          <br></br>
-          <button
-            className="election-container-submit"
-            type="submit"
-            name="action"
-          >
-            Submit
-            {/* <i className="material-icons right">send</i> */}
-          </button>
-        </form>
+                    <div className="form-outline mb-4">
+                      <input
+                        type="password"
+                        id="election_password"
+                        name="election_password"
+                        onChange={this.handleInputChange}
+                        required
+                        className="form-control"
+                      />
+                      <label className="form-label" htmlFor="election_password">
+                        Election Password
+                      </label>
+                    </div>
+
+                    <button
+                      className="btn btn-primary btn-block mb-4"
+                      type="submit"
+                      name="action"
+                    >
+                      Submit
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

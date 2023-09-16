@@ -1,98 +1,148 @@
+.create-election-header {
+  padding: 60px 0;
+  text-align: center !important;
+  position: relative !important;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 3vw));
+  min-height: 450px;
+}
+
+.create-election-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.create-election-header-text {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.create-election-header-title {
+  font-family: "Poppins" !important;
+  font-size: 3.4rem !important;
+  padding-right: 4rem;
+  padding-bottom: 2rem;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.create-election-header-description {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.create-election-header-image {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.create-election-header-image img {
+  max-width: 100%;
+  height: 60vh;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
 .color-nav {
-    background-color: #fff;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    /* z-index: 1; */
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  /* z-index: 1; */
 }
 
 .color-nav .nav-link:hover {
-    color: #000;
+  color: #000;
 }
 
 .main-container {
-    /* margin-top: 90px; */
-    margin: 0;
-    padding: 0;
+  /* margin-top: 90px; */
+  margin: 0;
+  padding: 0;
 }
 
 .img-container {
-    text-align: center;
+  text-align: center;
 }
 
 .img-1 {
-    margin-top: 2rem;
-    width: 15rem;
-    transition: transform 0.3s ease-in-out;
+  margin-top: 2rem;
+  width: 15rem;
+  transition: transform 0.3s ease-in-out;
 }
 
 .img-1:hover {
-    transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .text-container {
-    text-align: center;
+  text-align: center;
 }
 
 .container-left-text {
-    font-family: 'Montserrat';
-    font-style: normal;
-    color: #E0E0E0;
-    font-size: 4.8rem;
-    font-weight: 800;
-    line-height: 5.7rem;
-    letter-spacing: .4rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    transition: color 0.3s ease-in-out, top 0.3s ease-in-out;
+  font-family: "Montserrat";
+  font-style: normal;
+  color: #e0e0e0;
+  font-size: 4.8rem;
+  font-weight: 800;
+  line-height: 5.7rem;
+  letter-spacing: 0.4rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  transition: color 0.3s ease-in-out, top 0.3s ease-in-out;
 }
 
 .container-left-text:hover {
-    color: black;
+  color: black;
 }
 
 .container-right {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .create-election-logout {
-    font-family: 'Montserrat';
-    font-style: normal;
-    display: flex;
-    justify-content: center;
-    margin-top: 2rem;
+  font-family: "Montserrat";
+  font-style: normal;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 @media only screen and (max-width: 425px) {
-    .color-nav .navbar-collapse {
-        margin-top: 20px;
-    }
+  .color-nav .navbar-collapse {
+    margin-top: 20px;
+  }
 
-    .color-nav .nav-link {
-        padding: 10px 0;
-        text-align: center;
-    }
+  .color-nav .nav-link {
+    padding: 10px 0;
+    text-align: center;
+  }
 
-    .img-1 {
-        margin-top: 2rem;
-        width: 10rem;
-    }
+  .img-1 {
+    margin-top: 2rem;
+    width: 10rem;
+  }
 
-    .container-left-text {
-        font-size: 2.8rem;
-        line-height: 3.5rem;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-    }
+  .container-left-text {
+    font-size: 2.8rem;
+    line-height: 3.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
 
-    .container-right {
-        margin-left: 2rem;
-        padding: 2rem;
-        /* margin-top: 1rem; */
-    }
+  .container-right {
+    margin-left: 2rem;
+    padding: 2rem;
+    /* margin-top: 1rem; */
+  }
 
-    .main-container {
-        overflow-x: hidden;
-    }
+  .main-container {
+    overflow-x: hidden;
+  }
 }
