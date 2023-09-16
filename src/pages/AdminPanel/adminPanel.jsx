@@ -77,30 +77,36 @@ class AdminPanel extends Component {
     const electionList = this.state.final.map((election) => {
       return (
         <div className="election-list" key={election.election_id}>
-          {/* <li className="collection-item avatar"> */}
-          <p>
-            <b>{election.election_name}</b>
-          </p>
-          <div className="button-container">
-            <Link
-              to={"/candidates/" + election.election_id}
-              className="title"
-              onClick={this.handleInputChange}
-            >
-              <button id={election.election_id} className="add-candidate-btn">
-                Add candidate
-              </button>
-            </Link>
-            <Link
-              to={"/voteCount/" + election.election_id}
-              className="title"
-              onClick={this.handleInputChange}
-            >
-              <button id={election.election_id} className="view-count-btn">
-                View vote Count
-              </button>
-              <br />
-            </Link>
+          <div className="election-box">
+            <p className="election-name">
+              <b>{election.election_name}</b>
+            </p>
+            <div className="button-container">
+              <Link
+                to={"/candidates/" + election.election_id}
+                className="title"
+                onClick={this.handleInputChange}
+              >
+                <button
+                  id={election.election_id}
+                  className="small-btn add-candidate-btn"
+                >
+                  Add candidate
+                </button>
+              </Link>
+              <Link
+                to={"/voteCount/" + election.election_id}
+                className="title"
+                onClick={this.handleInputChange}
+              >
+                <button
+                  id={election.election_id}
+                  className="small-btn view-count-btn"
+                >
+                  View vote Count
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       );

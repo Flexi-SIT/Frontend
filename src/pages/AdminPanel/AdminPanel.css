@@ -1,3 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
 .admin-panel-container {
   background-color: #eeeeee !important;
   width: 100%;
@@ -6,7 +10,8 @@
 }
 
 .admin-panel-container-2 {
-  background-color: #ffff !important;
+  border-radius: 20px;
+  background-color: #fefefe !important;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -163,6 +168,55 @@
   .election-box {
     width: 100%;
   }
+}
+
+.election-box {
+  margin-top: -3rem;
+  margin-bottom: -3rem;
+  width: 100% !important;
+  padding-bottom: -13rem;
+  border: 10px;
+  height: 20vh;
+  /* background-color: #ffffff; */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  /* border: 1px solid #0089d6; */
+}
+
+.election-name {
+  font-family: "Poppins" !important;
+  text-align: center;
+}
+
+.add-candidate-btn {
+  margin-top: -6rem !important;
+  width: 12rem;
+}
+
+.view-count-btn {
+  margin-top: -4rem !important;
+  width: 12rem;
+}
+
+.small-btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.small-btn:hover {
+  background-color: #0056b3;
+}
+
+.button-container {
+  /* margin-left: -5rem !important; */
+  margin-top: -2rem;
+  display: flex;
+  justify-content: center;
 }
 
 /* .election-list {
