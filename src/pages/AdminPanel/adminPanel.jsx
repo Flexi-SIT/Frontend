@@ -159,12 +159,6 @@ class AdminPanel extends Component {
               </h1>
             </Col>
             <Col className="text-container justify-content-center align-items-center right-text">
-              {/* <h3 className="web-text-right">
-              WEB <br />
-              CHAIN
-              <br />
-              VOTE
-            </h3> */}
               <h5 className="admin-panel-text-right-p">
                 <span>"Your Voice, Your Vote!"</span>
                 <br />

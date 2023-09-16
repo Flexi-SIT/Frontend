@@ -1,114 +1,26 @@
-.color-nav {
-    background-color: #D2D3D5;
-}
-
-.nav-items {
-    font-weight: 700 !important;
-}
-
-/* .main-container {
-    background-color: #D2D3D5;
-    width: 100%;
-} */
-
-/* 
-.main-img {
-    margin-top: 5rem;
-    margin-left: 29rem;
-    width: 36.8rem;
-    height: 44rem;
-}
-
-.left-text {
-    margin-left: -80rem;
-    margin-bottom: -23rem;
-
-}
-
-.right-text {
-    margin-left: 40rem;
-}
-
-.web-text-left-1 {
-    font-family: 'Montserrat';
-    font-style: normal;
-    color: #E0E0E0;
-    font-size: 7.8rem;
-    font-weight: 800;
-    line-height: 7.7rem;
-    letter-spacing: .4rem;
-    position: absolute;
-    width: 47rem;
-    height: 50rem;
-    left: -.5rem;
-    top: 12rem;
-    text-shadow: 0px 4px 50px rgba(0, 0, 0, 0.08);
-}
-
-.web-text-right-1 {
-    position: absolute;
-    width: 28rem;
-    height: 1rem;
-    left: 60rem;
-    top: 12.5rem;
-    letter-spacing: .189rem;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 3.9rem;
-    line-height: 99%;
-    color: #000000;
-}
-
-.web-text-right-2 {
-    position: absolute;
-    width: 30rem;
-    height: 2.78rem;
-    left: 55rem;
-    top: 15.59rem;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 800 !important;
-    font-size: 6.81 !important;
-    line-height: 103.5%;
-    color: #000000;
-}
-
-.web-text-right-p {
-    position: absolute;
-    width: 21rem;
-    height: 6rem;
-    left: 60rem;
-    top: 25.6rem;
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 1.4rem;
-    line-height: 131%;
-    color: #454545;
-}
-
-.web-text-right-p>span {
-    font-weight: 700;
-} */
-
-
-.candidates-container {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 5rem;
-    max-width: 100%;
-}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
 .candidate-box {
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 250px;
-    height: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.candidate-box h5 {
+  font-size: 1rem;
+  color: #333;
+}
+
+.candidate-box h3 {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.candidate-box p {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
 }
