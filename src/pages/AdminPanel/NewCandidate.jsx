@@ -116,10 +116,10 @@ class NewCandidate extends Component {
     return (
       <>
         <Navbar
-          className="color-nav"
-          bg="invisible"
+          style={{ backgroundColor: "#0089d6" }}
+          bg="#0089d6"
           expand="lg"
-          variant="light "
+          variant="light"
         >
           {/* <Navbar.Brand href="/">React-Bootstrap</Navbar.Brand> */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -144,60 +144,83 @@ class NewCandidate extends Component {
           </Navbar.Collapse>
         </Navbar>
         <Container fluid className="candidate-container">
-          <Row>
-            <Col className="img-container justify-content-center align-items-center">
-              <img src={img1} className="candidate-img" alt="img-1" />
-            </Col>
-            {/* <Col className="text-container justify-content-center align-items-center candidate-left">
-              <h1 className="candidate-left-text">
-                ADD <br /> CANDI
-                <br />
-                DATE
-              </h1>
-            </Col> */}
-            <Col className="justify-content-center align-items-center candidate-right">
-              <div className="container">
-                <form onSubmit={this.handleSubmit}>
-                  <label htmlFor="name" className="candidate-label">
-                    Candidate Name
-                  </label>
-                  <br />
-                  <input
-                    type="text"
-                    id="candidate_name"
-                    name="candidate_name"
-                    onChange={this.handleInputChange}
-                    required
-                    className="candidate-input"
-                  />
-                  <br />
-                  <br />
-                  <label htmlFor="name" className="candidate-label">
-                    Candidate details
-                  </label>
-                  <br />
-                  <input
-                    type="text"
-                    id="candidate_details"
-                    name="candidate_details"
-                    onChange={this.handleInputChange}
-                    required
-                    className="candidate-input"
-                  />
+          <div className="container">
+            <div
+              className="px-4 py-5 px-md-5 my-5 text-center text-lg-start"
+              style={{ backgroundColor: "hsl(0, 0%, 96%)" }}
+            >
+              <div className="row gx-lg-5 align-items-center">
+                <div className="col-lg-6 mb-5 mb-lg-0">
+                  <h1 className="my-5 display-3 fw-bold ls-tight new-candidate-h1">
+                    Unleash Your Leadership: <br />
+                    <span className="text-primary">
+                      Join the Election Adventure.
+                    </span>
+                  </h1>
+                  <p style={{ color: "hsl(217, 10%, 50.8%)" }}>
+                    "Elevate Your Civic Engagement: Run for Office and Make a
+                    Difference. Seize the opportunity to empower your community
+                    through active participation in the election process. Join
+                    us in shaping a brighter future!"
+                  </p>
+                </div>
 
-                  <br></br>
-                  <br></br>
-                  <button
-                    className="candidate-submit"
-                    type="submit"
-                    name="action"
-                  >
-                    Submit
-                  </button>
-                </form>
+                <div className="col-lg-6 mb-5 mb-lg-0">
+                  <div className="card">
+                    <div className="card-body py-5 px-md-5">
+                      <form onSubmit={this.handleSubmit}>
+                        <div className="row">
+                          <div className="col-md-6 mb-4">
+                            <div className="form-outline">
+                              <input
+                                type="text"
+                                id="election_name"
+                                name="election_name"
+                                onChange={this.handleInputChange}
+                                required
+                                className="form-control"
+                              />
+                              <label
+                                className="form-label"
+                                htmlFor="election_name"
+                              >
+                                Candidate Name
+                              </label>
+                            </div>
+                          </div>
+                          <div className="col-md-6 mb-4">
+                            <div className="form-outline">
+                              <input
+                                type="text"
+                                id="election_organizer"
+                                name="election_organizer"
+                                onChange={this.handleInputChange}
+                                required
+                                className="form-control"
+                              />
+                              <label
+                                className="form-label"
+                                htmlFor="election_organizer"
+                              >
+                                Candidate Details
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                        <button
+                          className="btn btn-primary btn-block mb-4"
+                          type="submit"
+                          name="action"
+                        >
+                          Submit
+                        </button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </Col>
-          </Row>
+            </div>
+          </div>
         </Container>
       </>
     );
