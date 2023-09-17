@@ -9,7 +9,7 @@ const VoterSchema = new mongoose.Schema({
     required: true,
   },
   prn: {
-    type: Number,
+    type: String,
     required: true,
   },
   // idFrontImage: {

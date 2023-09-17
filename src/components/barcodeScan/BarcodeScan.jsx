@@ -5,13 +5,14 @@ import {
   ChecksumException,
   FormatException,
   DecodeHintType,
-  BarcodeFormat
+  BarcodeFormat,
 } from "@zxing/library";
 
 export default function () {
   const [selectedDeviceId, setSelectedDeviceId] = useState("");
   const [code, setCode] = useState("");
   const [videoInputDevices, setVideoInputDevices] = useState([]);
+  const [matchingPrn, setMatchingPrn] = useState(null);
   const hints = new Map();
   const formats = [
     BarcodeFormat.ITF,
@@ -23,7 +24,7 @@ export default function () {
     BarcodeFormat.QR_CODE,
     BarcodeFormat.UPC_A,
     BarcodeFormat.UPC_E,
-    BarcodeFormat.UPC_EAN_EXTENSION
+    BarcodeFormat.UPC_EAN_EXTENSION,
   ];
   hints.set(DecodeHintType.POSSIBLE_FORMATS, formats);
   hints.set(DecodeHintType.TRY_HARDER, true);
@@ -60,6 +61,32 @@ export default function () {
     console.log("Reset.");
   }
 
+  function sendCodeForMatching(code) {
+    console.log("QR Code Content:", code);
+    fetch("http://localhost:3001/api/barcode-scan", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ code }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.matched) {
+          console.log("Matched with PRN:", data.prn);
+
+          setMatchingPrn(data.prn);
+        } else {
+          console.log("No matching PRN found");
+
+          setMatchingPrn(null);
+        }
+      })
+      .catch((error) => {
+        console.error("Error", error);
+      });
+  }
+
   function decodeContinuously(selectedDeviceId) {
     codeReader.decodeFromInputVideoDeviceContinuously(
       selectedDeviceId,
@@ -69,6 +96,8 @@ export default function () {
           // properly decoded qr code
           console.log("Found QR code!", result);
           setCode(result.text);
+
+          sendCodeForMatching(result.text);
         }
 
         if (err) {
@@ -112,6 +141,8 @@ export default function () {
         <button id="resetButton" onClick={() => resetClick()}>
           Reset
         </button>
+        <label>Matching PRN: </label>
+        <div>{matchingPrn}</div>
       </section>
     </main>
   );

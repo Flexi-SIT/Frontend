@@ -15,6 +15,9 @@ const AdminModel = require("./models/admin");
 const electionName = require("./models/electionName");
 const multer = require("multer");
 const { useAsyncValue } = require("react-router-dom");
+// const {
+//   default: VoterRegistration,
+// } = require("./pages/VoterRegistration/VoterRegistration");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -102,6 +105,27 @@ app.get("/api/getImages", async (req, res) => {
   const user = await VoterModel.findOne({ email: userEmail });
   console.log("Endpoint getImages hit");
   res.send(user);
+});
+
+//Barcode scan route
+app.post("/api/barcode-scan", async (req, res) => {
+  const { code } = req.body;
+  console.log("Received QR code:", code);
+
+  try {
+    const voter = await VoterModel.findOne({ prn: code });
+    console.log("Found voter:", voter);
+
+    if (voter) {
+      res.status(200).json({ matched: true, prn: voter.prn });
+    } else {
+      res.status(200).json({ matched: false });
+    }
+    return;
+  } catch (error) {
+    console.error("Error searching for voter:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
 });
 
 //Get election List to map
