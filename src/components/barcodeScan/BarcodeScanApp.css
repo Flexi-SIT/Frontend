@@ -1,0 +1,48 @@
+/* BarcodeScannerApp.css */
+.app-container {
+  display: flex;
+  align-items: flex-start; /* Align items to the top */
+  margin: 20px;
+}
+
+h1 {
+  font-size: 24px !important;
+  margin-bottom: 20px;
+}
+
+.scanner-container {
+  /* border: 2px solid #333; */
+  /* border-radius: 8px; */
+  overflow: hidden;
+  max-width: 400px; /* Adjust the maximum width */
+  width: 100%;
+  margin-right: 20px; /* Add margin to separate camera and scanned data */
+}
+
+.video {
+  width: 10%; /* Set the video width to 100% of its container */
+  max-height: 3px !important; /* Adjust the maximum height */
+}
+
+.result-container {
+  flex-grow: 1; /* Allow the result container to grow and fill available space */
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px !important;
+}
+
+.scanned-data {
+  font-size: 18px;
+  color: #333;
+  margin-top: 10px;
+}
+
+.error {
+  font-size: 18px;
+  color: red;
+  margin-top: 10px;
+}
+
+/* Add more styles as needed */

@@ -7,6 +7,7 @@ import {
   DecodeHintType,
   BarcodeFormat,
 } from "@zxing/library";
+import "./BarcodeScan.css";
 
 export default function () {
   const [selectedDeviceId, setSelectedDeviceId] = useState("");
@@ -115,7 +116,7 @@ export default function () {
 
   return (
     <main class="wrapper">
-      <section className="container" id="demo-content">
+      <section className="barcode-scan-container" id="demo-content">
         <div id="sourceSelectPanel">
           <label for="sourceSelect">Change video source:</label>
           <select
@@ -141,6 +142,7 @@ export default function () {
         <button id="resetButton" onClick={() => resetClick()}>
           Reset
         </button>
+        <br />
         <label>Matching PRN: </label>
         <div>{matchingPrn}</div>
       </section>

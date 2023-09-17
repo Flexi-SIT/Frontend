@@ -10,7 +10,8 @@ import "./Vote.css";
 import Webcam from "react-webcam";
 import * as faceapi from "face-api.js"; // Import the face-api.js package
 
-import BarcodeScan from "../../components/barcodeScan/BarcodeScanApp";
+import BarcodeScanApp from "../../components/barcodeScan/BarcodeScanApp";
+import BarcodeScan from "../../components/barcodeScan/BarcodeScan";
 
 class Vote extends Component {
   //1
@@ -228,7 +229,6 @@ class Vote extends Component {
         </div>
       );
     });
-
     const webcamComponent = this.state.isReadyForPicture ? (
       <Webcam
         audio={false}
@@ -287,7 +287,7 @@ class Vote extends Component {
 
         {/* <button onClick={this.compareImages}>Compare Images</button> */}
 
-        <BarcodeScan />
+        <BarcodeScanApp />
         <div className="vote-list">
           <ul className="collection">
             <h3>Candidates</h3>
