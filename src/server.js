@@ -128,6 +128,23 @@ app.post("/api/barcode-scan", async (req, res) => {
   }
 });
 
+app.get("/api/recent-prn", async (req, res) => {
+  try {
+    // Query the database to get the most recent PRN
+    const mostRecentPRN = await VoterModel.findOne().sort({ _id: -1 });
+    console.log("Most recent QR", mostRecentPRN);
+
+    if (!mostRecentPRN) {
+      return res.status(404).json({ error: "No PRN found" });
+    }
+
+    res.json({ prn: mostRecentPRN.prn });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
 //Get election List to map
 app.get("/api/electionName", function (req, res) {
   var electionNames = [];

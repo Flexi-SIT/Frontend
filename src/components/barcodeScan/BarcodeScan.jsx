@@ -14,6 +14,7 @@ export default function () {
   const [code, setCode] = useState("");
   const [videoInputDevices, setVideoInputDevices] = useState([]);
   const [matchingPrn, setMatchingPrn] = useState(null);
+  const [loggedInPrn, setLoggedInPrn] = useState(null);
   const hints = new Map();
   const formats = [
     BarcodeFormat.ITF,
@@ -62,43 +63,94 @@ export default function () {
     console.log("Reset.");
   }
 
-  function sendCodeForMatching(code) {
+  // function sendCodeForMatching(code) {
+  //   console.log("QR Code Content:", code);
+  //   fetch("http://localhost:3001/api/barcode-scan", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({ code }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       if (data.matched) {
+  //         console.log("Matched with PRN:", data.prn);
+
+  //         setMatchingPrn(data.prn);
+  //       } else {
+  //         console.log("No matching PRN found");
+
+  //         setMatchingPrn(null);
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error", error);
+  //     });
+  // }
+  function sendCodeForMatching(code, loggedInPrn) {
     console.log("QR Code Content:", code);
-    fetch("http://localhost:3001/api/barcode-scan", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ code }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.matched) {
-          console.log("Matched with PRN:", data.prn);
+    console.log("Logged In PRN:", loggedInPrn);
 
-          setMatchingPrn(data.prn);
-        } else {
-          console.log("No matching PRN found");
+    const currentLoggedInPrn = loggedInPrn;
 
-          setMatchingPrn(null);
+    if (currentLoggedInPrn !== null) {
+      if (code === currentLoggedInPrn) {
+        console.log("PRN Matched:", code);
+        setMatchingPrn(code);
+      } else {
+        console.log("PRN did not match.");
+        setMatchingPrn(null);
+      }
+    } else {
+      console.log("Logged In PRN is null. Waiting for server response...");
+    }
+  }
+
+  useEffect(() => {
+    fetch("http://localhost:3001/api/recent-prn")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Server response not ok: ${response.status}`);
         }
+        return response.json();
+      })
+      .then((data) => {
+        const mostRecentPrnFromServer = data.prn;
+        console.log("most recent", mostRecentPrnFromServer);
+        setLoggedInPrn(mostRecentPrnFromServer);
+        console.log("After setting loggedInPrn:", loggedInPrn);
       })
       .catch((error) => {
-        console.error("Error", error);
+        console.error("Error fetching PRN from server", error);
       });
-  }
+  }, [loggedInPrn]);
 
   function decodeContinuously(selectedDeviceId) {
     codeReader.decodeFromInputVideoDeviceContinuously(
       selectedDeviceId,
       "video",
-      (result, err) => {
+      async (result, err) => {
         if (result) {
           // properly decoded qr code
           console.log("Found QR code!", result);
           setCode(result.text);
+          try {
+            const response = await fetch(
+              "http://localhost:3001/api/recent-prn"
+            );
+            if (!response.ok) {
+              throw new Error(`Server response not ok: ${response.status}`);
+            }
+            const data = await response.json();
+            const mostRecentPrnFromServer = data.prn;
+            console.log("most recent", mostRecentPrnFromServer);
 
-          sendCodeForMatching(result.text);
+            // Pass the fetched loggedInPrn to sendCodeForMatching
+            sendCodeForMatching(result.text, mostRecentPrnFromServer);
+          } catch (error) {
+            console.error("Error fetching PRN from server", error);
+          }
         }
 
         if (err) {

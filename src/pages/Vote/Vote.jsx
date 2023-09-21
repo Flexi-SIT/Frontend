@@ -28,6 +28,7 @@ class Vote extends Component {
       registeredImage: new Image(),
       imageSrc: null,
       isReadyForPicture: false,
+      matchingPrn: null,
     };
     this.handleReadyForPicture = this.handleReadyForPicture.bind(this);
   }
@@ -205,30 +206,75 @@ class Vote extends Component {
       height: 120,
       facingMode: "user",
     };
-    const electionList = this.state.candidates.map((candidates) => {
-      return (
-        <div className="vote-item" key={candidates.id}>
-          <div className="contact">
-            <li className="collection-item avatar">
-              <h5 className="vote-ballot">Ballot</h5>
-              <p>
-                <b>{candidates.name}</b>
-              </p>
-              <p>{candidates.details}</p>
-              <a href="" className="secondary-content">
-                <button
-                  id={candidates.id}
-                  onClick={this.handleInputChange}
-                  className="vote-button"
-                >
-                  Vote
-                </button>
-              </a>
-            </li>
+
+    const { matchingPrn } = this.state;
+    console.log("PRN matched vote", matchingPrn);
+
+    const electionList = matchingPrn ? (
+      this.state.candidates.map((candidates) => {
+        return (
+          <div className="vote-item" key={candidates.id}>
+            <div className="contact">
+              <li className="collection-item avatar">
+                <h5 className="vote-ballot">Ballot</h5>
+                <p>
+                  <b>{candidates.name}</b>
+                </p>
+                <p>{candidates.details}</p>
+                <a href="" className="secondary-content">
+                  <button
+                    id={candidates.id}
+                    onClick={this.handleInputChange}
+                    className="vote-button"
+                  >
+                    Vote
+                  </button>
+                </a>
+              </li>
+            </div>
           </div>
-        </div>
-      );
-    });
+        );
+      })
+    ) : (
+      <div className="no-match-message">PRN not matched</div>
+    );
+    // const electionList = this.state.candidates.map((candidates) => {
+    //   return (
+    //     <div className="vote-item" key={candidates.id}>
+    //       <div className="contact">
+    //         <li className="collection-item avatar">
+    //           <h5 className="vote-ballot">Ballot</h5>
+    //           <p>
+    //             <b>{candidates.name}</b>
+    //           </p>
+    //           <p>{candidates.details}</p>
+    //           <a href="" className="secondary-content">
+    //             <button
+    //               id={candidates.id}
+    //               onClick={this.handleInputChange}
+    //               className="vote-button"
+    //             >
+    //               Vote
+    //             </button>
+    //           </a>
+    //         </li>
+    //       </div>
+    //     </div>
+    //   );
+    // });
+
+    // const electionList1 = this.state.matchingPrn ? (
+    //   // Render the list only when matchingPrn is not null
+    //   <div className="vote-list">
+    //     <ul className="collection">
+    //       {/* <h3>Candidates</h3> */}
+    //       {electionList}
+    //     </ul>
+    //   </div>
+    // ) : (
+    //   // Render a message when matchingPrn is null
+    //   <div className="no-match-message">PRN not matched</div>
+    // );
     const webcamComponent = this.state.isReadyForPicture ? (
       <Webcam
         audio={false}
