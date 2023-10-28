@@ -342,12 +342,12 @@ class Vote extends Component {
         {/* <button onClick={this.compareImages}>Compare Images</button> */}
 
         {/* <BarcodeScanApp /> */}
-        <div>
+        {/* <div>
           <BarcodeScan
             matchingPrn={matchingPrn}
             setMatchingPrn={this.setMatchingPrn}
           />
-        </div>
+        </div> */}
         <div className="vote-list">
           <ul className="collection">
             <h3>Candidates</h3>

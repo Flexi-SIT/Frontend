@@ -150,19 +150,23 @@ app.get("/api/electionName", function (req, res) {
   var electionNames = [];
   var electionOrganizers = [];
   var electionIds = [];
+  var electionTimer = [];
   var final = [];
   electionName.find({}).then((eachOne) => {
     for (i = 0; i < eachOne.length; i++) {
       electionNames[i] = eachOne[i].election_name;
       electionOrganizers[i] = eachOne[i].election_organizer;
       electionIds[i] = eachOne[i].election_id;
+      electionTimer[i] = eachOne[i].election_timer;
       final.push({
         election_id: eachOne[i].election_id,
         election_organizer: eachOne[i].election_organizer,
         election_name: eachOne[i].election_name,
+        election_timer: eachOne[i].election_timer,
       });
     }
     res.send(final);
+    console.log(final);
   });
 });
 
@@ -174,10 +178,28 @@ app.post("/api/electionName", async function (req, res) {
       election_name: req.body.election_name,
       election_organizer: req.body.election_organizer,
       election_password: req.body.election_password,
+      election_timer: req.body.election_timer,
     })
     .then((election) => {
       res.json(election);
     });
+});
+
+app.delete("/api/deleteElection/:id", async (req, res) => {
+  const electionId = req.params.id;
+
+  try {
+    const deletedElection = await electionName.findOneAndDelete({
+      election_id: electionId,
+    });
+    if (!deletedElection) {
+      return res.status(404).json({ error: "Election not found." });
+    }
+    return res.status(200).json({ message: "Election deleted successfully." });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: "Failed to delete the election." });
+  }
 });
 
 //Server running on port 3001

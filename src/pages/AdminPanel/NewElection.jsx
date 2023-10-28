@@ -9,6 +9,7 @@ class NewElection extends Component {
       election_name: "",
       election_organizer: "",
       election_password: "",
+      election_timer: 0,
     };
   }
 
@@ -18,15 +19,27 @@ class NewElection extends Component {
     });
   };
 
+  handleTimerChange = (e) => {
+    this.setState({
+      election_timer: parseInt(e.target.value, 10),
+    });
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
-    const { election_name, election_organizer, election_password } = this.state;
+    const {
+      election_name,
+      election_organizer,
+      election_password,
+      election_timer,
+    } = this.state;
     console.log(election_name);
     axios
       .post("http://localhost:3001/api/electionName", {
         election_name: election_name,
         election_organizer: election_organizer,
         election_password: election_password,
+        election_timer: election_timer,
       })
       .then(function (response) {
         console.log("success");
@@ -111,7 +124,21 @@ class NewElection extends Component {
                         Election Password
                       </label>
                     </div>
-
+                    <div className="form-outline mb-4">
+                      <input
+                        type="text"
+                        id="election_timer"
+                        name="election_timer"
+                        onChange={this.handleTimerChange}
+                        min="1"
+                        max="2880"
+                        required
+                        className="form-control"
+                      />
+                      <label className="form-label" htmlFor="election_timer">
+                        Timer (minutes) :{" "}
+                      </label>
+                    </div>
                     <button
                       className="btn btn-primary btn-block mb-4"
                       type="submit"

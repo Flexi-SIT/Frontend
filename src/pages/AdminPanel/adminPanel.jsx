@@ -18,6 +18,7 @@ class AdminPanel extends Component {
       election_name: [],
       election_organizer: [],
       election_id: [],
+      election_timer: [],
       final: [],
       id: null,
     };
@@ -59,6 +60,25 @@ class AdminPanel extends Component {
     this.setState({
       id: id,
     });
+  };
+
+  handleDelete = (electionId) => {
+    if (window.confirm("Are you sure you want to delete this election?")) {
+      axios
+        .delete(`http://localhost:3001/api/deleteElection/${electionId}`)
+        .then((response) => {
+          // Handle the successful deletion here, e.g., remove the election from the state.
+          this.setState((prevState) => ({
+            final: prevState.final.filter(
+              (election) => election.election_id !== electionId
+            ),
+          }));
+        })
+        .catch((err) => {
+          console.error(err);
+          // Handle the error, e.g., show an error message to the user.
+        });
+    }
   };
 
   render() {
@@ -106,6 +126,12 @@ class AdminPanel extends Component {
                   View vote Count
                 </button>
               </Link>
+              <button
+                onClick={() => this.handleDelete(election.election_id)}
+                className="small-btn delete-election-btn"
+              >
+                Delete
+              </button>
             </div>
           </div>
         </div>
