@@ -200,6 +200,10 @@ class Vote extends Component {
     window.location.href = "http://localhost:3000/voter";
   }
 
+  setMatchingPrn = (matchingPrn) => {
+    this.setState({ matchingPrn });
+  };
+
   render() {
     const videoConstraints = {
       width: 200,
@@ -210,34 +214,38 @@ class Vote extends Component {
     const { matchingPrn } = this.state;
     console.log("PRN matched vote", matchingPrn);
 
-    const electionList = matchingPrn ? (
-      this.state.candidates.map((candidates) => {
-        return (
-          <div className="vote-item" key={candidates.id}>
-            <div className="contact">
-              <li className="collection-item avatar">
-                <h5 className="vote-ballot">Ballot</h5>
-                <p>
-                  <b>{candidates.name}</b>
-                </p>
-                <p>{candidates.details}</p>
-                <a href="" className="secondary-content">
-                  <button
-                    id={candidates.id}
-                    onClick={this.handleInputChange}
-                    className="vote-button"
-                  >
-                    Vote
-                  </button>
-                </a>
-              </li>
+    const electionList =
+      matchingPrn === this.state.matchingPrn ? (
+        this.state.candidates.map((candidates) => {
+          return (
+            <div className="vote-item" key={candidates.id}>
+              <div className="contact">
+                <li className="collection-item avatar">
+                  {/* <h5 className="vote-ballot">Ballot</h5> */}
+
+                  <p>
+                    <b>{candidates.name}</b>
+                  </p>
+
+                  <p>{candidates.details}</p>
+
+                  <a href="" className="secondary-content">
+                    <button
+                      id={candidates.id}
+                      onClick={this.handleInputChange}
+                      className="vote-button"
+                    >
+                      Vote
+                    </button>
+                  </a>
+                </li>
+              </div>
             </div>
-          </div>
-        );
-      })
-    ) : (
-      <div className="no-match-message">PRN not matched</div>
-    );
+          );
+        })
+      ) : (
+        <div className="no-match-message">PRN not matched</div>
+      );
     // const electionList = this.state.candidates.map((candidates) => {
     //   return (
     //     <div className="vote-item" key={candidates.id}>
@@ -333,7 +341,13 @@ class Vote extends Component {
 
         {/* <button onClick={this.compareImages}>Compare Images</button> */}
 
-        <BarcodeScanApp />
+        {/* <BarcodeScanApp /> */}
+        <div>
+          <BarcodeScan
+            matchingPrn={matchingPrn}
+            setMatchingPrn={this.setMatchingPrn}
+          />
+        </div>
         <div className="vote-list">
           <ul className="collection">
             <h3>Candidates</h3>

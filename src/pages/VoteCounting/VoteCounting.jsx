@@ -10,6 +10,7 @@ import "./VoteCounting.css";
 import { useCookies } from "react-cookie";
 import { withCookies } from "react-cookie";
 import mainimg from "../../assets/1.svg";
+import "./VoteCounting.css";
 
 class VoteCounting extends Component {
   constructor(props) {
@@ -132,14 +133,14 @@ class VoteCounting extends Component {
         // </div>
         <div className="col-md-4" key={candidates.id}>
           <div className="candidate-box">
-            <h5>Candidate Name:</h5>
-            <h3>
+            <h5 className="candidate-name">Candidate Name:</h5>
+            <h3 className="candidate-details">
               <b>{candidates.name}</b>
             </h3>
-            <h5>Details:</h5>
-            <h3>{candidates.details}</h3>
-            <h5>Votes:</h5>
-            <p>
+            <h5 className="candidate-details">Details:</h5>
+            <h3 className="candidate-details">{candidates.details}</h3>
+            <h5 className="candidate-votes">Votes:</h5>
+            <p className="candidate-votes">
               <b>{candidates.voteCount}</b>
             </p>
           </div>

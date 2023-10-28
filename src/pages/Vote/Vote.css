@@ -1,31 +1,31 @@
 .color-nav {
-    background-color: #D2D3D5 !important;
+  background-color: #d2d3d5 !important;
 }
 
 .slider {
-    width: 100%;
+  width: 100%;
 }
 
 .slider-slider {
-    width: 100%;
+  width: 100%;
 }
 
 .vote-election-img {
-    width: 25rem;
+  width: 25rem;
 }
 
 .container-2-text {
-    font-family: 'Montserrat';
-    font-style: normal;
-    color: black;
-    font-weight: 800;
+  font-family: "Montserrat";
+  font-style: normal;
+  color: black;
+  font-weight: 800;
 }
 
 .container-3-text {
-    font-family: 'Montserrat';
-    font-style: normal;
-    color: black;
-    font-weight: 900;
+  font-family: "Montserrat";
+  font-style: normal;
+  color: black;
+  font-weight: 900;
 }
 
 /* New CSS Start */
@@ -104,44 +104,93 @@
 
 /* New CSS End */
 
-.vote-list {
-    margin: 50px auto;
-    width: 80%;
+/* .vote-list {
+  margin: 50px auto;
+  width: 80%;
 }
 
 .collection {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
 .vote-item {
-    border: 1px solid #ddd;
-    margin: 10px;
-    padding: 10px;
-    border-radius: 5px;
+  border: 1px solid #ddd;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .contact {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .contact p {
-    margin: 0;
+  margin: 0;
 }
 
 .vote-button {
-    background-color: #6c757d;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-    padding: 8px 16px;
-    text-align: center;
-    text-decoration: none;
+  background-color: #6c757d;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
 }
 
 .vote-button:hover {
-    background-color: #495057;
+  background-color: #495057;
+} */
+
+.contact {
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 3px 3px 5px #888;
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact li {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+.contact h5,
+.contact p,
+.contact button {
+  margin: 0;
+  flex: 0 0 auto;
+}
+
+.contact h5 {
+  color: #333;
+  font-size: 16px;
+  padding-right: 10px;
+}
+
+.contact p {
+  color: #444;
+  font-size: 18px;
+  padding-right: 10px;
+}
+
+.contact button {
+  background-color: #0077b6;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
 }

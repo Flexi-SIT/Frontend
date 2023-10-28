@@ -174,16 +174,13 @@ class NewCandidate extends Component {
                             <div className="form-outline">
                               <input
                                 type="text"
-                                id="election_name"
-                                name="election_name"
+                                id="candidate_name"
+                                name="candidate_name"
                                 onChange={this.handleInputChange}
                                 required
                                 className="form-control"
                               />
-                              <label
-                                className="form-label"
-                                htmlFor="election_name"
-                              >
+                              <label className="form-label" htmlFor="name">
                                 Candidate Name
                               </label>
                             </div>
@@ -192,16 +189,13 @@ class NewCandidate extends Component {
                             <div className="form-outline">
                               <input
                                 type="text"
-                                id="election_organizer"
-                                name="election_organizer"
+                                id="candidate_details"
+                                name="candidate_details"
                                 onChange={this.handleInputChange}
                                 required
                                 className="form-control"
                               />
-                              <label
-                                className="form-label"
-                                htmlFor="election_organizer"
-                              >
+                              <label className="form-label" htmlFor="name">
                                 Candidate Details
                               </label>
                             </div>

@@ -88,24 +88,8 @@ export default function () {
   //       console.error("Error", error);
   //     });
   // }
-  function sendCodeForMatching(code, loggedInPrn) {
-    console.log("QR Code Content:", code);
-    console.log("Logged In PRN:", loggedInPrn);
 
-    const currentLoggedInPrn = loggedInPrn;
-
-    if (currentLoggedInPrn !== null) {
-      if (code === currentLoggedInPrn) {
-        console.log("PRN Matched:", code);
-        setMatchingPrn(code);
-      } else {
-        console.log("PRN did not match.");
-        setMatchingPrn(null);
-      }
-    } else {
-      console.log("Logged In PRN is null. Waiting for server response...");
-    }
-  }
+  console.log("PRN value before useEffect", loggedInPrn);
 
   useEffect(() => {
     fetch("http://localhost:3001/api/recent-prn")
@@ -126,31 +110,19 @@ export default function () {
       });
   }, [loggedInPrn]);
 
+  console.log("PRN value after function", loggedInPrn);
+
   function decodeContinuously(selectedDeviceId) {
     codeReader.decodeFromInputVideoDeviceContinuously(
       selectedDeviceId,
       "video",
-      async (result, err) => {
+      (result, err) => {
         if (result) {
           // properly decoded qr code
           console.log("Found QR code!", result);
           setCode(result.text);
-          try {
-            const response = await fetch(
-              "http://localhost:3001/api/recent-prn"
-            );
-            if (!response.ok) {
-              throw new Error(`Server response not ok: ${response.status}`);
-            }
-            const data = await response.json();
-            const mostRecentPrnFromServer = data.prn;
-            console.log("most recent", mostRecentPrnFromServer);
-
-            // Pass the fetched loggedInPrn to sendCodeForMatching
-            sendCodeForMatching(result.text, mostRecentPrnFromServer);
-          } catch (error) {
-            console.error("Error fetching PRN from server", error);
-          }
+          console.log("Result in decode", loggedInPrn);
+          sendCodeForMatching(result.text);
         }
 
         if (err) {
@@ -159,6 +131,26 @@ export default function () {
         }
       }
     );
+  }
+  useEffect(() => {
+    // Call sendCodeForMatching here after loggedInPrn is fetched
+    sendCodeForMatching(code);
+  }, [loggedInPrn, code]);
+  function sendCodeForMatching(code) {
+    console.log("QR Code Content:", code);
+    console.log("Logged In PRN:", loggedInPrn);
+
+    if (loggedInPrn !== null) {
+      if (code === loggedInPrn) {
+        console.log("PRN Matched:", code);
+        setMatchingPrn(code);
+      } else {
+        console.log("PRN did not match.");
+        setMatchingPrn(null);
+      }
+    } else {
+      console.log("Logged In PRN is null. Waiting for server response...");
+    }
   }
 
   useEffect((deviceId) => {

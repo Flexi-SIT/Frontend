@@ -58,3 +58,19 @@ body {
 .align-items-center {
   align-items: center !important;
 }
+
+/* Media query for small screens */
+@media screen and (max-width: 1024px) {
+  .img1-w-100 {
+    height: 70vh;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .img1-w-100 {
+    display: none;
+  }
+  .main-container {
+    margin-left: -2rem !important;
+  }
+}

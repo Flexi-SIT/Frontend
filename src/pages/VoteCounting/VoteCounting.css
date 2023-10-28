@@ -2,15 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
-.candidate-box {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 1rem;
-  margin-bottom: 20px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.candidate-box h5 {
+/* .candidate-box h5 {
   font-size: 1rem;
   color: #333;
 }
@@ -23,4 +15,53 @@
 .candidate-box p {
   font-size: 1.25rem;
   margin: 0.5rem 0;
+} */
+
+.candidate-box {
+  background-color: #f0f0f0;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 3px 3px 5px #888;
+  width: 150%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center !important;
+  align-items: center;
+  white-space: nowrap;
+  overflow-x: auto;
+  margin-left: 60px;
+  margin-bottom: 30px;
+}
+
+.candidate-box h5,
+.candidate-box h3,
+.candidate-box p {
+  margin: 0;
+}
+
+.candidate-box h5 {
+  flex: 0 0 auto;
+  color: #333;
+  font-size: 16px;
+  padding-right: 10px;
+}
+
+.candidate-box h3 {
+  flex: 0 0 auto;
+  color: #444;
+  font-size: 18px;
+  padding-right: 10px;
+}
+
+.candidate-box p {
+  flex: 0 0 auto;
+  color: #0077b6;
+  font-size: 20px;
+  padding-right: 10px;
+}
+
+.title {
+  margin-bottom: -10px !important;
 }
