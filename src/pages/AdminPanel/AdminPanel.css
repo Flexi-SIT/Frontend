@@ -176,7 +176,7 @@
   width: 120% !important;
   padding-bottom: -13rem;
   border: 10px;
-  height: 20vh;
+  height: 30vh;
   /* background-color: #ffffff; */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   /* border: 1px solid #0089d6; */
@@ -185,6 +185,12 @@
 .election-name {
   font-family: "Poppins" !important;
   text-align: center;
+}
+
+.election-timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .add-candidate-btn {

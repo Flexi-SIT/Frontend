@@ -12,6 +12,19 @@
   align-items: center;
 }
 
+.election-list-disabled {
+  opacity: 0.5; /* Reduce opacity to visually disable the list */
+  pointer-events: none; /* Disable pointer events to prevent interaction */
+  /* You can add additional styling for the disabled list as needed */
+  margin: 3rem;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
 .election-item {
   display: flex;
   flex-direction: column;

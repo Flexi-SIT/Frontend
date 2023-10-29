@@ -11,6 +11,7 @@ import { useCookies } from "react-cookie";
 import { withCookies } from "react-cookie";
 
 import bgImage from "../../assets/bg-team.svg";
+import CountdownTimer from "../../components/countDown/CountDown";
 
 class Voting extends Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class Voting extends Component {
       election_id: [],
       final: [],
       id: null,
+      isTimerExpired: false,
     };
     this.handleLogout = this.handleLogout.bind(this); // bind the method to the component's context
   }
@@ -107,6 +109,12 @@ class Voting extends Component {
         </div>
       );
     });
+
+    const handleTimerExpiry = () => {
+      // This function will be called when the timer reaches 0
+      this.setState({ isTimerExpired: true });
+    };
+
     return (
       <>
         <Navbar
@@ -148,7 +156,12 @@ class Voting extends Component {
             </div>
           </div>
         </header>
-        <div className="election-list">{electionList}</div>
+        <CountdownTimer onExpiry={handleTimerExpiry} />
+        {this.state.isTimerExpired ? (
+          <div className="election-list-disabled">{electionList}</div>
+        ) : (
+          <div className="election-list">{electionList}</div>
+        )}
       </>
     );
   }
