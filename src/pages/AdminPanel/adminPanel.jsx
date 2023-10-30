@@ -10,8 +10,8 @@ import "./AdminPanel.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { withCookies } from "react-cookie";
-import Countdown from "../../components/countDown/CountDown";
 import CountdownTimer from "../../components/countDown/CountDown";
+import CountdownCalendar from "../../components/countDown/CountDownCalendar";
 
 class AdminPanel extends Component {
   constructor(props) {
@@ -105,6 +105,7 @@ class AdminPanel extends Component {
             </p>
             <div className="election-timer">
               <CountdownTimer />
+              {/* <CountdownCalendar /> */}
             </div>
             <div className="button-container">
               <Link

@@ -76,7 +76,7 @@ const CountdownTimer = ({ onExpiry }) => {
         {isRunning ? (
           <div className="countdown-text">{time} seconds remaining</div>
         ) : (
-          <div className="countdown-text">Timer stopped</div>
+          <div className="countdown-text">Election over</div>
         )}
       </div>
     </div>

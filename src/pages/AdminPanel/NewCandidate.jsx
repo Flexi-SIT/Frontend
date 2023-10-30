@@ -18,6 +18,7 @@ class NewCandidate extends Component {
       election: null,
       candidate_name: null,
       candidate_details: null,
+      candidate_image: null,
       id: null,
     };
     this.addCandidates = this.addCandidates.bind(this);
@@ -55,6 +56,12 @@ class NewCandidate extends Component {
     });
   };
 
+  handleImageChange = (e) => {
+    this.setState({
+      candidate_image: e.target.files[0],
+    });
+  };
+
   async loadBlockChain() {
     const web3 = window.web3;
     const accounts = await web3.eth.getAccounts();
@@ -78,12 +85,10 @@ class NewCandidate extends Component {
   addCandidates() {
     console.log(this.state);
     this.setState({ loading: true });
+    const formData = new FormData();
+    formData.append("image", this.state.candidate_image);
     this.state.election.methods
-      .addCandidate(
-        this.state.candidate_name,
-        this.state.candidate_details,
-        this.state.id
-      )
+      .addCandidate(this.state.candidate_name, formData, this.state.id)
       .send({ from: this.state.account })
       .once("receipt", (receipt) => {
         console.log(receipt);
@@ -187,16 +192,27 @@ class NewCandidate extends Component {
                           </div>
                           <div className="col-md-6 mb-4">
                             <div className="form-outline">
-                              <input
+                              {/* <input
                                 type="text"
                                 id="candidate_details"
                                 name="candidate_details"
                                 onChange={this.handleInputChange}
                                 required
                                 className="form-control"
+                              /> */}
+                              <input
+                                type="file"
+                                id="candidate_image"
+                                name="candidate_image"
+                                onChange={this.handleImageChange}
+                                required
+                                className="form-control"
                               />
-                              <label className="form-label" htmlFor="name">
-                                Candidate Details
+                              <label
+                                className="form-label"
+                                htmlFor="candiate_image"
+                              >
+                                Candidate Image
                               </label>
                             </div>
                           </div>

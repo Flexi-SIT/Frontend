@@ -37,6 +37,7 @@ class Vote extends Component {
   async componentWillMount() {
     await this.loadWeb3();
     await this.loadBlockchainData();
+    this.loadCandidateImage();
   }
 
   //3
@@ -227,7 +228,12 @@ class Vote extends Component {
                     <b>{candidates.name}</b>
                   </p>
 
-                  <p>{candidates.details}</p>
+                  <img
+                    // src={candidates.image}
+                    src=""
+                    alt="Candidate"
+                    className="candidate-image"
+                  />
 
                   <a href="" className="secondary-content">
                     <button

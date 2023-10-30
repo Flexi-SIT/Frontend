@@ -12,6 +12,7 @@ import { withCookies } from "react-cookie";
 
 import bgImage from "../../assets/bg-team.svg";
 import CountdownTimer from "../../components/countDown/CountDown";
+import CountdownCalendar from "../../components/countDown/CountDownCalendar";
 
 class Voting extends Component {
   constructor(props) {
@@ -162,6 +163,12 @@ class Voting extends Component {
         ) : (
           <div className="election-list">{electionList}</div>
         )}
+        {/* <CountdownCalendar onExpiry={handleTimerExpiry} disabled={true} />
+        {this.state.isTimerExpired ? (
+          <div className="election-list-disabled">{electionList}</div>
+        ) : (
+          <div className="election-list">{electionList}</div>
+        )} */}
       </>
     );
   }

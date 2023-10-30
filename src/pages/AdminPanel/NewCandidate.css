@@ -1,3 +1,10 @@
 .new-candidate-h1 {
   font-size: 3.5rem !important;
 }
+
+.candidate-image {
+  width: 100px; /* Adjust the width to your preference */
+  height: 100px; /* Adjust the height to your preference */
+  object-fit: cover; /* Preserve the image's aspect ratio and cover the entire space */
+  border-radius: 50%; /* Make it a circle (optional) */
+}
