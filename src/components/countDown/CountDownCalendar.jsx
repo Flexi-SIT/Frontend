@@ -18,6 +18,21 @@ const CountdownCalendar = ({ onExpiry, disabled }) => {
     localStorage.getItem("isRunning") === "true" || false
   );
 
+  const [shouldStartTimer, setShouldStartTimer] = useState(false);
+
+  useEffect(() => {
+    if (!isRunning) {
+      // Check if the current time is equal to or greater than the start date
+      const now = moment();
+      const startDateTime = moment(startDate);
+      if (now >= startDateTime) {
+        setIsRunning(true);
+        localStorage.setItem("isRunning", "true");
+        // timerStartedCallback();
+      }
+    }
+  }, [startDate, isRunning]);
+
   useEffect(() => {
     if (isRunning) {
       const intervalId = setInterval(() => {
@@ -45,6 +60,7 @@ const CountdownCalendar = ({ onExpiry, disabled }) => {
   const handleStartDateChange = (date) => {
     setStartDate(date);
     updateEndDate(date);
+    setShouldStartTimer(false);
   };
 
   const updateEndDate = (startDate) => {
@@ -86,13 +102,13 @@ const CountdownCalendar = ({ onExpiry, disabled }) => {
             dateFormat="MM/dd/yyyy"
           />
         </div>
-        <button
+        {/* <button
           className="calendarStart-button"
           onClick={startTimer}
-          disabled={isRunning || disabled}
+          disabled={isRunning || disabled || !shouldStartTimer}
         >
           Start
-        </button>
+        </button> */}
         <button
           className="calendarStop-button"
           onClick={stopTimer}

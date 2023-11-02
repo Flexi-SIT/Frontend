@@ -24,9 +24,19 @@ class Voting extends Component {
       final: [],
       id: null,
       isTimerExpired: false,
+      isTimerRunning: false,
     };
     this.handleLogout = this.handleLogout.bind(this); // bind the method to the component's context
   }
+
+  // handleTimerStart = () => {
+  //   this.setState({ isTimerRunning: true });
+  // };
+
+  // handleTimerStop = () => {
+  //   this.setState({ isTimerRunning: false });
+  // };
+
   handleLogout() {
     const { cookies } = this.props;
     cookies.set("voterLoggedIn", false);
@@ -83,6 +93,7 @@ class Voting extends Component {
   };
 
   render() {
+    // const { isTimerRunning } = this.state;
     //If admin is not logged in display:
     const { cookies } = this.props;
     // console.log(cookies.get('voterLoggedIn'));
@@ -115,6 +126,12 @@ class Voting extends Component {
       // This function will be called when the timer reaches 0
       this.setState({ isTimerExpired: true });
     };
+
+    const handleTimerRunning = () => {
+      this.setState({ isTimerRunning: true });
+    };
+
+    // const { isTimerExpired, isTimerRunning } = this.state;
 
     return (
       <>
@@ -163,7 +180,11 @@ class Voting extends Component {
         ) : (
           <div className="election-list">{electionList}</div>
         )}
-        {/* <CountdownCalendar onExpiry={handleTimerExpiry} disabled={true} />
+        {/* <CountdownCalendar
+          onExpiry={handleTimerExpiry}
+          disabled={true}
+          // timerStartedCallback={handleTimerRunning}
+        />
         {this.state.isTimerExpired ? (
           <div className="election-list-disabled">{electionList}</div>
         ) : (

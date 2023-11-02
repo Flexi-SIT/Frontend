@@ -17,7 +17,7 @@ class NewCandidate extends Component {
       account: "",
       election: null,
       candidate_name: null,
-      candidate_details: null,
+      //candidate_details: null,
       candidate_image: null,
       id: null,
     };
@@ -54,12 +54,14 @@ class NewCandidate extends Component {
     this.setState({
       [e.target.id]: e.target.value,
     });
+    console.log("name", this.state.value);
   };
 
   handleImageChange = (e) => {
     this.setState({
       candidate_image: e.target.files[0],
     });
+    console.log("image", this.state.candidate_image);
   };
 
   async loadBlockChain() {
@@ -202,16 +204,14 @@ class NewCandidate extends Component {
                               /> */}
                               <input
                                 type="file"
+                                accept="image/*"
                                 id="candidate_image"
                                 name="candidate_image"
                                 onChange={this.handleImageChange}
                                 required
                                 className="form-control"
                               />
-                              <label
-                                className="form-label"
-                                htmlFor="candiate_image"
-                              >
+                              <label className="form-label" htmlFor="image">
                                 Candidate Image
                               </label>
                             </div>
